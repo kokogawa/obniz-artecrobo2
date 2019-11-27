@@ -1,4 +1,4 @@
-var Artec =
+﻿var Artec = 
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
