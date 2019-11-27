@@ -7,6 +7,7 @@ Studino:Bitにあるブザーから音を出します。
 
 ブザーから指定された音を出します。音はアルファベットの大文字と数字の組み合わせで音階名を記述します。音の長さを数字で指定することも可能です。
 
+
 ```Javascript
 // Javascript Example
 stubit.buzzer.onWait("A4");
