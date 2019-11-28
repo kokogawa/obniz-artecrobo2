@@ -1,7 +1,8 @@
 # Buzzer(stubit.buzzer)
 Studino:Bitにあるブザーから音を出します。
 
-![](https://i.imgur.com/uuIXmav.png)
+![](https://i.imgur.com/Q589eYr.png)
+
 
 
 ## onWait(sound: string | number, duration: number);
@@ -19,12 +20,8 @@ stubit.buzzer.onWait("450");
 // Javascript Example
 stubit.buzzer.onWait("A4");
 ```
-A4（ラ）の音がブザーから鳴ります。</br></br>
+A4（ラ）の音がブザーから鳴ります。</br>
 音階はC3（130Hz）～C8（4186Hz）に対応しています。</br>
-音階と周波数の詳細は以下をご覧ください。</br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#onwait
-
-
 
 
 音の長さを数字で指定することも可能です。（単位:ms）
@@ -32,7 +29,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#
 // Javascript Example
 stubit.buzzer.onWait("C4", 1000);
 ```
-C4の音が1秒鳴ります。
+C4の音が1秒鳴ります。</br>
+* 詳細</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#onwait
 
 ## off();
 
@@ -42,5 +41,7 @@ C4の音が1秒鳴ります。
 // Javascript Example
 stubit.buzzer.off();
 ```
+* 詳細</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#off
 
 
