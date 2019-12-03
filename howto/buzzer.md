@@ -1,19 +1,23 @@
 # ブザーの制御
-Studino:Bitにあるブザーから音を出します。</br>
-ブザーの制御はStudinoBitBuzzerクラスに定義されていて、StuduinoBitクラスでbuzzerにインスタンス化されています。
+Studuino:Bitにあるブザーから音を出します。
 
 ![](https://i.imgur.com/M83vGkU.png)
 
-ここでは～～をstubitにインスタンス化します。
-```
-var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+
+はじめに、下記のようにStuduinoBitクラスをstubitにインスタンス化します。
+```Javascript
+// Javascript Example
+var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 
+ブザーの制御はStuduinoBitBuzzerクラスに定義され、StuduinoBitクラスでbuzzerにインスタンス化されています。
 
 
 ## onWait( String : frequency |String: note number, Number: duration);
 
-ブザーから指定された音を出します。</br>音は周波数（数字）もしくは音階（アルファベットと数字の組み合わせ）で記述します。
+ブザーから指定された音を出します。</br>
+音は周波数（数字）もしくは音階（アルファベットと数字の組み合わせ）で記述します。</br>
+音階はC3（130Hz）～C8（4186Hz）に対応しています。</br>
 
 ```Javascript
 // Javascript Example
@@ -27,9 +31,7 @@ stubit.buzzer.onWait("450");
 stubit.buzzer.onWait("A4");
 ```
 A4（ラ）の音がブザーから鳴ります。</br>
-音階はC3（130Hz）～C8（4186Hz）に対応しています。</br>
-
-
+</br>
 音の長さを数字で指定することも可能です。（単位:ms）
 ```Javascript
 // Javascript Example
@@ -54,9 +56,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#
 
 ## ブザーのサンプルプログラム
 
-スタートボタンを押すとブザーからC5の音が鳴り、ストップボタンで音を止めるプログラムです。
+スタートボタンを押すとブザーからD5(レ)の音が鳴り、ストップボタンで音を止めるプログラムです。
 
-```
+```Javascript
 // Javascript Example
 <html>
 <head>
@@ -76,10 +78,10 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#
 
 
 <script>
-  var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+  var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
   stubit.onconnect = async function () {
     $("#hz_start").click(async () => {
-      stubit.buzzer.onWait("C5");　/*C5の音を鳴らす*/
+      stubit.buzzer.onWait("D5");　/*D5の音を鳴らす*/
     })
     $("#hz_stop").click(async () => {
        stubit.buzzer.off();　　/*ブザーを止める*/
