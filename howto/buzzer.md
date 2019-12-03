@@ -81,7 +81,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#
   var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
   stubit.onconnect = async function () {
     $("#hz_start").click(async () => {
-      stubit.buzzer.onWait("D5");　/*D5の音を鳴らす*/
+      stubit.buzzer.onWait("D5");　/*ブザーからD5の音を鳴らす*/
     })
     $("#hz_stop").click(async () => {
        stubit.buzzer.off();　　/*ブザーを止める*/
