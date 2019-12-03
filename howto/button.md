@@ -1,34 +1,33 @@
-# Display (obniz.display)
-obniz BoardにあるOLEDディスプレイに文字や絵を描画します。
+# ボタンの制御
+Studuino:Bitにあるボタンを使用します。
 
-![](./images/obniz_display_sphere.gif)
+![](https://i.imgur.com/kqvQO31.png)
 
-## clear();
+ボタンの制御はStuduinoBitButtonクラスに定義され、StuduinoBitクラスでbutton_a、button_bにインスタンス化されています。</br>
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのボタンを使用できます。
+```Javascript
+// Javascript Example
+var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
+```
+## isPressedWait();
 
-画面に表示されているものをすべてクリアします。
+ボタンが押されているときはtrue、押されていないときはfalseを返します。
 
 ```Javascript
 // Javascript Example
-obniz.display.clear();
+stubit.button_a.isPressedWait();
 ```
-## print(string);
 
-文字を表示します。半角英数字にのみ対応しています。
+## wasPressed();
+
+ボタンが押された瞬間はtrue、押していない、押し続けている間はfalseを返します。
 
 ```Javascript
-// Javascript Example
-obniz.display.print("Hello!");
+stubit.button_a.wasPressed();
 ```
 
-ブラウザはUTF8 の文字も描画可能です. (node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
-```javascript
-// Javascript Example
-obniz.display.font('Serif',18)
-obniz.display.print("Hello World🧡")
-```
-![](./images/obniz_display_print.jpg)
 
-## pos(x, y);
+## getPresses();
 (node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
  
 文字の描画位置を変更します。次にprint()でも字を出すときはこの位置を左上として文字を描画します。
