@@ -1,17 +1,48 @@
-﻿# Buzzer(stubit.buzzer)
-Studino:Bitにあるブザーから音を出します。
+# ブザーの制御
+Studuino:Bitにあるブザーから音を出します。
 
-![](./images/obniz_display_sphere.gif)
+![](https://i.imgur.com/vRDgUSe.png)
 
-## onWait(sound: string | number, duration: number);
 
-ブザーから指定された音を出します。音はアルファベットの大文字と数字の組み合わせで音階名を記述します。音の長さを数字で指定することも可能です。
+ブザーの制御はStuduinoBitBuzzerクラスに定義され、StuduinoBitクラスでbuzzerにインスタンス化されています。</br>
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのブザーを使用できます。
+```Javascript
+// Javascript Example
+var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
+```
+
+
+
+## onWait( String : frequency |String: note number, Number: duration);
+
+ブザーから指定された音を出します。</br>
+音は周波数（数字）もしくは音階（アルファベットと数字の組み合わせ）で記述します。</br>
+音階はC3（130Hz）～C8（4186Hz）に対応しています。</br>
+
+```Javascript
+// Javascript Example
+stubit.buzzer.onWait("450");
+```
+ 450Hzの音がブザーから鳴ります。
+
 
 ```Javascript
 // Javascript Example
 stubit.buzzer.onWait("A4");
-stubit.buzzer.onWait("C4", 500);
 ```
+A4（ラ）の音がブザーから鳴ります。</br>
+</br>
+音の長さを数字で指定することも可能です。（単位:ms）
+```Javascript
+// Javascript Example
+stubit.buzzer.onWait("C4", 1000);
+```
+C4の音が1秒鳴ります。</br>
+* 詳細（音階と周波数の対応は以下を参照してください。）</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#onwait
+
+
+
 ## off();
 
 ブザーを止めます。
@@ -20,167 +51,45 @@ stubit.buzzer.onWait("C4", 500);
 // Javascript Example
 stubit.buzzer.off();
 ```
+* 詳細</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#off
 
-ブラウザはUTF8 の文字も描画可能です. (node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
-```javascript
-// Javascript Example
-obniz.display.font('Serif',18)
-obniz.display.print("Hello World🧡")
-```
-![](./images/obniz_display_print.jpg)
+## ブザーのサンプルプログラム
 
-## pos(x, y);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-文字の描画位置を変更します。次にprint()でも字を出すときはこの位置を左上として文字を描画します。
-```javascript
-// Javascript Example
-obniz.display.pos(0,30);
-obniz.display.print("YES. こんにちは");
-```
-![](./images/obniz_display_pos.jpg)
-
-## font(fontFamilyName, fontSize);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-フォントを変更します。
-利用できるフォントはプログラムを動かしているブラウザに依存します。
-
-デフォルトのフォントはArial 16pxです．
-nullを指定することで，デフォルトのフォントを使用します.
-```javascript
-// Javascript Example
-obniz.display.font('Avenir',30)
-obniz.display.print("Avenir")
-
-obniz.display.font(null,30) //デフォルトフォント(Arial)の30px
-obniz.display.font('Avenir') //Avenirのデフォルトサイズ(16px)
-```
-![](./images/obniz_display_samples3.jpg)
-![](./images/obniz_display_samples2.jpg)
-![](./images/obniz_display_samples4.jpg)
-
-## line(start_x, start_y, end_x, end_y);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-２点間の線を描画します。
-```javascript
-// Javascript Example
-obniz.display.line(30, 30, 100, 30);
-obniz.display.rect(20, 20, 20, 20);
-obniz.display.circle(100, 30, 20);
-
-obniz.display.line(60, 50, 100, 30);
-obniz.display.rect(50, 40, 20, 20, true);
-obniz.display.line(50, 10, 100, 30);
-obniz.display.circle(50, 10, 10, true);
-```
-![](./images/obniz_display_draws.jpg)
-
-## rect(x, y, width, height, fill);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-矩形を描画します。
-```javascript
-// Javascript Example
-obniz.display.rect(10, 10, 20, 20);
-obniz.display.rect(20, 20, 20, 20, true); // filled rect
-```
-
-## circle(x, y, radius, fill);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-円を描画します
-```javascript
-// Javascript Example
-obniz.display.circle(40, 30, 20);
-obniz.display.circle(90, 30, 20, true); // filled circle
-```
-
-## drawing(mode)
-
-これ以降の描画を転送するかどうかを指定できます。canvasを利用する`clear/print/line/rect/circle/draw`のみが影響を受けます。
-
-このディスプレイクラスではprintやlineなど、画面が少しでも変われば画面全体を
-obniz Boardに転送して、obniz Boardのディスプレイを更新します。
-その場合、描画が多い場合は転送に時間がかかってしまいます。
-ある程度描画してから最後に一気にobniz Boardに転送するための機能がdrawing()です。
-`drawing(false)`で転送を停止でき、`drawing(true)`で転送を再開できます。再開時には変更があってもなくても一度転送されます。
-
-```javascript
-// Javascript Example
-obniz.display.drawing(false);
-for (var i=0;i<100; i++) {
-  var x0 = Math.random() * 128;
-  var y0 = Math.random() * 64;
-  var x1 = Math.random() * 128;
-  var y1 = Math.random() * 64;
-  obniz.display.clear();
-  obniz.display.line(x0, y0, x1, y1);
-}
-obniz.display.drawing(true);
-```
-
-
-## qr(data, correction)
-
-QRコードを表示します。dataは現在文字列にのみ対応しています。
-correctionはエラー訂正レベルで
-
-1. L
-2. M(default)
-3. Q
-4. H
-
-から選べます。Hにすると強いエラー訂正が入ります。
+スタートボタンを押すとブザーからD5(レ)の音が鳴り、ストップボタンで音を止めるプログラムです。
 
 ```Javascript
 // Javascript Example
-obniz.display.qr("https://obniz.io")
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+<body>
+
+<div id="obniz-debug"></div>
+<h1>obniz instant HTML</h1>
+<br/><br/>
+
+<button id="hz_start">start</button><button id="hz_stop">stop</button>
+
+
+<script>
+  var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
+  stubit.onconnect = async function () {
+    $("#hz_start").click(async () => {
+      stubit.buzzer.onWait("D5");　//ブザーからD5の音を鳴らす
+    })
+    $("#hz_stop").click(async () => {
+       stubit.buzzer.off();　　//ブザーを止める
+    })
+  }
+
+</script>
+</body>
+</html>
 ```
 
-## raw([0,1,2,,,,]);
-
-1ビットが1ドットです。 1=white, 0=black.
-1バイトはある行の一部分を示します。
-順番はこのようになります。  
-{1byte} {2byte} {3byte}...{16byte}  
-{17byte} {18byte} {19byte}...  
-.....  
-.....................{1024byte}  
-
-```javascript
-obniz.display.raw([255, 255,,,,,])// must be 128*64 bits(=1024byte)
-```
-
-## draw(context)
-HTML5のCanvas contextをもとに描画します。
-node-canvasを利用すればnode.jsでも利用可能です。
-
-```javascript
-
-// 1. load existing
-const ctx = $("#canvas")[0].getContext('2d');
-// 2. create new canvas dom and load it.
-const ctx = obniz.util.createCanvasContext(obniz.display.width, obniz.display.height);
-
-// 3. running with node.js
-//    npm install canvas. ( version 2.0.0 or later required )
-const { createCanvas } = require('canvas');
-const canvas = createCanvas(128, 64); 
-const ctx = canvas.getContext('2d');
-
-ctx.fillStyle = "white";
-ctx.font = "30px Avenir";
-ctx.fillText('Avenir', 0, 40);
-
-obniz.display.draw(ctx);
-```
-
-UTF8 Text
-
-![](./images/obniz_display_samples0.jpg)
-
-Tilt Text
-
-![](./images/obniz_display_samples1.jpg)
