@@ -12,16 +12,6 @@ Studuino:Bitの加速度センサーを使用します。</br>
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 
-## getValuesWait();
-
-加速度センサーの値をそれぞれ返します。小数第２位まで表示します。
-
-```Javascript
-// Javascript Example
-let [accelX, accelY, accelZ] = await　stubit.accelerometer.getValuesWait();
-alert("x:"accelX "y:"accelY "z:"accelZ);
-```
-加速度センサーの値を表示します。
 ## getXWait();
 
 加速度センサーXの値を返します。小数第２位まで表示します。
@@ -29,7 +19,7 @@ alert("x:"accelX "y:"accelY "z:"accelZ);
 ```Javascript
 // Javascript Example
 let accelX = await　stubit.accelerometer.getXWait();
-alert("x:"accelX);
+alert(accelX);    //加速度センサーxの値をアラート表示します
 ```
 加速度センサーXの値を表示します。
 
@@ -39,7 +29,7 @@ alert("x:"accelX);
 ```Javascript
 // Javascript Example
 let accelY = await　stubit.accelerometer.getYWait();
-alert("y:"accelY);
+alert(accelY);    //加速度センサーyの値をアラート表示します
 ```
 加速度センサーYの値を表示します。
 
@@ -48,12 +38,31 @@ alert("y:"accelY);
 ```Javascript
 // Javascript Example
 let accelZ = await　stubit.accelerometer.getZWait();
-alert("z:"accelZ);
+alert(accelZ);    //加速度センサーzの値をアラート表示します
 ```
 加速度センサーZの値を表示します。
 
-## setFs(value: string);
 
+## getValuesWait();
+
+加速度センサーの値をそれぞれ返します。小数第２位まで表示します。
+
+```Javascript
+// Javascript Example
+let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
+console.log("X:%d Y:%d Z:%d",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
+```
+加速度センサーX,Y,Zの値を表示します。
+
+## setFs(value: string);
+？
 
 ## setSf(value: string);
+？
 
+## 加速度センサーのサンプルプログラム
+プログラム内容を書く
+```Javascript
+// Javascript Example
+ここに書く
+```
