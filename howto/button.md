@@ -15,14 +15,16 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 ```Javascript
 // Javascript Example
-let state =stubit.button_a.isPressedWait();
-if (state === "true") {
-  stubit.buzzer.onWait(410);
-}else{
-  stubit.buzzer.off();
+while(1){
+    let state =await stubit.button_a.isPressedWait();
+    if (state == true) {
+        await stubit.buzzer.onWait(410);    //ブザーから410Hzの音が鳴ります
+    }else{
+        await stubit.buzzer.off();    //ブザーを止めます
+    }
 }
 ```
-ボタンが押されている間はブザーから410Hzの音が鳴り、Aボタンが押されていない間はブザーの音が止まります。
+Aボタンが押されている間はブザーから410Hzの音が鳴り、Aボタンが押されていない間はブザーの音が止まります。
 * 詳細</br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#ispressedwait
 ## wasPressed();
@@ -30,12 +32,17 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 
 ```Javascript
 // Javascript Example
-let state = await stubit.button_a.wasPressed();
-if (state === "true") {
-  alert("Pressed");
+await stubit.buzzer.onWait("A5");    //ブザーからA5の音が鳴ります
+while(1){
+    let state = await stubit.button_a.wasPressed();
+    await stubit.wait(500);
+    if(state==true){
+        await stubit.buzzer.off();    //ブザーを止めます
+    }
+    await stubit.wait(500);
 }
 ```
-Aボタンが押されたときに画面上に「Pressed」とポップアップ表示されます。
+Aボタンを押すと鳴っているブザーが止まります。
 * 詳細</br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#waspressed
 
@@ -45,10 +52,17 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 呼び出されたあとはカウントがリセットされます。
 ```Javascript
 // Javascript Example
-let count = await stubit.button_a.getPresses();
-setTimeout('console.log(count);', 5000);
+while(1){
+    let stateA = await stubit.button_a.isPressedWait();
+    if(stateA==true){
+        let countB = await stubit.button_b.getPresses();
+        alert(countB);     //countB（Bボタンの押された回数）をアラート表示します
+        await stubit.wait(500);
+    }
+}
+
 ```
-5秒間でAボタンの押された回数を表示します。
+Aボタンが押されるまでのBボタンの押された回数を表示します。
 * 詳細</br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#getpresses
 
