@@ -69,8 +69,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 下記のプログラムは、Aボタンが押されたときにtrueを表示し、それ以外はfalseを表示します。
 また、Bボタンが押されている間はtrueを表示して、押されていない間はfalseを表示します。
 画面上のCountボタンを押すと、Aボタンが押された回数を表示します。
-
-```javascript
+```Javascript
 // Javascript Example
 <html>
 <head>
@@ -119,5 +118,7 @@ buttonB:<span id="buttonB"></span><br/><br/>
 </script>
 </body>
 </html>
+
 ```
+
 
