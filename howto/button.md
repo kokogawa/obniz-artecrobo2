@@ -16,11 +16,11 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```Javascript
 // Javascript Example
 while(1){
-    let state =await stubit.button_a.isPressedWait();
-    if (state == true) {
+    let pressedA =await stubit.button_a.isPressedWait();
+    if (pressedA == true) {
         await stubit.buzzer.onWait(410);    //ブザーから410Hzの音が鳴ります
     }else{
-        await stubit.buzzer.off();    //ブザーを止めます
+        stubit.buzzer.off();    //ブザーを止めます
     }
 }
 ```
@@ -34,9 +34,8 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 // Javascript Example
 await stubit.buzzer.onWait("A5");    //ブザーからA5の音が鳴ります
 while(1){
-    let state = await stubit.button_a.wasPressed();
-    await stubit.wait(500);
-    if(state==true){
+    let pressedA = stubit.button_a.wasPressed();
+    if(pressedA==true){
         await stubit.buzzer.off();    //ブザーを止めます
     }
     await stubit.wait(500);
@@ -53,12 +52,12 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 ```Javascript
 // Javascript Example
 while(1){
-    let stateA = await stubit.button_a.isPressedWait();
-    if(stateA==true){
-        let countB = await stubit.button_b.getPresses();
+    let pressedA =stubit.button_a.wasPressed();
+    if(pressedA==true){
+        let countB = stubit.button_b.getPresses();
         alert(countB);     //countB（Bボタンの押された回数）をアラート表示します
-        await stubit.wait(500);
     }
+    await stubit.wait(500);
 }
 
 ```
@@ -67,11 +66,58 @@ Aボタンが押されるまでのBボタンの押された回数を表示しま
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#getpresses
 
 ## ボタンのサンプルプログラム
-下記のプログラムは、Aボタンが押されたときにpressedを表示し、それ以外はnoneを表示します。
-また、Bボタンが押されている間はpressedを表示して、押されていない間はnoneを表示します。
-画面上のAcountボタンを押すと、Aボタンが押された回数が表示されます。
+下記のプログラムは、Aボタンが押されたときにtrueを表示し、それ以外はfalseを表示します。
+また、Bボタンが押されている間はtrueを表示して、押されていない間はfalseを表示します。
+画面上のCountボタンを押すと、Aボタンが押された回数を表示します。
+
 ```javascript
 // Javascript Example
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+<body>
 
+<div id="obniz-debug"></div>
+<h1>obniz instant HTML</h1>
+<br/><br/>
+buttonA:<span id="buttonA"></span><br/>
+buttonB:<span id="buttonB"></span><br/><br/>
+<button id="getpressesA">Count</button><span id="count"></span><br/>
+
+
+<script>
+  var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+  stubit.onconnect = async function () {
+    while(1){
+      let pressedA = stubit.button_a.wasPressed();  //Aボタンが押されたときにtrueを返します
+      let pressedB = await stubit.button_b.isPressedWait();  //Aボタンが押されている間はtrueを返します
+      await stubit.wait(100);
+      $("#buttonA").text(pressedA); 
+      $("#buttonB").text(pressedB);
+      
+       $("#getpressesA").click(async () => {
+          let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
+          $("#count").text(countA);
+    })
+    }
+    //wifi接続／動作確認用
+    ledBlink();
+  }
+  async function ledBlink() {
+    while (1) {
+      stubit.led.on();
+      await stubit.wait(500);
+      stubit.led.off();
+      await stubit.wait(500);
+    }
+  }
+</script>
+</body>
+</html>
 ```
-画面のスクショ
+
