@@ -94,16 +94,16 @@ buttonB:<span id="buttonB"></span><br/><br/>
   stubit.onconnect = async function () {
 
     $("#getpressesA").click(async () => {
-          let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
-          $("#count").text(countA);
+        let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
+        $("#count").text(countA);
     })
     
     while(1){
-      let pressedA = stubit.button_a.wasPressed();  //Aボタンが押されたときにtrueを返します
-      let pressedB = await stubit.button_b.isPressedWait();  //Aボタンが押されている間はtrueを返します
-      await stubit.wait(100);
-      $("#buttonA").text(pressedA); 
-      $("#buttonB").text(pressedB);
+        let pressedA = stubit.button_a.wasPressed();  //Aボタンが押されたときにtrueを返します
+        let pressedB = await stubit.button_b.isPressedWait();  //Aボタンが押されている間はtrueを返します
+        await stubit.wait(100);
+        $("#buttonA").text(pressedA); 
+        $("#buttonB").text(pressedB);
       
 
     }
