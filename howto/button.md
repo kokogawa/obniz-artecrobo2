@@ -1,36 +1,3 @@
-<<<<<<< HEAD
-# Display (obniz.display)
-obniz BoardにあるOLEDディスプレイに文字や絵を描画します。
-
-![](./images/obniz_display_sphere.gif)
-
-## clear();
-
-画面に表示されているものをすべてクリアします。
-
-```Javascript
-// Javascript Example
-obniz.display.clear();
-```
-## print(string);
-
-文字を表示します。半角英数字にのみ対応しています。
-
-```Javascript
-// Javascript Example
-obniz.display.print("Hello!");
-```
-
-ブラウザはUTF8 の文字も描画可能です. (node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
-```javascript
-// Javascript Example
-obniz.display.font('Serif',18)
-obniz.display.print("Hello World🧡")
-```
-![](./images/obniz_display_print.jpg)
-
-## pos(x, y);
-=======
 # ボタンの制御
 Studuino:Bitにあるボタンを使用します。
 
@@ -43,176 +10,120 @@ Studuino:Bitにあるボタンを使用します。
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 ## isPressedWait();
-
-ボタンが押されているときはtrue、押されていないときはfalseを返します。
+現在のボタンの状態を取得します。
+ボタンが押されている間はtrue、押されていない間はfalseを返します。
 
 ```Javascript
 // Javascript Example
-stubit.button_a.isPressedWait();
+while(1){
+    let pressedA =await stubit.button_a.isPressedWait();
+    if (pressedA == true) {
+        await stubit.buzzer.onWait(410);    //ブザーから410Hzの音が鳴ります
+    }else{
+        stubit.buzzer.off();    //ブザーを止めます
+    }
+}
 ```
-
+Aボタンが押されている間はブザーから410Hzの音が鳴り、Aボタンが押されていない間はブザーの音が止まります。
+* 詳細</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#ispressedwait
 ## wasPressed();
-
-ボタンが押された瞬間はtrue、押していない、押し続けている間はfalseを返します。
+ボタンが押されたときに一度だけtrueを返します。
 
 ```Javascript
-stubit.button_a.wasPressed();
+// Javascript Example
+await stubit.buzzer.onWait("A5");    //ブザーからA5の音が鳴ります
+while(1){
+    let pressedA = stubit.button_a.wasPressed();
+    if(pressedA==true){
+        stubit.buzzer.off();    //ブザーを止めます
+    }
+    await stubit.wait(500);
+}
 ```
+Aボタンを押すと鳴っているブザーが止まります。
+* 詳細</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#waspressed
 
 
 ## getPresses();
->>>>>>> b07cd07b7f55905f8187c9f6d999ea4d4ada1040
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-文字の描画位置を変更します。次にprint()でも字を出すときはこの位置を左上として文字を描画します。
-```javascript
-// Javascript Example
-obniz.display.pos(0,30);
-obniz.display.print("YES. こんにちは");
-```
-![](./images/obniz_display_pos.jpg)
-
-## font(fontFamilyName, fontSize);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-フォントを変更します。
-利用できるフォントはプログラムを動かしているブラウザに依存します。
-
-デフォルトのフォントはArial 16pxです．
-nullを指定することで，デフォルトのフォントを使用します.
-```javascript
-// Javascript Example
-obniz.display.font('Avenir',30)
-obniz.display.print("Avenir")
-
-obniz.display.font(null,30) //デフォルトフォント(Arial)の30px
-obniz.display.font('Avenir') //Avenirのデフォルトサイズ(16px)
-```
-![](./images/obniz_display_samples3.jpg)
-![](./images/obniz_display_samples2.jpg)
-![](./images/obniz_display_samples4.jpg)
-
-## line(start_x, start_y, end_x, end_y);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-２点間の線を描画します。
-```javascript
-// Javascript Example
-obniz.display.line(30, 30, 100, 30);
-obniz.display.rect(20, 20, 20, 20);
-obniz.display.circle(100, 30, 20);
-
-obniz.display.line(60, 50, 100, 30);
-obniz.display.rect(50, 40, 20, 20, true);
-obniz.display.line(50, 10, 100, 30);
-obniz.display.circle(50, 10, 10, true);
-```
-![](./images/obniz_display_draws.jpg)
-
-## rect(x, y, width, height, fill);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-矩形を描画します。
-```javascript
-// Javascript Example
-obniz.display.rect(10, 10, 20, 20);
-obniz.display.rect(20, 20, 20, 20, true); // filled rect
-```
-
-## circle(x, y, radius, fill);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-円を描画します
-```javascript
-// Javascript Example
-obniz.display.circle(40, 30, 20);
-obniz.display.circle(90, 30, 20, true); // filled circle
-```
-
-## drawing(mode)
-
-これ以降の描画を転送するかどうかを指定できます。canvasを利用する`clear/print/line/rect/circle/draw`のみが影響を受けます。
-
-このディスプレイクラスではprintやlineなど、画面が少しでも変われば画面全体を
-obniz Boardに転送して、obniz Boardのディスプレイを更新します。
-その場合、描画が多い場合は転送に時間がかかってしまいます。
-ある程度描画してから最後に一気にobniz Boardに転送するための機能がdrawing()です。
-`drawing(false)`で転送を停止でき、`drawing(true)`で転送を再開できます。再開時には変更があってもなくても一度転送されます。
-
-```javascript
-// Javascript Example
-obniz.display.drawing(false);
-for (var i=0;i<100; i++) {
-  var x0 = Math.random() * 128;
-  var y0 = Math.random() * 64;
-  var x1 = Math.random() * 128;
-  var y1 = Math.random() * 64;
-  obniz.display.clear();
-  obniz.display.line(x0, y0, x1, y1);
-}
-obniz.display.drawing(true);
-```
-
-
-## qr(data, correction)
-
-QRコードを表示します。dataは現在文字列にのみ対応しています。
-correctionはエラー訂正レベルで
-
-1. L
-2. M(default)
-3. Q
-4. H
-
-から選べます。Hにすると強いエラー訂正が入ります。
-
+ボタンが押された回数をカウントします。
+呼び出されたあとはカウントがリセットされます。
 ```Javascript
 // Javascript Example
-obniz.display.qr("https://obniz.io")
+while(1){
+    let pressedA =stubit.button_a.wasPressed();
+    if(pressedA==true){
+        let countB = stubit.button_b.getPresses();
+        alert(countB);     //countB（Bボタンの押された回数）をアラート表示します
+    }
+    await stubit.wait(500);
+}
+
+```
+Aボタンが押されるまでのBボタンの押された回数を表示します。
+* 詳細</br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#getpresses
+
+## ボタンのサンプルプログラム
+下記のプログラムは、Aボタンが押されたときにtrueを表示し、それ以外はfalseを表示します。
+また、Bボタンが押されている間はtrueを表示して、押されていない間はfalseを表示します。
+画面上のCountボタンを押すと、Aボタンが押された回数を表示します。
+```Javascript
+// Javascript Example
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+<body>
+
+<div id="obniz-debug"></div>
+<h1>obniz instant HTML</h1>
+<br/><br/>
+buttonA:<span id="buttonA"></span><br/>
+buttonB:<span id="buttonB"></span><br/><br/>
+<button id="getpressesA">Count</button><span id="count"></span><br/>
+
+
+<script>
+  var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+  stubit.onconnect = async function () {
+
+    $("#getpressesA").click(async () => {
+        let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
+        $("#count").text(countA);
+    })
+    
+    while(1){
+        let pressedA = stubit.button_a.wasPressed();  //Aボタンが押されたときにtrueを返します
+        let pressedB = await stubit.button_b.isPressedWait();  //Aボタンが押されている間はtrueを返します
+        await stubit.wait(100);
+        $("#buttonA").text(pressedA); 
+        $("#buttonB").text(pressedB);
+      
+
+    }
+
+    //wifi接続／動作確認用
+    ledBlink();
+  }
+  async function ledBlink() {
+    while (1) {
+      stubit.led.on();
+      await stubit.wait(500);
+      stubit.led.off();
+      await stubit.wait(500);
+    }
+  }
+</script>
+</body>
+</html>
+
+
 ```
 
-## raw([0,1,2,,,,]);
 
-1ビットが1ドットです。 1=white, 0=black.
-1バイトはある行の一部分を示します。
-順番はこのようになります。  
-{1byte} {2byte} {3byte}...{16byte}  
-{17byte} {18byte} {19byte}...  
-.....  
-.....................{1024byte}  
-
-```javascript
-obniz.display.raw([255, 255,,,,,])// must be 128*64 bits(=1024byte)
-```
-
-## draw(context)
-HTML5のCanvas contextをもとに描画します。
-node-canvasを利用すればnode.jsでも利用可能です。
-
-```javascript
-
-// 1. load existing
-const ctx = $("#canvas")[0].getContext('2d');
-// 2. create new canvas dom and load it.
-const ctx = obniz.util.createCanvasContext(obniz.display.width, obniz.display.height);
-
-// 3. running with node.js
-//    npm install canvas. ( version 2.0.0 or later required )
-const { createCanvas } = require('canvas');
-const canvas = createCanvas(128, 64); 
-const ctx = canvas.getContext('2d');
-
-ctx.fillStyle = "white";
-ctx.font = "30px Avenir";
-ctx.fillText('Avenir', 0, 40);
-
-obniz.display.draw(ctx);
-```
-
-UTF8 Text
-
-![](./images/obniz_display_samples0.jpg)
-
-Tilt Text
-
-![](./images/obniz_display_samples1.jpg)
