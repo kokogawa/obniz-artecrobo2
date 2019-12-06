@@ -1,185 +1,158 @@
-# Display (obniz.display)
-obniz BoardにあるOLEDディスプレイに文字や絵を描画します。
+# 加速度センサーの制御
+Studuino:Bitの加速度センサーを使用します。</br>
+加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
+![](https://i.imgur.com/cNlPIDt.jpg)
 
-![](./images/obniz_display_sphere.gif)
 
-## clear();
 
-画面に表示されているものをすべてクリアします。
+加速度センサーの制御はStuduinoBitAccelerometerクラスに定義され、StuduinoBitクラスでaccelerometerにインスタンス化されています。</br>
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのブザーを使用できます。
+```Javascript
+// Javascript Example
+var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
+```
+
+## getXWait();
+
+加速度センサーXの値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
-obniz.display.clear();
+let accelX = await　stubit.accelerometer.getXWait();
+alert(accelX);    //加速度センサーxの値をアラート表示します
 ```
-## print(string);
+加速度センサーXの値を表示します。
+* 詳細<br/>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getxwait
 
-文字を表示します。半角英数字にのみ対応しています。
+## getYWait();
+加速度センサーYの値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
-obniz.display.print("Hello!");
+let accelY = await　stubit.accelerometer.getYWait();
+alert(accelY);    //加速度センサーyの値をアラート表示します
 ```
+加速度センサーYの値を表示します。
+* 詳細<br/>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getywait
 
-ブラウザはUTF8 の文字も描画可能です. (node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
-```javascript
+## getZWait();
+加速度センサーZの値を返します。小数第２位まで表示します。
+```Javascript
 // Javascript Example
-obniz.display.font('Serif',18)
-obniz.display.print("Hello World🧡")
+let accelZ = await　stubit.accelerometer.getZWait();
+alert(accelZ);    //加速度センサーzの値をアラート表示します
 ```
-![](./images/obniz_display_print.jpg)
-
-## pos(x, y);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-文字の描画位置を変更します。次にprint()でも字を出すときはこの位置を左上として文字を描画します。
-```javascript
-// Javascript Example
-obniz.display.pos(0,30);
-obniz.display.print("YES. こんにちは");
-```
-![](./images/obniz_display_pos.jpg)
-
-## font(fontFamilyName, fontSize);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-フォントを変更します。
-利用できるフォントはプログラムを動かしているブラウザに依存します。
-
-デフォルトのフォントはArial 16pxです．
-nullを指定することで，デフォルトのフォントを使用します.
-```javascript
-// Javascript Example
-obniz.display.font('Avenir',30)
-obniz.display.print("Avenir")
-
-obniz.display.font(null,30) //デフォルトフォント(Arial)の30px
-obniz.display.font('Avenir') //Avenirのデフォルトサイズ(16px)
-```
-![](./images/obniz_display_samples3.jpg)
-![](./images/obniz_display_samples2.jpg)
-![](./images/obniz_display_samples4.jpg)
-
-## line(start_x, start_y, end_x, end_y);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-２点間の線を描画します。
-```javascript
-// Javascript Example
-obniz.display.line(30, 30, 100, 30);
-obniz.display.rect(20, 20, 20, 20);
-obniz.display.circle(100, 30, 20);
-
-obniz.display.line(60, 50, 100, 30);
-obniz.display.rect(50, 40, 20, 20, true);
-obniz.display.line(50, 10, 100, 30);
-obniz.display.circle(50, 10, 10, true);
-```
-![](./images/obniz_display_draws.jpg)
-
-## rect(x, y, width, height, fill);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-矩形を描画します。
-```javascript
-// Javascript Example
-obniz.display.rect(10, 10, 20, 20);
-obniz.display.rect(20, 20, 20, 20, true); // filled rect
-```
-
-## circle(x, y, radius, fill);
-(node.jsでは使えません 代わりにdisplay.draw()を使って下さい)
- 
-円を描画します
-```javascript
-// Javascript Example
-obniz.display.circle(40, 30, 20);
-obniz.display.circle(90, 30, 20, true); // filled circle
-```
-
-## drawing(mode)
-
-これ以降の描画を転送するかどうかを指定できます。canvasを利用する`clear/print/line/rect/circle/draw`のみが影響を受けます。
-
-このディスプレイクラスではprintやlineなど、画面が少しでも変われば画面全体を
-obniz Boardに転送して、obniz Boardのディスプレイを更新します。
-その場合、描画が多い場合は転送に時間がかかってしまいます。
-ある程度描画してから最後に一気にobniz Boardに転送するための機能がdrawing()です。
-`drawing(false)`で転送を停止でき、`drawing(true)`で転送を再開できます。再開時には変更があってもなくても一度転送されます。
-
-```javascript
-// Javascript Example
-obniz.display.drawing(false);
-for (var i=0;i<100; i++) {
-  var x0 = Math.random() * 128;
-  var y0 = Math.random() * 64;
-  var x1 = Math.random() * 128;
-  var y1 = Math.random() * 64;
-  obniz.display.clear();
-  obniz.display.line(x0, y0, x1, y1);
-}
-obniz.display.drawing(true);
-```
+加速度センサーZの値を表示します。
+* 詳細<br/>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getzwait
 
 
-## qr(data, correction)
+## getValuesWait();
 
-QRコードを表示します。dataは現在文字列にのみ対応しています。
-correctionはエラー訂正レベルで
-
-1. L
-2. M(default)
-3. Q
-4. H
-
-から選べます。Hにすると強いエラー訂正が入ります。
+加速度センサーの値をそれぞれ返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
-obniz.display.qr("https://obniz.io")
+let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
+console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
 ```
+加速度センサーX,Y,Zの値を表示します。
+* 詳細<br/>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getvalueswait
 
-## raw([0,1,2,,,,]);
+## setFs(String);
+加速度センサーのフルスケールを定義します。2g/4g/8g/16gのいずれかを記述してください。既定値は2gです。<br/>
 
-1ビットが1ドットです。 1=white, 0=black.
-1バイトはある行の一部分を示します。
-順番はこのようになります。  
-{1byte} {2byte} {3byte}...{16byte}  
-{17byte} {18byte} {19byte}...  
-.....  
-.....................{1024byte}  
 
-```javascript
-obniz.display.raw([255, 255,,,,,])// must be 128*64 bits(=1024byte)
+| String |      FS(ms2)     |
+|:------:|:-------------:|
+|   2g   | -19.61～19.61 |
+|   4g   | -39.23～39.23 |
+|   8g   | -78.45～78.45 |
+|   16g   | -156.91～156.91 |
+```Javascript
+// Javascript Example
+stubit.accelerometer.setFs("4g");　　//加速度センサーのフルスケールが4gに変更されます
+let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
+console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
 ```
+加速度センサーX,Y,Zの値が-39.23～39.23の間で表示されます。
+* 詳細<br/>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setfs
 
-## draw(context)
-HTML5のCanvas contextをもとに描画します。
-node-canvasを利用すればnode.jsでも利用可能です。
 
-```javascript
+## setSf(String);
+加速度センサーのスケールファクターを定義します。ms2/mgのいずれかを記述してください。既定値はms2です。<br/>
+```Javascript
+// Javascript Example
+stubit.accelerometer.setSf("mg");  //スケールファクターをmgにします
+let [accelX_mg, accelY_mg, accelZ_mg] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
+console.log("X:%f Y:%f Z:%f (mg)",accelX_mg,accelY_mg,accelZ_mg);
 
-// 1. load existing
-const ctx = $("#canvas")[0].getContext('2d');
-// 2. create new canvas dom and load it.
-const ctx = obniz.util.createCanvasContext(obniz.display.width, obniz.display.height);
-
-// 3. running with node.js
-//    npm install canvas. ( version 2.0.0 or later required )
-const { createCanvas } = require('canvas');
-const canvas = createCanvas(128, 64); 
-const ctx = canvas.getContext('2d');
-
-ctx.fillStyle = "white";
-ctx.font = "30px Avenir";
-ctx.fillText('Avenir', 0, 40);
-
-obniz.display.draw(ctx);
+stubit.accelerometer.setSf("ms2");  //スケールファクターをms2にします
+let [accelX_ms2, accelY_ms2, accelZ_ms2] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
+console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);
 ```
+加速度センサーX,Y,Zの値がmgとmsそれぞれのスケールファクターで表示されます。
+* 詳細<br/>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setsf
 
-UTF8 Text
+## 加速度センサーのサンプルプログラム
+傾ける向きによって、ブザーから異なる音が鳴るプログラムです。
+```Javascript
+// Javascript Example
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+<body>
 
-![](./images/obniz_display_samples0.jpg)
+<div id="obniz-debug"></div>
+<h1>obniz instant HTML</h1>
 
-Tilt Text
+<script>
+  var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+  stubit.onconnect = async function () {
 
-![](./images/obniz_display_samples1.jpg)
+    while(1){
+      let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
+      
+      if(accelX>5){
+        stubit.display._oneColor([10, 0, 0]);  
+        stubit.display.on();
+      }else if(accelZ>5){
+        stubit.display._oneColor([0, 10, 0]);  
+        stubit.display.on();
+      }else if(-5>accelX){
+        stubit.display._oneColor([0, 0, 10]);  
+        stubit.display.on();
+      }else if(-5>accelZ){
+        stubit.display._oneColor([10, 10, 10]);  
+        stubit.display.on();
+      }else{
+          stubit.display.off();
+      }
+      
+    }
+
+    //wifi接続／動作確認用
+    ledBlink();
+  }
+  async function ledBlink() {
+    while (1) {
+      stubit.led.on();
+      await stubit.wait(500);
+      stubit.led.off();
+      await stubit.wait(500);
+    }
+  }
+</script>
+</body>
+</html>
+```
