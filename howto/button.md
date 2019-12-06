@@ -36,7 +36,7 @@ await stubit.buzzer.onWait("A5");    //ブザーからA5の音が鳴ります
 while(1){
     let pressedA = stubit.button_a.wasPressed();
     if(pressedA==true){
-        await stubit.buzzer.off();    //ブザーを止めます
+        stubit.buzzer.off();    //ブザーを止めます
     }
     await stubit.wait(500);
 }
@@ -75,7 +75,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+ <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
   <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
   <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
 </head>
@@ -92,6 +92,12 @@ buttonB:<span id="buttonB"></span><br/><br/>
 <script>
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
+
+    $("#getpressesA").click(async () => {
+          let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
+          $("#count").text(countA);
+    })
+    
     while(1){
       let pressedA = stubit.button_a.wasPressed();  //Aボタンが押されたときにtrueを返します
       let pressedB = await stubit.button_b.isPressedWait();  //Aボタンが押されている間はtrueを返します
@@ -99,11 +105,9 @@ buttonB:<span id="buttonB"></span><br/><br/>
       $("#buttonA").text(pressedA); 
       $("#buttonB").text(pressedB);
       
-       $("#getpressesA").click(async () => {
-          let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
-          $("#count").text(countA);
-    })
+
     }
+
     //wifi接続／動作確認用
     ledBlink();
   }
@@ -118,6 +122,7 @@ buttonB:<span id="buttonB"></span><br/><br/>
 </script>
 </body>
 </html>
+
 
 ```
 
