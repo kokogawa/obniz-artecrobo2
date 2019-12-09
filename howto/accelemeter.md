@@ -6,7 +6,7 @@ Studuino:Bitの加速度センサーを使用します。</br>
 
 
 加速度センサーの制御はStuduinoBitAccelerometerクラスに定義され、StuduinoBitクラスでaccelerometerにインスタンス化されています。</br>
-はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのブザーを使用できます。
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitの加速度センサーを使用できます。
 ```Javascript
 // Javascript Example
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
@@ -19,7 +19,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```Javascript
 // Javascript Example
 let accelX = await　stubit.accelerometer.getXWait();
-alert(accelX);    //加速度センサーxの値をアラート表示します
+alert(accelX);    //加速度センサーXの値をアラート表示します
 ```
 加速度センサーXの値を表示します。
 * 詳細<br/>
@@ -31,7 +31,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 ```Javascript
 // Javascript Example
 let accelY = await　stubit.accelerometer.getYWait();
-alert(accelY);    //加速度センサーyの値をアラート表示します
+alert(accelY);    //加速度センサーYの値をアラート表示します
 ```
 加速度センサーYの値を表示します。
 * 詳細<br/>
@@ -42,7 +42,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 ```Javascript
 // Javascript Example
 let accelZ = await　stubit.accelerometer.getZWait();
-alert(accelZ);    //加速度センサーzの値をアラート表示します
+alert(accelZ);    //加速度センサーZの値をアラート表示します
 ```
 加速度センサーZの値を表示します。
 * 詳細<br/>
@@ -51,7 +51,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 
 ## getValuesWait();
 
-加速度センサーの値をそれぞれ返します。小数第２位まで表示します。
+加速度センサーX,Y,Zの値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -66,7 +66,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 加速度センサーのフルスケールを定義します。2g/4g/8g/16gのいずれかを記述してください。既定値は2gです。<br/>
 
 
-| String |      FS(ms2)     |
+| String |      FS($ms^2$)     |
 |:------:|:-------------:|
 |   2g   | -19.61～19.61 |
 |   4g   | -39.23～39.23 |
@@ -95,12 +95,12 @@ stubit.accelerometer.setSf("ms2");  //スケールファクターをms2にしま
 let [accelX_ms2, accelY_ms2, accelZ_ms2] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
 console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);
 ```
-加速度センサーX,Y,Zの値がmgとmsそれぞれのスケールファクターで表示されます。
+加速度センサーX,Y,Zの値が$mg$（ミリグラム）と$ms^2$（メートル毎秒毎秒）それぞれのスケールファクターで表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setsf
 
 ## 加速度センサーのサンプルプログラム
-傾ける向きによって、ブザーから異なる音が鳴るプログラムです。
+傾ける向きによって、LEDの色が変わるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
