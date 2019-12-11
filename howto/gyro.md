@@ -68,7 +68,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 ```Javascript
 // Javascript Example
 stubit.gyro.setFs("1000dps");　　//ジャイロセンサーのフルスケールが1000dpsに変更されます
-let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();
+let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();　 //ジャイロセンサーX,Y,Zの値を取得します
 console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);    //ジャイロセンサーの値をContentに表示します
 ```
 ジャイロセンサーX,Y,Zの値が-1000～1000dpsの間で表示されます。
@@ -82,11 +82,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#se
 // Javascript Example
 stubit.gyro.setSf("rps");  //スケールファクターをrpsにします
 let [gyroX_rps, gyroY_rps, gyroZ_rps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (rps)",gyroX_rps,gyroY_rps,gyroZ_rps);
+console.log("X:%f Y:%f Z:%f (rps)",gyroX_rps,gyroY_rps,gyroZ_rps);　/ジャイロセンサーの値をContentに表示します
 
 stubit.gyro.setSf("dps");  //スケールファクターをdpsにします
 let [gyroX_dps, gyroY_dps, gyroZ_dps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);
+console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);　/ジャイロセンサーの値をContentに表示します
 ```
 ジャイロセンサーX,Y,Zの値がrpsとdpsそれぞれのスケールファクターで表示されます。
 * 詳細<br/>
