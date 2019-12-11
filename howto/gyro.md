@@ -114,15 +114,15 @@ Studuino:Bitを動かす速さによって、LEDの色が変わるプログラ�
   stubit.onconnect = async function () {
 
     while(1){
-      stubit.gyro.setFs("500dps");  //ジャイロセンサーのフルスケールを500dpsに変更します
+      stubit.gyro.setFs("1000dps");  //ジャイロセンサーのフルスケールを1000dpsに変更します
       let gyroZ =await stubit.gyro.getZWait();  //ジャイロセンサーZの値を取得します
       var abs_gyroZ=Math.abs(gyroZ);
       
-      if(abs_gyroZ>=400){
+      if(abs_gyroZ>=700){
         stubit.display._oneColor([10, 0, 0]);  
-      }else if(400>abs_gyroZ&&abs_gyroZ>=300){
+      }else if(700>abs_gyroZ&&abs_gyroZ>=500){
         stubit.display._oneColor([0, 10, 0]);  
-      }else if(300>abs_gyroZ&&abs_gyroZ>=200){
+      }else if(500>abs_gyroZ&&abs_gyroZ>=300){
         stubit.display._oneColor([0, 0, 10]);  
       }
       stubit.display.on();
