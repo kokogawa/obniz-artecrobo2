@@ -75,7 +75,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 ```Javascript
 // Javascript Example
 stubit.accelerometer.setFs("4g");　　//加速度センサーのフルスケールが4gに変更されます
-let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
+let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();　//加速度センサーX,Y,Zの値を取得します
 console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
 ```
 加速度センサーX,Y,Zの値が-39.23～39.23の間で表示されます。
@@ -89,11 +89,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 // Javascript Example
 stubit.accelerometer.setSf("mg");  //スケールファクターをmgにします
 let [accelX_mg, accelY_mg, accelZ_mg] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (mg)",accelX_mg,accelY_mg,accelZ_mg);
+console.log("X:%f Y:%f Z:%f (mg)",accelX_mg,accelY_mg,accelZ_mg);　//加速度センサーの値をContentに表示します
 
 stubit.accelerometer.setSf("ms2");  //スケールファクターをms2にします
 let [accelX_ms2, accelY_ms2, accelZ_ms2] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);
+console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);　//加速度センサーの値をContentに表示します
 ```
 加速度センサーX,Y,Zの値が$mg$（ミリグラム）と$ms^2$（メートル毎秒毎秒）それぞれのスケールファクターで表示されます。
 * 詳細<br/>
