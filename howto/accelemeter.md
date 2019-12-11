@@ -100,7 +100,7 @@ console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setsf
 
 ## 加速度センサーのサンプルプログラム
-傾ける向きによって、LEDの色が変わるプログラムです。
+Studuino:Bitを傾ける向きによって、LEDの色が変わるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
