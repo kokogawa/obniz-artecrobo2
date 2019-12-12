@@ -1,10 +1,10 @@
 # ボタンの制御
-Studuino:Bitにあるボタンを使用します。
+Studuino:bitにあるボタンを使用します。
 
 ![](https://i.imgur.com/kqvQO31.png)
 
 ボタンの制御はStuduinoBitButtonクラスに定義され、StuduinoBitクラスでbutton_a、button_bにインスタンス化されています。</br>
-はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのボタンを使用できます。
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのボタンを使用できます。
 ```Javascript
 // Javascript Example
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
@@ -84,8 +84,10 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#
 <div id="obniz-debug"></div>
 <h1>obniz instant HTML</h1>
 <br/><br/>
+<p>
 buttonA:<span id="buttonA"></span><br/>
 buttonB:<span id="buttonB"></span><br/><br/>
+</p>
 <button id="getpressesA">Count</button><span id="count"></span><br/>
 
 
