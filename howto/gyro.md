@@ -1,5 +1,5 @@
 # ジャイロセンサーの制御
-Studuino:Bitのジャイロセンサーを使用します。</br>
+Studuino:bitのジャイロセンサーを使用します。</br>
 角速度の計測により回転の動きを数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
 ![](https://i.imgur.com/5AvPJQy.jpg)
 
@@ -7,7 +7,7 @@ Studuino:Bitのジャイロセンサーを使用します。</br>
 
 
 ジャイロセンサーの制御はStuduinoBitGyroクラスに定義され、StuduinoBitクラスでgyroにインスタンス化されています。</br>
-はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのジャイロセンサーを使用できます。
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのジャイロセンサーを使用できます。
 ```Javascript
 // Javascript Example
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
@@ -62,7 +62,7 @@ console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);   //ジャイロセンサーの
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getvalueswait
 
 ## setFs(String);
-ジャイロセンサーのフルスケールを定義します。250dps/500dps/1000dps/2000dpsのいずれかを記述してください。既定値は250dpsです。<br/>
+ジャイロセンサーの測定可能な最大最小値（フルスケール）を定義します。50dps、500dps、1000dps、2000dpsのいずれかを記述してください。既定値は250dpsです。<br/>
 
 
 ```Javascript
@@ -77,7 +77,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#se
 
 
 ## setSf(String);
-ジャイロセンサーのスケールファクターを定義します。dps/rpsのいずれかを記述してください。既定値はdpsです。<br/>
+ジャイロセンサーの単位（スケールファクター）を定義します。dpsかrpsのいずれかを記述してください。dpsは°/秒、rpsは回転/秒を意味します。既定値はdpsです。<br/>
 ```Javascript
 // Javascript Example
 stubit.gyro.setSf("rps");  //スケールファクターをrpsにします
@@ -88,12 +88,12 @@ stubit.gyro.setSf("dps");  //スケールファクターをdpsにします
 let [gyroX_dps, gyroY_dps, gyroZ_dps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
 console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);　//ジャイロセンサーの値をContentに表示します
 ```
-ジャイロセンサーX,Y,Zの値がrpsとdpsそれぞれのスケールファクターで表示されます。
+ジャイロセンサーX,Y,Zの値がrpsとdpsそれぞれの単位で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#setsf
 
 ## ジャイロセンサーのサンプルプログラム
-Studuino:Bitを動かす速さによって、LEDの色が変わるプログラムです。
+Studuino:bitを動かす速さによって、LEDの色が変わるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
