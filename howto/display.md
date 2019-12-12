@@ -1,6 +1,6 @@
 
 # ディスプレイの制御
-Studuino:Bitのディスプレイ（LEDマトリクス）を使用します。
+Studuino:bitのディスプレイ（LEDマトリクス）を使用します。
 
 ![](https://i.imgur.com/076CaqI.png)
 
@@ -8,13 +8,19 @@ Studuino:Bitのディスプレイ（LEDマトリクス）を使用します。
 
 
 ディスプレイの制御はStuduinoBitDisplayクラスに定義され、StuduinoBitクラスでdisplsyにインスタンス化されています。</br>
-はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのディスプレイを使用できます。
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのディスプレイを使用できます。
 ```Javascript
 // Javascript Example
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 
+## _ctx(): CanvasRenderingContext2D
 
+
+```Javascript
+// Javascript Example
+
+```
 
 ## _getIndex(x: number, y: number): number
 Math.abs(x - 4) * 5 + y;
@@ -25,6 +31,7 @@ Math.abs(x - 4) * 5 + y;
 ```
 
 
+
 ## _oneColor(color: Color): void
 色を一つ全表示
 
@@ -32,7 +39,12 @@ Math.abs(x - 4) * 5 + y;
 // Javascript Example
 
 ```
+## _preparedCanvas(): undefined | HTMLCanvasElement
 
+```Javascript
+// Javascript Example
+
+```
 
 ## _update(): void
 
@@ -42,6 +54,13 @@ Math.abs(x - 4) * 5 + y;
 ```
 
 ## clear(): void
+
+```Javascript
+// Javascript Example
+
+```
+
+## draw(ctx: CanvasRenderingContext2D): void
 
 ```Javascript
 // Javascript Example
@@ -78,14 +97,14 @@ Math.abs(x - 4) * 5 + y;
 
 ```
 
-## scroll(str: string, delay?: number, wait?: boolean, loop?: boolean, monospace?: boolean, color?: Color | null): void
+## scrollWait(text: string, delay?: number, wait?: boolean, loop?: boolean, monospace?: boolean, color?: Color | null): Promise
 
 ```Javascript
 // Javascript Example
 
 ```
 
-## setPixcel(x: number, y: number, color: Color | string): void
+## setPixel(x: number, y: number, color: Color | string): void
 座標x,y決めて、1点1color<br/>
 ![](https://i.imgur.com/MAPKkwU.png)
 
@@ -94,10 +113,31 @@ Math.abs(x - 4) * 5 + y;
 
 ```
 
-## show(iterable: [], delay?: number, wait?: boolean, loop?: boolean, clear?: boolean, color?: Color | null): void
+
+## showImage(image: Image): void
 
 ```Javascript
 // Javascript Example
 
 ```
 
+## showNumber(number: number): void
+
+```Javascript
+// Javascript Example
+
+```
+
+## showText(text: string, x?: number, monospace?: boolean): void
+
+```Javascript
+// Javascript Example
+
+```
+
+## showWait(iterable: Image[] | string[] | number[], delay?: number, wait?: boolean, loop?: boolean, clear?: boolean, color?: Color | null): Promise
+
+```Javascript
+// Javascript Example
+
+```
