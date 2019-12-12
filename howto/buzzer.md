@@ -1,11 +1,11 @@
 # ブザーの制御
-Studuino:Bitにあるブザーから音を出します。
+Studuino:bitにあるブザーから音を出します。
 
 ![](https://i.imgur.com/vRDgUSe.png)
 
 
 ブザーの制御はStuduinoBitBuzzerクラスに定義され、StuduinoBitクラスでbuzzerにインスタンス化されています。</br>
-はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitのブザーを使用できます。
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのブザーを使用できます。
 ```Javascript
 // Javascript Example
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
