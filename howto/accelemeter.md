@@ -1,12 +1,12 @@
 # 加速度センサーの制御
-Studuino:Bitの加速度センサーを使用します。</br>
+Studuino:bitの加速度センサーを使用します。</br>
 加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
 ![](https://i.imgur.com/cNlPIDt.jpg)
 
 
 
 加速度センサーの制御はStuduinoBitAccelerometerクラスに定義され、StuduinoBitクラスでaccelerometerにインスタンス化されています。</br>
-はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:Bitの加速度センサーを使用できます。
+はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitの加速度センサーを使用できます。
 ```Javascript
 // Javascript Example
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
@@ -63,10 +63,10 @@ console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサー�
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getvalueswait
 
 ## setFs(String);
-加速度センサーのフルスケールを定義します。2g/4g/8g/16gのいずれかを記述してください。既定値は2gです。<br/>
+加速度センサーの測定可能な最大最小値（フルスケール）を定義します。2g、4g、8g、16gのいずれかを記述してください。既定値は2gです。<br/>
 
 
-| String |      FS($ms^2$)     |
+| String |      フルスケール(単位：$m/s^2$)     |
 |:------:|:-------------:|
 |   2g   | -19.61～19.61 |
 |   4g   | -39.23～39.23 |
@@ -84,7 +84,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 
 
 ## setSf(String);
-加速度センサーのスケールファクターを定義します。ms2/mgのいずれかを記述してください。既定値はms2です。<br/>
+加速度センサーの単位（スケールファクター）を定義します。ms2かmgのいずれかを記述してください。ms2は$m/s^2$（メートル毎秒毎秒）、mgは$mg$（ミリジー）を意味します。既定値はms2です。<br/>
 ```Javascript
 // Javascript Example
 stubit.accelerometer.setSf("mg");  //スケールファクターをmgにします
@@ -95,12 +95,12 @@ stubit.accelerometer.setSf("ms2");  //スケールファクターをms2にしま
 let [accelX_ms2, accelY_ms2, accelZ_ms2] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
 console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);　//加速度センサーの値をContentに表示します
 ```
-加速度センサーX,Y,Zの値が$mg$（ミリグラム）と$ms^2$（メートル毎秒毎秒）それぞれのスケールファクターで表示されます。
+加速度センサーX,Y,Zの値が$mg$（ミリジー）と$ms^2$（メートル毎秒毎秒）それぞれの単位で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setsf
 
 ## 加速度センサーのサンプルプログラム
-Studuino:Bitを傾ける向きによって、LEDの色が変わるプログラムです。
+Studuino:bitを傾ける向きによって、LEDの色が変わるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
