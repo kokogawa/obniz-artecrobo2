@@ -70,34 +70,56 @@ Math.abs(x - 4) * 5 + y;<br>
 ```
 
 ## getPixel(x: number, y: number): Color
-座標を指定すると、その色が返ってくる。点灯していなかったら、[0,0,0]を返す
+指定したx,y座標の色を返します。
 ```Javascript
 // Javascript Example
-
+stubit.display.setPixel(2,2,[5,10,15]);
+stubit.display.on();     //(2,2)がRGB(5,10,15)で点灯します
+let color = stubit.display.getPixel(2,2);　
+console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をContentに表示します
 ```
+点灯した(2,2)のRGB値をContentに表示します。
 
 ## isOn(): boolean
-
+ディスプレイが点灯しているときにtrue,点灯していないときにfalseを返します
 ```Javascript
 // Javascript Example
+stubit.display.off();
+while(1){
+    let pressedA = stubit.button_a.wasPressed();
+    //Aボタンが押されたとき
+    if(pressedA==true){
+        let displayisOn = stubit.display.isOn();
+        console.log(displayisOn);　//displayisOnをContentに表示します
+     }
 
+    let pressedB = stubit.button_b.wasPressed();
+    //Bボタンが押されたとき
+    if(pressedB==true){
+        stubit.display.setPixel(2,2,[10,10,10]);
+        stubit.display.on();    //(2,2)が白色に点灯します
+    }
+      await stubit.wait(500);
+}
 ```
+Aボタンを押すと、ディスプレイの状態をContentに表示します。はじめはディスプレイが点灯していないため、Aボタンを押すとfalseを返します。Bボタンを押すとディスプレイが点灯するので、そのあとにAボタンを押すとtrueを返します。
 
 ## off(): void
-全て消す
+ディスプレイを消灯します。
 
 ```Javascript
 // Javascript Example
-
+stubit.display.off();
 ```
 
 ## on(): void
-点ける
-
+ディスプレイを点灯します。
 ```Javascript
 // Javascript Example
-
+//　ここに点灯させたい座標や色の情報を記述します。
+stubit.display.on();
 ```
+
 
 ## scrollWait(text: string, delay?: number, wait?: boolean, loop?: boolean, monospace?: boolean, color?: Color | null): Promise
 
@@ -107,14 +129,15 @@ Math.abs(x - 4) * 5 + y;<br>
 ```
 
 ## setPixel(x: number, y: number, color: Color | string): void
-座標x,y決めて、1点1color<br/>
+座標x,yと色を定義します。座標は以下のように定義されています。<br/>
 ![](https://i.imgur.com/MAPKkwU.png)
 
 ```Javascript
 // Javascript Example
-
+stubit.display.setPixel(2,2,[0,0,10]);
+stubit.display.on();
 ```
-
+(x,y)=(2,2)が青色に点灯します。
 
 ## showImage(image: Image): void
 
@@ -124,11 +147,13 @@ Math.abs(x - 4) * 5 + y;<br>
 ```
 
 ## showNumber(number: number): void
-
+指定した数字をディスプレイに表示します。
 ```Javascript
 // Javascript Example
-
+stubit.display.showNumber(2);
 ```
+ディスプレイに2が表示されます。
+
 
 ## showText(text: string, x?: number, monospace?: boolean): void
 
@@ -139,11 +164,21 @@ Math.abs(x - 4) * 5 + y;<br>
 
 
 ## showWait(iterable: Image[] | string[] | number[], delay?: number, wait?: boolean, loop?: boolean, clear?: boolean, color?: Color | null): Promise<void>
+文字など(image,string,number)を順番に表示します。<br>
+delayは一文字を表示する長さを数字で記述します。規定値は400です。（単位:ミリ秒）<br>
+waitは????規定値はtrueです。<br>
+loopをtrueと記述すると繰り返し実行され、falseと記述すると一度だけ実行されます。規定値はfalseです。<br>
+clearをtrueと記述すると実行後ディスプレイが消灯し、falseと記述すると点灯し続けます。規定値はfalseです。<br>
+colorにはRGB値を記述します。規定値は赤いろです
 
 ```Javascript
 // Javascript Example
-
+await stubit.display.showWait([1,2,3,4],1000,true,true,false,[10,10,10]);
 ```
+ディスプレイに1,2,3,4と1秒間ずつ白色で繰り返し表示されます。
+
+
+
 
 ```Javascript
 <html>
