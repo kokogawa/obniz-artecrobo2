@@ -18,10 +18,13 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 ```Javascript
 // Javascript Example
-let gyroX = await　stubit.gyro.getXWait();
-alert(gyroX);    //ジャイロセンサーXの値をアラート表示します
+while(1){
+    let gyroX = await　stubit.gyro.getXWait();
+    console.log(gyroX);    //ジャイロセンサーXの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-ジャイロセンサーXの値を表示します。
+ジャイロセンサーXの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getxwait
 
@@ -30,10 +33,13 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 
 ```Javascript
 // Javascript Example
-let gyroY = await　stubit.gyro.getYWait();
-alert(gyroY);    //ジャイロセンサーYの値をアラート表示します
+while(1){
+    let gyroY = await　stubit.gyro.getYWait();
+    console.log(gyroY);    //ジャイロセンサーYの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-ジャイロセンサーYの値を表示します。
+ジャイロセンサーYの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getywait
 
@@ -41,10 +47,13 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 ジャイロセンサーZの値を返します。小数第２位まで表示します。
 ```Javascript
 // Javascript Example
-let gyroZ = await　stubit.gyro.getZWait();
-alert(gyroZ);     //ジャイロセンサーZの値をアラート表示します
+while(1){
+    let gyroZ = await　stubit.gyro.getZWait();
+    console.log(gyroZ);     //ジャイロセンサーZの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-ジャイロセンサーZの値を表示します。
+ジャイロセンサーZの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getzwait
 
@@ -54,22 +63,28 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 
 ```Javascript
 // Javascript Example
-let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();
-console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);   //ジャイロセンサーの値をContentに表示します
+while(1){
+    let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();
+    console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);   //ジャイロセンサーの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-ジャイロセンサーX,Y,Zの値を表示します。
+ジャイロセンサーX,Y,Zの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getvalueswait
 
 ## setFs(String);
-ジャイロセンサーの測定可能な最大最小値（フルスケール）を定義します。50dps、500dps、1000dps、2000dpsのいずれかを記述してください。既定値は250dpsです。<br/>
+ジャイロセンサーの測定可能な最大最小値（フルスケール）を定義します。250dps、500dps、1000dps、2000dpsのいずれかを記述してください。既定値は250dpsです。<br/>
 
 
 ```Javascript
 // Javascript Example
 stubit.gyro.setFs("1000dps");　　//ジャイロセンサーのフルスケールが1000dpsに変更されます
-let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();　 //ジャイロセンサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);    //ジャイロセンサーの値をContentに表示します
+while(1){
+    let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();　 //ジャイロセンサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);    //ジャイロセンサーの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
 ジャイロセンサーX,Y,Zの値が-1000～1000dpsの間で表示されます。
 * 詳細<br/>
@@ -80,20 +95,23 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#se
 ジャイロセンサーの単位（スケールファクター）を定義します。dpsかrpsのいずれかを記述してください。dpsは°/秒、rpsは回転/秒を意味します。既定値はdpsです。<br/>
 ```Javascript
 // Javascript Example
-stubit.gyro.setSf("rps");  //スケールファクターをrpsにします
-let [gyroX_rps, gyroY_rps, gyroZ_rps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (rps)",gyroX_rps,gyroY_rps,gyroZ_rps);　//ジャイロセンサーの値をContentに表示します
+while(1){
+    stubit.gyro.setSf("rps");  //スケールファクターをrpsにします
+    let [gyroX_rps, gyroY_rps, gyroZ_rps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f (rps)",gyroX_rps,gyroY_rps,gyroZ_rps);　//ジャイロセンサーの値をContentに表示します
 
-stubit.gyro.setSf("dps");  //スケールファクターをdpsにします
-let [gyroX_dps, gyroY_dps, gyroZ_dps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);　//ジャイロセンサーの値をContentに表示します
+    stubit.gyro.setSf("dps");  //スケールファクターをdpsにします
+    let [gyroX_dps, gyroY_dps, gyroZ_dps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);　//ジャイロセンサーの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
 ジャイロセンサーX,Y,Zの値がrpsとdpsそれぞれの単位で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#setsf
 
 ## ジャイロセンサーのサンプルプログラム
-Studuino:bitを動かす速さによって、LEDの色が変わるプログラムです。
+Studuino:bitを素早く時計回りに回転させると、ディスプレイが点灯し、素早く反時計回りに回転させると消灯するプログラムです。
 ```Javascript
 // Javascript Example
 <html>
@@ -112,21 +130,26 @@ Studuino:bitを動かす速さによって、LEDの色が変わるプログラ�
 <script>
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
+    
+    function oneColor(color) {
+      stubit.display.off();
+      for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+          stubit.display.setPixel(x,y,color);
+        }
+      }
+       stubit.display.on();
+    }
 
     while(1){
-      stubit.gyro.setFs("1000dps");  //ジャイロセンサーのフルスケールを1000dpsに変更します
+      stubit.gyro.setFs("500dps");  //ジャイロセンサーのフルスケールを500dpsに変更します
       let gyroZ =await stubit.gyro.getZWait();  //ジャイロセンサーZの値を取得します
-      var abs_gyroZ=Math.abs(gyroZ);
-      
-      if(abs_gyroZ>=700){
-        stubit.display._oneColor([10, 0, 0]);  
-      }else if(700>abs_gyroZ&&abs_gyroZ>=500){
-        stubit.display._oneColor([0, 10, 0]);  
-      }else if(500>abs_gyroZ&&abs_gyroZ>=300){
-        stubit.display._oneColor([0, 0, 10]);  
+      if(gyroZ>=200){
+        oneColor([10, 0, 0]);  //赤色に点灯します 
       }
-      stubit.display.on();
-      
+      if(-200>gyroZ){
+         stubit.display.off();  //ディスプレイを消灯します
+      }
     }
 
     //wifi接続／動作確認用
