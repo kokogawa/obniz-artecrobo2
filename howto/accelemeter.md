@@ -18,10 +18,13 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 ```Javascript
 // Javascript Example
-let accelX = await　stubit.accelerometer.getXWait();
-alert(accelX);    //加速度センサーXの値をアラート表示します
+while(1){
+    let accelX = await　stubit.accelerometer.getXWait();
+    console.log(accelX);   //加速度センサーXの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-加速度センサーXの値を表示します。
+加速度センサーXの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getxwait
 
@@ -30,10 +33,13 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 
 ```Javascript
 // Javascript Example
-let accelY = await　stubit.accelerometer.getYWait();
-alert(accelY);    //加速度センサーYの値をアラート表示します
+while(1){
+    let accelY = await　stubit.accelerometer.getYWait();
+    console.log(accelY);   //加速度センサーYの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-加速度センサーYの値を表示します。
+加速度センサーYの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getywait
 
@@ -41,10 +47,13 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 加速度センサーZの値を返します。小数第２位まで表示します。
 ```Javascript
 // Javascript Example
-let accelZ = await　stubit.accelerometer.getZWait();
-alert(accelZ);    //加速度センサーZの値をアラート表示します
+while(1){
+    let accelZ = await　stubit.accelerometer.getZWait();
+    console.log(accelZ);   //加速度センサーZの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
-加速度センサーZの値を表示します。
+加速度センサーZの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getzwait
 
@@ -55,10 +64,14 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 
 ```Javascript
 // Javascript Example
-let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
-console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
+while(1){
+    let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
+    console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
+    
+    await stubit.wait(1000);
+}
 ```
-加速度センサーX,Y,Zの値を表示します。
+加速度センサーX,Y,Zの値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getvalueswait
 
@@ -75,8 +88,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 ```Javascript
 // Javascript Example
 stubit.accelerometer.setFs("4g");　　//加速度センサーのフルスケールが4gに変更されます
-let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();　//加速度センサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
+while(1){
+    let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();　//加速度センサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
 加速度センサーX,Y,Zの値が-39.23～39.23の間で表示されます。
 * 詳細<br/>
@@ -87,13 +103,16 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 加速度センサーの単位（スケールファクター）を定義します。ms2かmgのいずれかを記述してください。ms2は$m/s^2$（メートル毎秒毎秒）、mgは$mg$（ミリジー）を意味します。既定値はms2です。<br/>
 ```Javascript
 // Javascript Example
-stubit.accelerometer.setSf("mg");  //スケールファクターをmgにします
-let [accelX_mg, accelY_mg, accelZ_mg] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (mg)",accelX_mg,accelY_mg,accelZ_mg);　//加速度センサーの値をContentに表示します
+while(1){
+    stubit.accelerometer.setSf("mg");  //スケールファクターをmgにします
+    let [accelX_mg, accelY_mg, accelZ_mg] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f (mg)",accelX_mg,accelY_mg,accelZ_mg);　//加速度センサーの値をContentに表示します
 
-stubit.accelerometer.setSf("ms2");  //スケールファクターをms2にします
-let [accelX_ms2, accelY_ms2, accelZ_ms2] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
-console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);　//加速度センサーの値をContentに表示します
+    stubit.accelerometer.setSf("ms2");  //スケールファクターをms2にします
+    let [accelX_ms2, accelY_ms2, accelZ_ms2] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f (ms2)",accelX_ms2,accelY_ms2,accelZ_ms2);　//加速度センサーの値をContentに表示します
+    await stubit.wait(1000);
+}
 ```
 加速度センサーX,Y,Zの値が$mg$（ミリジー）と$ms^2$（メートル毎秒毎秒）それぞれの単位で表示されます。
 * 詳細<br/>
@@ -119,27 +138,32 @@ Studuino:bitを傾ける向きによって、LEDの色が変わるプログラ�
 <script>
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
-
-    while(1){
-      let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
-      
-      if(accelX>5){
-        stubit.display._oneColor([10, 0, 0]);  
+    
+      function oneColor(color) {
+        stubit.display.off();
+        for (let x = 0; x < 5; x++) {
+          for (let y = 0; y < 5; y++) {
+            stubit.display.setPixel(x,y,color);
+          }
+        }
         stubit.display.on();
-      }else if(accelZ>5){
-        stubit.display._oneColor([0, 10, 0]);  
-        stubit.display.on();
-      }else if(-5>accelX){
-        stubit.display._oneColor([0, 0, 10]);  
-        stubit.display.on();
-      }else if(-5>accelZ){
-        stubit.display._oneColor([10, 10, 10]);  
-        stubit.display.on();
-      }else{
-          stubit.display.off();
       }
+    
+      while(1){
+        let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
       
-    }
+        if(accelX>5){
+          oneColor([10, 0, 0]);  //赤色に点灯します
+        }else if(accelZ>5){
+          oneColor([0, 10, 0]);  //緑色に点灯します
+        }else if(accelX<-5){
+          oneColor([0, 0, 10]);  //青色に点灯します
+        }else if(accelZ<-5){  
+          oneColor([10, 10, 10]);  //白色に点灯します
+        }else{
+          stubit.display.off();
+        }
+      }
 
     //wifi接続／動作確認用
     ledBlink();
