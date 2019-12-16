@@ -14,54 +14,27 @@ Studuino:bitのディスプレイ（LEDマトリクス）を使用します。
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 
-## _ctx(): CanvasRenderingContext2D
-
-
-```Javascript
-// Javascript Example
-
-```
-
-## _getIndex(x: number, y: number): number
-Math.abs(x - 4) * 5 + y;<br>
-![](https://i.imgur.com/Esix5Q4.png)
-
-
-```Javascript
-// Javascript Example
-
-```
-
-
-
-## _oneColor(color: Color): void
-色を一つ全表示
-
-```Javascript
-// Javascript Example
-
-```
-## _preparedCanvas(): undefined | HTMLCanvasElement
-
-```Javascript
-// Javascript Example
-
-```
-
-## _update(): void
-
-```Javascript
-// Javascript Example
-
-```
 
 ## clear(): void
-
+ディスプレイを初期の段階に戻します。
 ```Javascript
 // Javascript Example
-
+stubit.display.setPixel(2,2,[5,10,15]);
+stubit.display.on();     //(2,2)がRGB(5,10,15)で点灯します
+let color = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します　
+console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をContentに表示します
+    
+await stubit.wait(3000);
+    
+stubit.display.off();  //ディスプレイを消灯します
+let color_off = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します
+console.log("color_off(2,2):R%d,G%d,B%d",color_off[0],color_off[1],color_off[2]);    //off実行後のcolorの値をContentに表示します
+    
+stubit.display.clear();
+let color_clear = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します
+console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_clear[2]);    //clear実行後のcolorの値をContentに表示します
 ```
-
+(2,2)がRGB(5,10,15)で点灯し、Contentでも同じ値が確認できます。その後、ディスプレイが消灯しますが、ここでは(2,2)に与えられたRGB値は残っていることがContentの表示で確認できます。最後に、clearを使うことで、(2,2)が初期のRGB(0,0,0)に戻ることがContentの表示で確認できます。
 ## draw(ctx: CanvasRenderingContext2D): void
 
 ```Javascript
@@ -122,7 +95,12 @@ stubit.display.on();
 
 
 ## scrollWait(text: string, delay?: number, wait?: boolean, loop?: boolean, monospace?: boolean, color?: Color | null): Promise
-
+文字をスクロール表示します。<br>
+delayはスクロール表示する速さを数字で記述します。規定値は150です。（単位：）<br>
+waitは????規定値はtrueです。<br>
+loopをtrueと記述すると繰り返し実行され、falseと記述すると一度だけ実行されます。規定値はfalseです。<br>
+monospaceをtrueと記述すると、文字が小さく表示されます。規定値はfalseです。<br>
+colorにはRGB値を記述します。規定値は赤色です。
 ```Javascript
 // Javascript Example
 
@@ -169,7 +147,7 @@ delayは一文字を表示する長さを数字で記述します。規定値は
 waitは????規定値はtrueです。<br>
 loopをtrueと記述すると繰り返し実行され、falseと記述すると一度だけ実行されます。規定値はfalseです。<br>
 clearをtrueと記述すると実行後ディスプレイが消灯し、falseと記述すると点灯し続けます。規定値はfalseです。<br>
-colorにはRGB値を記述します。規定値は赤いろです
+colorにはRGB値を記述します。規定値は赤色です。
 
 ```Javascript
 // Javascript Example
