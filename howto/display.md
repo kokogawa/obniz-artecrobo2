@@ -189,20 +189,16 @@ console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_c
 ```
 
 ## getPixel(x: number, y: number): number
-点灯していたら1を返す消えていたら0を返す？
+指定したx,y座標が点灯していたら1を返します。
 
 ```Javascript
 // Javascript Example
 
 ```
 
-## getPixelColor(x: number, y: number, hex?: boolean): Color | string
-RGBを返す
-hextrueなら16進法?
-消えていたら000000
-赤1f0000
-青00000a
-緑000a00
+## getPixelColor(Number: x, Number: y, Boolean: hex): Color | String
+指定したx,y座標の色を返します。
+hexがfalseならRGB値、trueならカラーコードを返します。
 
 ```Javascript
 // Javascript Example
@@ -258,7 +254,7 @@ hextrueなら16進法?
 ```
 
 ## setBaseColor(param0: Color | string | number, param1?: number, param2?: number): void
-色を指定する
+色を指定する。setPixelの前に行うと、setPixelのみ変わる。
 
 ```Javascript
 // Javascript Example
@@ -267,42 +263,42 @@ hextrueなら16進法?
 
 
 ## setPixel(x: number, y: number, value: number): void
-場所を指定する
+座標を指定する。value=0ならあとにshowWaitで点灯しない。value=1だけでは点灯しないが、あとにshowWaitすると点灯する。
 ```Javascript
 // Javascript Example
 
 ```
 
-## setPixelColor(x: number, y: number, color: Color): void
-
+## setPixelColor(x: number, y: number, [Number, Number, Number]: color): void
+座標と色を指定する。showWaitを行うと点灯。
 ```Javascript
 // Javascript Example
 
 ```
 
 ## shiftDown(shift: number): void
-
+イメージ全体を下へNumber分
 ```Javascript
 // Javascript Example
 
 ```
 
 ## shiftLeft(shift: number): void
-
+イメージ全体を左へNumber分
 ```Javascript
 // Javascript Example
 
 ```
 
 ## shiftRight(shift: number): void
-
+イメージ全体を右へNumber分
 ```Javascript
 // Javascript Example
 
 ```
 
 ## shiftUp(shift: number): void
-
+イメージ全体を上へNumber分
 ```Javascript
 // Javascript Example
 
