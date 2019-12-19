@@ -179,9 +179,8 @@ const image = new Artec.StuduinoBit.Image('111:010:11100:');
 await stubit.display.showWait([image],1000);
 ```
 写真
-## setBaseColor(param0: Color | string | number, param1?: number, param2?: number): void
-点灯させたい色（RGB値？のみ？）を指定します。setPixelと併せて使用します。
-
+## setBaseColor( String : color | String : color code　| [Number, Number, Number]: RGB colors );
+点灯させたい色を指定します。色は色名、カラーコード、RGB値で指定できます。setPixelと併せて使用します。
 
 
 
