@@ -5,7 +5,7 @@ Studuino:bitのディスプレイ（LEDマトリクス）を使用します。
 ![](https://i.imgur.com/076CaqI.png)
 
 
-ディスプレイの制御はStuduinoBitDisplayクラスとStuduinoBitImageクラスに定義されています。StuduinoBitクラスでStuduinoBitDisplayはdisplayに、StuduinoBitImageはimageにインスタンス化されています。</br>
+ディスプレイの制御はStuduinoBitDisplayクラスとStuduinoBitImageクラスに定義されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのディスプレイを使用できます。
 ```Javascript
 // Javascript Example
@@ -13,7 +13,9 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 <br>
 
-> **StuduinoBitDisplay**
+> **StuduinoBitDisplay**<br>
+
+StuduinoBitクラスでStuduinoBitDisplayはdisplayにインスタンス化されています。
 ## on();
 ディスプレイを点灯します。
 ```Javascript
@@ -68,7 +70,7 @@ await stubit.display.scrollWait("ABC",500,true,true,true,[10,10,10]);
 
 
 ## showWait( Image[] | String[] | Number[]: iterable, Number: delay, Boolean: wait, Boolean: loop, Boolean: clear, [Number, Number, Number]: color |null);
-文字など(image,string,number)を１文字ずつ順番に表示します。<br>
+文字など(image,string,number)を１文字ずつ順番に表示します。(※Image[]についてはStuduinoBitImageで説明します。)<br>
 delayは１文字を表示する長さ（数字）で記述します。（単位:ミリ秒）<br>
 waitをtrueと記述すると、表示が終わるまで次の処理を実行しません。falseと記述すると、次の処理も同時に実行します。<br>
 loopをtrueと記述すると、繰り返し実行されます。falseと記述すると、一度だけ実行されます。繰り返し実行するときはwaitをtrueと記述してください。<br>
@@ -155,34 +157,138 @@ console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_c
 
 <br>
 
-> **StuduinoBitImage**
-## blit(src: StuduinoBitImage, src_x: number, src_y: number, w: number, h: number, xdest?: number, ydest?: number): void
+> **StuduinoBitImage**<br>
 
-
+はじめにStuduinoBitクラスのImageを使って、以下のようにインスタンス化を行います。
+点灯させたいLEDを1、消灯させたいLEDを0で記述します。左から順に記述し、1行ずつ「:」で区切ります。
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('11111:11111:11111:11111:11111:');
+await stubit.display.showWait([image],1000);
 ```
+写真
+```Javascript
+// Javascript Example
+const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
+await stubit.display.showWait([image],1000);
+```
+写真
+```Javascript
+// Javascript Example
+const image = new Artec.StuduinoBit.Image('111:010:11100:');
+await stubit.display.showWait([image],1000);
+```
+写真
+## setBaseColor(param0: Color | string | number, param1?: number, param2?: number): void
+点灯させたい色（RGB値？のみ？）を指定します。setPixelと併せて使用します。
+
+
+
+
+## setPixel(x: number, y: number, value: number): void
+点灯させたい座標を指定します。点灯させたいときはvalue=0ならあとにshowWaitで点灯しない。value=1だけでは点灯しないが、あとにshowWaitすると点灯する。
+```Javascript
+// Javascript Example
+image.setBaseColor(0,10,0);
+image.setPixel(2,2,1);
+image.setPixel(1,2,1);
+await stubit.showWait([image],1000);
+```
+(2,2)と(1,2)が緑色に点灯します。
+
+## setPixelColor(x: number, y: number, [Number, Number, Number]: color): void
+点灯させたい座標と色（RGB値）を指定します。
+```Javascript
+// Javascript Example
+image.setPixel(2,2,[10,10,10]);
+await stubit.showWait([image],1000);
+```
+（2,2）が白色に点灯します。
+
+
+
+## shiftLeft(shift: number): void
+指定した数字分、イメージ全体を左へ移動します。
+```Javascript
+// Javascript Example
+await stubit.display.showWait([image]);
+image.shiftLeft(1);
+await stubit.display.showWait([image]);
+```
+イメージ全体が２列分左へ移動したことを確認できます。
+
+## shiftRight(shift: number): void
+指定した数字分、イメージ全体を右へ移動します。
+```Javascript
+// Javascript Example
+await stubit.display.showWait([image]);
+image.shiftRight(1);
+await stubit.display.showWait([image]);
+```
+イメージ全体が２列分右へ移動したことを確認できます。
+
+## shiftUp(shift: number): void
+指定した数字分、イメージ全体を上へ移動します。
+```Javascript
+// Javascript Example
+await stubit.display.showWait([image]);
+image.shiftUp(1);
+await stubit.display.showWait([image]);
+```
+イメージ全体が１行分上へ移動したことを確認できます。
+
+## shiftDown(shift: number): void
+指定した数字分、イメージ全体を下へ移動します。
+```Javascript
+// Javascript Example
+await stubit.display.showWait([image]);
+image.shiftDown(1);
+await stubit.display.showWait([image]);
+```
+イメージ全体が１行分下へ移動したことを確認できます。
 
 ## copy(): StuduinoBitImage
-
-
+イメージを複製（コピー）します。
 ```Javascript
 // Javascript Example
-
+const newimage = image.copy();
 ```
+
 
 ## crop(src_x: number, src_y: number, w: number, h: number): StuduinoBitImage
-
+イメージからsrc_xとsrc_yを原点として、幅と高さを決め、複製（コピー）する。
 
 ```Javascript
 // Javascript Example
 
 ```
 
-## fill(value: number): void
+## invert(): void
+点灯と消灯を逆転します。点灯しているところを消灯し、消灯しているところを点灯します。
 
+```Javascript
+// Javascript Example
 
+```
+
+## blit(src: StuduinoBitImage, src_x: number, src_y: number, w: number, h: number, xdest?: number, ydest?: number): void
+指定したStuduinoBitImageにイメージを合わせる。合成。パラメータ？
+
+```Javascript
+// Javascript Example
+
+```
+
+## height(): number
+イメージ全体の高さを表示します
+
+```Javascript
+// Javascript Example
+
+```
+
+## width(): number
+イメージ全体の幅を表示します。
 ```Javascript
 // Javascript Example
 
@@ -205,126 +311,42 @@ hexがfalseならRGB値、trueならカラーコードを返します。
 
 ```
 
-## height(): number
-イメージ全体の高さを表示します
-
-```Javascript
-// Javascript Example
-
-```
-
-
-## invert(): void
-
-
-```Javascript
-// Javascript Example
-
-```
-
-## paste(src: StuduinoBitImage, x: number, y: number): void
-
-
-```Javascript
-// Javascript Example
-
-```
-
-## pixelsFrom(str: string, color: Color): Color[][]
-
-```Javascript
-// Javascript Example
-
-```
-
-
-## pixelsFromBuffer(w: number, h: number, buffer: Array| null, color: Color): Color[][]
-
-```Javascript
-// Javascript Example
-
-```
-
-
-## repr(): string
-
-```Javascript
-// Javascript Example
-
-```
-
-## setBaseColor(param0: Color | string | number, param1?: number, param2?: number): void
-色を指定する。setPixelの前に行うと、setPixelのみ変わる。
-
-```Javascript
-// Javascript Example
-
-```
-
-
-## setPixel(x: number, y: number, value: number): void
-座標を指定する。value=0ならあとにshowWaitで点灯しない。value=1だけでは点灯しないが、あとにshowWaitすると点灯する。
-```Javascript
-// Javascript Example
-
-```
-
-## setPixelColor(x: number, y: number, [Number, Number, Number]: color): void
-座標と色を指定する。showWaitを行うと点灯。
-```Javascript
-// Javascript Example
-
-```
-
-## shiftDown(shift: number): void
-イメージ全体を下へNumber分
-```Javascript
-// Javascript Example
-
-```
-
-## shiftLeft(shift: number): void
-イメージ全体を左へNumber分
-```Javascript
-// Javascript Example
-
-```
-
-## shiftRight(shift: number): void
-イメージ全体を右へNumber分
-```Javascript
-// Javascript Example
-
-```
-
-## shiftUp(shift: number): void
-イメージ全体を上へNumber分
-```Javascript
-// Javascript Example
-
-```
-
-
 
 ## str(): string
-
+文字列でイメージの状態を表示。点灯１消灯０．reprとのちがいは？
 ```Javascript
 // Javascript Example
 
 ```
+
+## repr(): string
+イメージの状態を文字列で返します。点灯していたら１、消灯していたら０。strとのちがいは？
+```Javascript
+// Javascript Example
+
+```
+
 ## toPixels(): [number, number, number][]
+ディスプレイの色（RGB値）を取得する。
+(00)[0](01)[1](10)[5]
+```Javascript
+// Javascript Example
+
+```
+
+## fill(value: number): void
+// 変換方法が不明と書かれている
 
 ```Javascript
 // Javascript Example
 
 ```
 
-## width(): number
-イメージ全体の幅を表示します。
-```Javascript
-// Javascript Example
 
-```
+
+
+
+
 
 
 ```Javascript
