@@ -247,6 +247,7 @@ await stubit.display.showWait([image]);
 ```
 イメージ全体が１行分下へ移動したことを確認できます。
 
+
 ## copy(): StuduinoBitImage
 イメージを複製（コピー）します。
 ```Javascript
@@ -268,8 +269,13 @@ const newimage = image.copy();
 
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
+await stubit.display.showWait([image],1000);
+image.invert();
+await stubit.display.showWait([image],1000);
 ```
+点灯と消灯が逆転します。
+写真逆転前→逆転後
 
 ## blit(src: StuduinoBitImage, src_x: number, src_y: number, w: number, h: number, xdest?: number, ydest?: number): void
 指定したStuduinoBitImageにイメージを合わせる。合成。パラメータ？
@@ -297,10 +303,14 @@ const newimage = image.copy();
 ## getPixel(x: number, y: number): number
 指定したx,y座標が点灯していたら1を返します。
 
+上記のディスプレイで以下のプログラムを実行します。
 ```Javascript
 // Javascript Example
-
+let val_01 = image.getPixel(0,1);
+let val_02 = image.getPixel(0,2);
+console.log("(0,1)=%d,(0,2)=%d",val_01,val_02);
 ```
+(0,1)=1,(0,2)=0とContentに表示されます。
 
 ## getPixelColor(Number: x, Number: y, Boolean: hex): Color | String
 指定したx,y座標の色を返します。
