@@ -206,7 +206,7 @@ hexがfalseならRGB値、trueならカラーコードを返します。
 ```
 
 ## height(): number
-
+イメージ全体の高さを表示します
 
 ```Javascript
 // Javascript Example
@@ -320,7 +320,7 @@ hexがfalseならRGB値、trueならカラーコードを返します。
 ```
 
 ## width(): number
-
+イメージ全体の幅を表示します。
 ```Javascript
 // Javascript Example
 
