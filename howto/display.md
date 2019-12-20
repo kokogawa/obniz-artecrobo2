@@ -70,7 +70,7 @@ await stubit.display.scrollWait("ABC",500,true,true,true,[10,10,10]);
 
 
 ## showWait( Image[] | String[] | Number[]: iterable, Number: delay, Boolean: wait, Boolean: loop, Boolean: clear, [Number, Number, Number]: color |null);
-文字など(image,string,number)を１文字ずつ順番に表示します。(※Image[]についてはStuduinoBitImageで説明します。)<br>
+文字など(Image,String,Number)を１文字ずつ順番に表示します。(※Image[]についてはStuduinoBitImageで説明します。)<br>
 delayは１文字を表示する長さ（数字）で記述します。（単位:ミリ秒）<br>
 waitをtrueと記述すると、表示が終わるまで次の処理を実行しません。falseと記述すると、次の処理も同時に実行します。<br>
 loopをtrueと記述すると、繰り返し実行されます。falseと記述すると、一度だけ実行されます。繰り返し実行するときはwaitをtrueと記述してください。<br>
@@ -151,7 +151,7 @@ let color_clear = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得し�
 console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_clear[2]);    //clear実行後のcolorの値をContentに表示します
 ```
 (2,2)がRGB(5,10,15)で点灯し、Contentでも同じ値が確認できます。<br>
-その後、ディスプレイが消灯しますが、ここでは(2,2)に与えられたRGB値が残っていることがContentの表示で確認できます。<br>
+その後、off()によってディスプレイが消灯しますが、ここでは(2,2)に与えられたRGB値が残っていることがContentの表示で確認できます。<br>
 最後に、clear()を使うことで、(2,2)が初期のRGB(0,0,0)に戻ることがContentの表示で確認できます。
 
 
@@ -166,26 +166,26 @@ console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_c
 const image = new Artec.StuduinoBit.Image('11111:11111:11111:11111:11111:');
 await stubit.display.showWait([image],1000);
 ```
-写真
+□全て点灯している写真
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
 await stubit.display.showWait([image],1000);
 ```
-写真
+□ななめに点灯している写真
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('111:010:11100:');
 await stubit.display.showWait([image],1000);
 ```
-写真
+□一部点灯している写真
 ## setBaseColor( String : color | String : color code　| [Number, Number, Number]: RGB colors );
 点灯させたい色を指定します。色は色名、カラーコード、RGB値で指定できます。setPixelと併せて使用します。
 
 
 
-## setPixel(x: number, y: number, value: number): void
-点灯させたい座標を指定します。点灯させたいときはvalue=0ならあとにshowWaitで点灯しない。value=1だけでは点灯しないが、あとにshowWaitすると点灯する。
+## setPixel(Number: x, Number: y, Number: value);
+座標x,yと状態を指定します。Valueが1で点灯、0で消灯です。
 ```Javascript
 // Javascript Example
 image.setBaseColor(0,10,0);
@@ -195,8 +195,8 @@ await stubit.showWait([image],1000);
 ```
 (2,2)と(1,2)が緑色に点灯します。
 
-## setPixelColor(x: number, y: number, [Number, Number, Number]: color): void
-点灯させたい座標と色（RGB値）を指定します。
+## setPixelColor(Number: x, Number: y, [Number, Number, Number]: color);
+座標x,yと色（RGB値）を指定します。
 ```Javascript
 // Javascript Example
 image.setPixel(2,2,[10,10,10]);
@@ -206,7 +206,7 @@ await stubit.showWait([image],1000);
 
 
 
-## shiftLeft(shift: number): void
+## shiftLeft(Number);
 指定した数字分、イメージ全体を左へ移動します。
 ```Javascript
 // Javascript Example
@@ -216,7 +216,7 @@ await stubit.display.showWait([image]);
 ```
 イメージ全体が２列分左へ移動したことを確認できます。
 
-## shiftRight(shift: number): void
+## shiftRight(Number);
 指定した数字分、イメージ全体を右へ移動します。
 ```Javascript
 // Javascript Example
@@ -226,7 +226,7 @@ await stubit.display.showWait([image]);
 ```
 イメージ全体が２列分右へ移動したことを確認できます。
 
-## shiftUp(shift: number): void
+## shiftUp(Number);
 指定した数字分、イメージ全体を上へ移動します。
 ```Javascript
 // Javascript Example
@@ -236,7 +236,7 @@ await stubit.display.showWait([image]);
 ```
 イメージ全体が１行分上へ移動したことを確認できます。
 
-## shiftDown(shift: number): void
+## shiftDown(Number);
 指定した数字分、イメージ全体を下へ移動します。
 ```Javascript
 // Javascript Example
@@ -247,24 +247,29 @@ await stubit.display.showWait([image]);
 イメージ全体が１行分下へ移動したことを確認できます。
 
 
-## copy(): StuduinoBitImage
+## copy();
 イメージを複製（コピー）します。
 ```Javascript
 // Javascript Example
 const newimage = image.copy();
 ```
+imageがnewimageにコピーされました。
 
-
-## crop(src_x: number, src_y: number, w: number, h: number): StuduinoBitImage
-イメージからsrc_xとsrc_yを原点として、幅と高さを決め、複製（コピー）する。
+## crop(Number: src_x, Number:src_y, Number:width, Number:height); 
+イメージの(src_x,src_y)を原点として、幅と高さを指定し、その範囲を複製（コピー）します。
 
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('00000:11111:00000:11111:00000:');
+const newimage = image.crop(1,1,3,3);
+await stubit.displays.showWait([image]);
+await stubit.displays.showWait([newimage]);
 ```
+□imageの写真
+□newimageの写真
 
-## invert(): void
-点灯と消灯を逆転します。点灯しているところを消灯し、消灯しているところを点灯します。
+## invert();
+イメージの点灯と消灯を逆転します。
 
 ```Javascript
 // Javascript Example
@@ -274,34 +279,48 @@ image.invert();
 await stubit.display.showWait([image],1000);
 ```
 点灯と消灯が逆転します。
-写真逆転前→逆転後
+□逆転前の写真
+□逆転後の写真
 
-## blit(src: StuduinoBitImage, src_x: number, src_y: number, w: number, h: number, xdest?: number, ydest?: number): void
-指定したStuduinoBitImageにイメージを合わせる。合成。パラメータ？
+## blit(StuduinoBitImage, Number:src_x, Number:src_y, Number:width, Number:height, xdest?: number, ydest?: number);
+指定したStuduinoBitImageの(src_x,src_y)を原点として指定した幅と高さをコピーし、イメージの(xdest,ydest)を原点として書き換えます。
 
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
+await stubit.display.showWait([image], 1000);
+const tiny = new Artec.StuduinoBit.Image('101:111:010');
+image.blit(tiny, 1, 1, 2, 2, 1, 2);
+await stubit.display.showWait([image], 1000);
 ```
-
-## height(): number
+□image写真
+□ty写真（コピーするところを枠で囲む）
+□blit後のimage写真（貼り付けられたところを枠で囲む）
+## height();
 イメージ全体の高さを表示します
 
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('111:000:111:111:');
+const height=image.height();
+console.log(height);
 ```
+Contentに4と表示されます。
 
-## width(): number
+## width();
 イメージ全体の幅を表示します。
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('111:000:111:111:');
+const height=image.width();
+console.log(width);
 ```
+Contentに3と表示されます。
 
-## getPixel(x: number, y: number): number
-指定したx,y座標が点灯していたら1を返します。
 
+## getPixel(Number: x, Number: y);
+指定したx,y座標の状態を返します。点灯していたら1、消灯していたら0を返します。
+□01が点灯02が消灯している写真
 上記のディスプレイで以下のプログラムを実行します。
 ```Javascript
 // Javascript Example
@@ -309,42 +328,63 @@ let val_01 = image.getPixel(0,1);
 let val_02 = image.getPixel(0,2);
 console.log("(0,1)=%d,(0,2)=%d",val_01,val_02);
 ```
-(0,1)=1,(0,2)=0とContentに表示されます。
+Contentに(0,1)=1,(0,2)=0と表示されます。
 
-## getPixelColor(Number: x, Number: y, Boolean: hex): Color | String
+## getPixelColor(Number: x, Number: y, Boolean: hex);
 指定したx,y座標の色を返します。
 hexがfalseならRGB値、trueならカラーコードを返します。
 
 ```Javascript
 // Javascript Example
+image.setBaseColor(0,10,0);
+image.setPixel(2,2,1);
+let color_rgb = image.getPixelColor(2,2,false);
+console.log(color_rgb);
+let colorcode = image.getPixelColor(2,2,true);
+console.log(colorcode);
+```
+ContentにRGB値（0,10,0）とカラーコード#000a00が表示されます。
 
+## str();
+文字列でイメージの状態を表示します。点灯は1、消灯は0で表示します。reprとのちがいは？
+```Javascript
+// Javascript Example
+const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
+console.log(image.str());
 ```
 
+## repr();
+文字列でイメージの状態を表示します。点灯は1、消灯は0で表示します。strとのちがいは？
+```Javascript
+// Javascript Example
+const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
+console.log(image.repr());
+```
 
-## str(): string
-文字列でイメージの状態を表示。点灯１消灯０．reprとのちがいは？
+## toPixels();
+ディスプレイの色（RGB値）を取得し、配列に格納します。
+配列番号とLEDの対応は以下のようになります。
+□LEDに０～24の数字を振った写真
+```Javascript
+// Javascript Example
+const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
+let array = [];
+array = image.toPixels();
+console.log(array[6]);
+```
+Contentに(31,0,0)と表示されます。
+
+## fill(Number);
+変換方法不明？カンブリアン社制作途中？
+
 ```Javascript
 // Javascript Example
 
 ```
 
-## repr(): string
-イメージの状態を文字列で返します。点灯していたら１、消灯していたら０。strとのちがいは？
-```Javascript
-// Javascript Example
 
-```
+## ディスプレイのサンプルプログラム
 
-## toPixels(): [number, number, number][]
-ディスプレイの色（RGB値）を取得する。
-(00)[0](01)[1](10)[5]
-```Javascript
-// Javascript Example
-
-```
-
-## fill(value: number): void
-// 変換方法が不明と書かれている
 
 ```Javascript
 // Javascript Example
@@ -353,14 +393,6 @@ hexがfalseならRGB値、trueならカラーコードを返します。
 
 
 
-
-
-
-
-
-```Javascript
-
-```
 
 
 
