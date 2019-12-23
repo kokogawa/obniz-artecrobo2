@@ -1,5 +1,5 @@
 
-# LEDの制御
+# LED（接続パーツ）の制御
 LED（接続パーツ）を使用します。<br>
 
 ![](https://i.imgur.com/gs9SS0c.jpg)
