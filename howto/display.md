@@ -159,6 +159,7 @@ console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_c
 
 > **StuduinoBitImage**<br>
 
+(StuduinoBitImage→StuduinoBit.Imageの説明追加予定）<br>
 はじめにStuduinoBitクラスのImageを使って、以下のようにインスタンス化を行います。
 点灯させたいLEDを1、消灯させたいLEDを0で記述します。左から順に記述し、1行ずつ「:」で区切ります。
 ```Javascript
@@ -288,13 +289,13 @@ await stubit.display.showWait([image],1000);
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
-await stubit.display.showWait([image], 1000);
+await stubit.display.showWait([image], 3000);
 const tiny = new Artec.StuduinoBit.Image('101:111:010');
 image.blit(tiny, 1, 1, 2, 2, 1, 2);
-await stubit.display.showWait([image], 1000);
+await stubit.display.showWait([image]);
 ```
 □image写真
-□ty写真（コピーするところを枠で囲む）
+□tiny写真（コピーするところを枠で囲む）
 □blit後のimage写真（貼り付けられたところを枠で囲む）
 ## height();
 イメージ全体の高さを表示します
@@ -308,7 +309,7 @@ console.log(height);
 Contentに4と表示されます。
 
 ## width();
-イメージ全体の幅を表示します。
+イメージ全体の横幅を表示します。
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('111:000:111:111:');
@@ -319,8 +320,8 @@ Contentに3と表示されます。
 
 
 ## getPixel(Number: x, Number: y);
-指定したx,y座標の状態を返します。点灯していたら1、消灯していたら0を返します。
-□01が点灯02が消灯している写真
+指定したx,y座標の状態を返します。点灯していたら1、消灯していたら0を返します。<br>
+□01が点灯02が消灯している写真<br>
 上記のディスプレイで以下のプログラムを実行します。
 ```Javascript
 // Javascript Example
@@ -346,7 +347,7 @@ console.log(colorcode);
 ContentにRGB値（0,10,0）とカラーコード#000a00が表示されます。
 
 ## str();
-文字列でイメージの状態を表示します。点灯は1、消灯は0で表示します。reprとのちがいは？
+文字列でイメージの状態を表示します。点灯は1、消灯は0で表示します。(reprとの違い説明追加予定)
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
@@ -354,7 +355,7 @@ console.log(image.str());
 ```
 
 ## repr();
-文字列でイメージの状態を表示します。点灯は1、消灯は0で表示します。strとのちがいは？
+文字列でイメージの状態を表示します。点灯は1、消灯は0で表示します。(strとの違い説明追加予定)
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
@@ -363,7 +364,7 @@ console.log(image.repr());
 
 ## toPixels();
 ディスプレイの色（RGB値）を取得し、配列に格納します。
-配列番号とLEDの対応は以下のようになります。
+配列番号とLEDの対応は以下のようになります。<br>
 □LEDに０～24の数字を振った写真
 ```Javascript
 // Javascript Example
@@ -375,7 +376,7 @@ console.log(array[6]);
 Contentに(31,0,0)と表示されます。
 
 ## fill(Number);
-変換方法不明？カンブリアン社制作途中？
+(説明追加予定)
 
 ```Javascript
 // Javascript Example
@@ -383,14 +384,125 @@ Contentに(31,0,0)と表示されます。
 ```
 
 
-## ディスプレイのサンプルプログラム
-
+## ディスプレイのサンプルプログラム①
+下記は押すボタンによってディスプレイの表示が異なるプログラムです。REDのボタンを押すと、赤色で1,2,3,4と1秒ごとにディスプレイに表示されます。GREENのボタンを押すと、緑色で1234とスクロール表示されます。BLUEのボタンを押すと、青色で全点灯します。
 
 ```Javascript
 // Javascript Example
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js" ></script>
+</head>
+<body>
 
+<div id="obniz-debug"></div>
+<h1>obniz instant HTML</h1>
+<button id="red">RED</button>
+<button id="green">GREEN</button>
+<button id="blue">BLUE</button>
+
+<script>
+  var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+  stubit.onconnect = async function () {
+
+    $("#red").click(async ()=>{
+       await stubit.display.showWait([1,2,3,4],1000,true,false,true,[20,0,0]);  //赤色で1,2,3,4と1秒ごとに表示する
+    })
+    $("#green").click(async ()=>{
+      await stubit.display.scrollWait("1234",100,true,false,true,[0,20,0]);  //緑色で1,2,3,4とスクロール表示する
+      stubit.display.off();
+    })
+    $("#blue").click(async ()=>{
+      //青色で3秒間点灯する
+      for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+          stubit.display.setPixel(x,y,[0,0,20]);
+        }
+      }
+      stubit.display.on();
+      await stubit.wait(3000);
+      stubit.display.off();
+    })
+
+    //wifi接続／動作確認用
+    ledBlink();
+  }
+  async function ledBlink() {
+    while (1) {
+      stubit.led.on();
+      await stubit.wait(500);
+      stubit.led.off();
+      await stubit.wait(500);
+    }
+  }
+</script>
+</body>
+</html>
 ```
 
+## ディスプレイのサンプルプログラム②
+下の写真のようにディスプレイの表示が変わるプログラムです。<br>
+□（写真1）
+□（写真2）
+□（写真3）
+
+```Javascript
+// Javascript Example
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+
+<body>
+
+  <div id="obniz-debug"></div>
+
+  <script>
+    var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+    stubit.onconnect = async function () {
+    
+      // set basic
+      const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
+      await stubit.display.showWait([image], 2000);  //（写真1）参照
+      console.log('width', image.width());  //imageの横幅をContentに表示します
+      console.log('height', image.height());    //imageの高さをContentに表示します
+      
+      const copy = image.copy();　//imageを複製をcopyに定義します
+      copy.invert();　　//copyの点灯と消灯を逆転します
+      await stubit.display.showWait([copy], 2000);　　//（写真2）参照 
+      console.log(copy.str());　　//copyの状態をContentに表示します
+      
+      image.setPixelColor(2, 2, [0, 0, 31]);　　//imageの(2,2)を緑色に点灯します
+      await stubit.display.showWait([image]);　　//（写真3）参照 
+      let val = image.getPixelColor(2, 2, true);　　//imageの(2,2)のカラーコードを取得します
+      console.log('getPixelColorHex[2,2]', val);　　//imageの(2,2)のカラーコードをContentに表示します
+
+
+    //wifi接続／動作確認用
+    ledBlink();
+  }
+  async function ledBlink() {
+    while (1) {
+      stubit.led.on();
+      await stubit.wait(500);
+      stubit.led.off();
+      await stubit.wait(500);
+    }
+  }
+</script>
+</body>
+</html>
+
+```
 
 
 
