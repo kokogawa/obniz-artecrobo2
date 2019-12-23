@@ -1,6 +1,6 @@
 
 # 光センサーの制御
-Studuino:bitの光センサーを使用します。
+Studuino:bitの光センサーを使用します。<br>
 ![](https://i.imgur.com/0fbX32x.jpg)
 
 
