@@ -22,8 +22,8 @@ atcRobo.onconnect = async function () {
 ```Javascript
 // Javascript Example
 while(1){
-    let sensor = await sensor.getValueWait();
-    console.log(sensor);    //赤外線フォトリフレクターの値をContentに表示します
+    let photorefrector = await sensor.getValueWait();
+    console.log(photorefrector);    //赤外線フォトリフレクターの値をContentに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
@@ -51,8 +51,8 @@ while(1){
   atcRobo.onconnect = async function () {
     let sensor = new Artec.ArtecRobo.IrPhotoRefrector(atcRobo, 'P0');
     while(1){
-      let sensor = await sensor.getValueWait();
-      if(sensor>200){
+      let photorefrector = await sensor.getValueWait();
+      if(photorefrector>200){
          await atcRobo.studuinoBit.buzzer.onWait("D4");
       }else{
          atcRobo.studuinoBit.buzzer.off();
