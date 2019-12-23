@@ -1,7 +1,8 @@
 # 加速度センサー（接続パーツ）の制御
 加速度センサー（接続パーツ）を使用します。</br>
-加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
+加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br>
 
+![](https://i.imgur.com/cWdS0DM.jpg)
 
 
 
@@ -55,8 +56,6 @@ while(1){
 }
 ```
 加速度センサーZの値を1秒ごとに表示します。
-* 詳細<br/>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getzwait
 
 
 ## getValuesWait();
@@ -98,13 +97,11 @@ while(1){
 </head>
 
 <body>
-
   <div id="obniz-debug"></div>
   <h1>obniz instant HTML</h1>
   <br/><br/>
 
   <script>
-
     var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
     atcRobo.onconnect = async function () {
       let sensor = new Artec.ArtecRobo.Accelerometer(atcRobo);
