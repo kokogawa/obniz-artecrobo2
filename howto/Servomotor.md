@@ -1,10 +1,10 @@
-# サーボモーターの制御
-サーボモーターを使用します。
+# サーボモーター（接続パーツ）の制御
+サーボモーター（接続パーツ）を使用します。
 
 
 ![](https://i.imgur.com/ILDq8WG.jpg)
 
-DCモーターの制御はArtecRoboServoMotorクラスに定義され…？</br>
+DCモーターの制御はArtecRoboServoMotorクラスに定義され…？(ArtecRoboServoMotor→ArtecRobo.ServoMotorを説明したい12/24)</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、サーボモーターのポート番号を指定することで、サーボモーターを使用できます。
 ```Javascript
 // Javascript Example
@@ -23,8 +23,9 @@ servo.setAngle(90);
 サーボモーターが90度になります。
 
 
+
 ## サーボモーターのサンプルプログラム
-Aボタンを押すとサーボモーターの角度が0→45→90→135→180→0→...と変化するプログラムです。
+Aボタンを押すとサーボモーターの角度が0度→45度→90度→135度→180度→0度→...と変化するプログラムです。
 
 ```Javascript
 // Javascript Example
