@@ -1,10 +1,10 @@
-# ブザー(接続パーツ)の制御
+# ブザー（接続パーツ）の制御
 ブザー（接続パーツ）を使用します。<br>
 
 ![](https://i.imgur.com/ELcX4Sx.jpg)
 
 
-ブザーの制御はArtecRoboBuzzerクラスに定義され…？</br>
+ブザーの制御はArtecRoboBuzzerクラスに定義され…？（ArtecRoboBuzzer→ArtecRobo.Buzzerを説明したい）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、ブザーを使用できます。
 ```Javascript
 // Javascript Example
@@ -41,8 +41,8 @@ A4（ラ）の音がブザーから鳴ります。</br>
 await buzzer.onWait("C4", 1000);
 ```
 C4の音が1秒鳴ります。</br>
-
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobobuzzer.html#onwait
 
 
 ## off();
@@ -51,12 +51,14 @@ C4の音が1秒鳴ります。</br>
 
 ```Javascript
 // Javascript Example
-stubit.buzzer.off();
+buzzer.off();
 ```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobobuzzer.html#off
 
 
 ## ブザーのサンプルプログラム
-Aボタンを押すと入力した音（周波数）でブザーが鳴り、Bボタンを押すとブザーが止まります。
+Aボタンを押すと指定した音（周波数）でブザーが鳴り、Bボタンを押すとブザーが止まります。
 
 ```Javascript
 // Javascript Example
