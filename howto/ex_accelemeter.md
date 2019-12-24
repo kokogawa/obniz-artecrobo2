@@ -6,7 +6,7 @@
 
 
 
-加速度センサーの制御はArtecRoboAccelerometerクラスに定義され…？</br>
+加速度センサーの制御はArtecRoboAccelerometerクラスに定義され…？（ArtecRoboAccelerometer→ArtecRobo.Accelerometerを説明したい12/24）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、加速度センサーを使用できます。
 ```Javascript
 // Javascript Example
@@ -29,7 +29,8 @@ while(1){
 }
 ```
 加速度センサーXの値を1秒ごとに表示します。
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getxwait
 
 ## getYWait();
 加速度センサーYの値を返します。小数第２位まで表示します。
@@ -43,7 +44,8 @@ while(1){
 }
 ```
 加速度センサーYの値を1秒ごとに表示します。
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getywait
 
 ## getZWait();
 加速度センサーZの値を返します。
@@ -56,11 +58,11 @@ while(1){
 }
 ```
 加速度センサーZの値を1秒ごとに表示します。
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getzwait
 
 ## getValuesWait();
-
-加速度センサーX,Y,Zの値を返します。小数第２位まで表示します。
+加速度センサーX,Y,Zの値を返します。小数第２位まで表示します。（小数点以下が多い12/24）
 
 ```Javascript
 // Javascript Example
@@ -71,7 +73,8 @@ while(1){
 }
 ```
 加速度センサーX,Y,Zの値を1秒ごとに表示します。
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getvalueswait
 
 
 ## configurationWait(Boolean: highres, Number: scale);
@@ -80,10 +83,11 @@ while(1){
 // Javascript Example
 
 ```
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#configurationwait
 
 ## 加速度センサーのサンプルプログラム
-加速度センサーを傾ける向きによって、LEDの色が変わるプログラムです。(加速度センサーがつながっていないと表示されて確認できていない12/23)
+加速度センサーを傾ける向きによって、LEDの色が変わるプログラムです。(加速度センサーがつながっていないと表示されて確認できていない12/23　　同じ値ばかり表示される12/24)
 ```Javascript
 // Javascript Example
 <html>
