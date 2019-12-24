@@ -24,6 +24,9 @@ while(1){
     await stubit.wait(1000);
 }
 ```
+光センサーの値を1秒ごとに表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.html#getvaluewait
 
 ## 光センサーのサンプルプログラム
 暗くなるとブザーが鳴るプログラムです。
