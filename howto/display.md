@@ -46,10 +46,10 @@ stubit.display.off();
 ## scrollWait(String: text, Number: delay, Boolean: wait, Boolean: loop, Boolean: monospace, [Number, Number, Number]: color |null);
 文字をスクロール表示します。<br>
 delayはスクロール表示する速さ(数字)を記述します。<br>
-waitをtrueと記述すると、スクロール表示が終わるまで次の処理を実行しません。falseと記述すると、次の処理も同時に実行します。<br>
+waitをtrueと記述すると、スクロール表示が終わるまで次の処理を実行しません。falseと記述すると、表示が終わるのを待たずに次の処理を実行します。<br>
 loopをtrueと記述すると、繰り返し実行されます。falseと記述すると、一度だけ実行されます。繰り返し実行するときはwaitをtrueと記述してください。<br>
 monospaceをtrueと記述すると、文字が小さく表示されます。<br>
-colorにはRGB値を記述します。<br>
+colorには表示する文字の色を設定します。RGB値を記述します。<br>
 既定値は以下のようになっています。
 
 
@@ -71,11 +71,11 @@ await stubit.display.scrollWait("ABC",500,true,true,true,[10,10,10]);
 
 ## showWait( Image[] | String[] | Number[]: iterable, Number: delay, Boolean: wait, Boolean: loop, Boolean: clear, [Number, Number, Number]: color |null);
 文字など(Image,String,Number)を１文字ずつ順番に表示します。(※Image[]についてはStuduinoBitImageで説明します。)<br>
-delayは１文字を表示する長さ（数字）で記述します。（単位:ミリ秒）<br>
-waitをtrueと記述すると、表示が終わるまで次の処理を実行しません。falseと記述すると、次の処理も同時に実行します。<br>
-loopをtrueと記述すると、繰り返し実行されます。falseと記述すると、一度だけ実行されます。繰り返し実行するときはwaitをtrueと記述してください。<br>
-clearをtrueと記述すると、実行後ディスプレイが消灯します。falseと記述すると、点灯し続けます。<br>
-colorにはRGB値を記述します。<br>
+delayは１文字を表示する時間を記述します。（単位:ミリ秒）<br>
+waitをtrueと記述すると、表示が終わるまで次の処理を実行しません。falseと記述すると、表示が終わるのを待たずに次の処理を実行します。<br>
+loopをtrueと記述すると、繰り返し実行されます。falseと記述すると、一度だけ実行されます。<br>
+clearをtrueと記述すると、実行完了後ディスプレイが消灯します。falseと記述すると、点灯し続けます。<br>
+colorには表示するイメージの色を設定します。RGB値を記述します。<br>
 既定値は以下のようになっています。
 
 
@@ -96,7 +96,7 @@ await stubit.display.showWait([1,2,3,4],1000,true,true,false,[10,10,10]);
 
 
 ## isOn();
-ディスプレイが点灯しているときにtrue,消灯しているときにfalseを返します
+ディスプレイが点灯しているときにtrue、消灯しているときにfalseを返します。
 ```Javascript
 // Javascript Example
 stubit.display.off();
@@ -117,9 +117,10 @@ while(1){
       await stubit.wait(500);
 }
 ```
-Aボタンを押すと、ディスプレイの状態をContentに表示します。<br>
-はじめはディスプレイが消灯しているため、Aボタンを押すとfalseを返します。<br>
-Bボタンを押すとディスプレイが点灯するため、そのあとにAボタンを押すとtrueを返します。
+プログラム起動後、ディスプレイが消灯している状態でAボタンを押すとfalseを返します。
+Bボタンを押すとディスプレイが点灯します。ディスプレイが点灯している状態でAボタンを押す
+とtrueを返します。
+
 
 
 ## getPixel(Number: x, Number: y);
@@ -131,7 +132,7 @@ stubit.display.on();     //(2,2)がRGB(5,10,15)で点灯します
 let color = stubit.display.getPixel(2,2);　
 console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をContentに表示します
 ```
-点灯した(2,2)のRGB値をContentに表示します。
+ディスプレイの(2,2)に点灯したRGB値をContentに表示します。
 
 ## clear();
 ディスプレイを初期の段階に戻します。
@@ -152,9 +153,10 @@ stubit.display.clear();
 let color_clear = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します
 console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_clear[2]);    //clear実行後のcolorの値をContentに表示します
 ```
-(2,2)がRGB(5,10,15)で点灯し、Contentでも同じ値が確認できます。<br>
-その後、off()によってディスプレイが消灯しますが、ここでは(2,2)に与えられたRGB値が残っていることがContentの表示で確認できます。<br>
-最後に、clear()を使うことで、(2,2)が初期のRGB(0,0,0)に戻ることがContentの表示で確認できます。
+ディスプレイの(2,2)がRGB(5,10,15)で点灯し、コンソールでも(2,2)に設定されているRGB値が確認できます。
+その後、off()によってディスプレイが消灯しますが、(2,2)にはRGB値が設定されていることがコンソールの表示で確認できます。
+最後に、clear()で、(2,2)が初期化（RGB(0,0,0)）されていることがコンソールの表示で確認できます。
+
 
 
 <br>
@@ -163,7 +165,7 @@ console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_c
 
 (StuduinoBitImage→StuduinoBit.Imageの説明追加予定）<br>
 はじめにStuduinoBitクラスのImageを使って、以下のようにインスタンス化を行います。
-点灯させたいLEDを1、消灯させたいLEDを0で記述します。左から順に記述し、1行ずつ「:」で区切ります。
+点灯させたいLEDを1、消灯させたいLEDを0で記述します。ディスプレイの左から順に記述し、1行ずつ「:」で区切ります。
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('11111:11111:11111:11111:11111:');
@@ -196,7 +198,7 @@ image.setPixel(2,2,1);
 image.setPixel(1,2,1);
 await stubit.showWait([image],1000);
 ```
-(2,2)と(1,2)が緑色に点灯します。
+ディスプレイの(2,2)と(1,2)が緑色に点灯します
 
 ## setPixelColor(Number: x, Number: y, [Number, Number, Number]: color);
 座標x,yと色（RGB値）を指定します。
@@ -205,7 +207,7 @@ await stubit.showWait([image],1000);
 image.setPixel(2,2,[10,10,10]);
 await stubit.showWait([image],1000);
 ```
-（2,2）が白色に点灯します。
+ディスプレイの（2,2）が白色に点灯します。
 
 
 
@@ -217,7 +219,7 @@ await stubit.display.showWait([image]);
 image.shiftLeft(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が２列分左へ移動したことを確認できます。
+イメージ全体が1列分左へ移動したことを確認できます。
 
 ## shiftRight(Number);
 指定した数字分、イメージ全体を右へ移動します。
@@ -227,7 +229,7 @@ await stubit.display.showWait([image]);
 image.shiftRight(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が２列分右へ移動したことを確認できます。
+イメージ全体が1列分右へ移動したことを確認できます。
 
 ## shiftUp(Number);
 指定した数字分、イメージ全体を上へ移動します。
@@ -237,7 +239,7 @@ await stubit.display.showWait([image]);
 image.shiftUp(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が１行分上へ移動したことを確認できます。
+イメージ全体が1行分上へ移動したことを確認できます。
 
 ## shiftDown(Number);
 指定した数字分、イメージ全体を下へ移動します。
@@ -247,7 +249,7 @@ await stubit.display.showWait([image]);
 image.shiftDown(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が１行分下へ移動したことを確認できます。
+イメージ全体が1行分下へ移動したことを確認できます。
 
 
 ## copy();
@@ -256,7 +258,7 @@ await stubit.display.showWait([image]);
 // Javascript Example
 const newimage = image.copy();
 ```
-imageがnewimageにコピーされました。
+imageがnewimageにコピーされます。
 
 ## crop(Number: src_x, Number:src_y, Number:width, Number:height); 
 イメージの(src_x,src_y)を原点として、幅と高さを指定し、その範囲を複製（コピー）します。
