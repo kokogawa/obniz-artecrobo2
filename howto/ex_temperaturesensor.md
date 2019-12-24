@@ -6,7 +6,7 @@
 
 
 
-温度センサーの制御はArtecRoboTemperatureクラスに定義され…？？。</br>
+温度センサーの制御はArtecRoboTemperatureクラスに定義され…？？（ArtecRoboTemperature→ArtecRobo.Temperatureを説明したい12/24）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、温度センサーを使用できます。
 ```Javascript
 // Javascript Example
@@ -15,7 +15,6 @@ atcRobo.onconnect = async function () {
     let sensor = new Artec.ArtecRobo.Temperature(atcRobo, 'P0');　//P0に温度センサーを接続する場合
 }
 ```
-
 
 ## getValueWait();
 温度センサーの値を返します。
@@ -28,6 +27,8 @@ while(1){
 }
 ```
 温度センサーの値を表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.html#getcelsiuswait
 
 ## getCelsiusWait();
 温度センサーの値をセルシウス温度（℃）で返します。
@@ -40,6 +41,8 @@ while(1){
 }
 ```
 温度センサーの値を表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.html#getvaluewait
 
 ## 温度センサーのサンプルプログラム
 温度が指定した値を超えると、ディスプレイが点灯するプログラムです。
