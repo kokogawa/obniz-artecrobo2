@@ -24,6 +24,8 @@ while(1){
 }
 ```
 温度センサーの値を表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobittemperature.html#getvaluewait
 
 ## getCelsiusWait(Number:ndigits);
 温度センサーの値をセルシウス温度（℃）で返します。小数点以下第何位まで表示するかを数字で指定します。既定値は小数第二位まで表示します
@@ -36,6 +38,8 @@ while(1){
 }
 ```
 温度センサーの値を小数第三位まで表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.html#getvaluewait
 
 ## 温度センサーのサンプルプログラム
 現在の温度（℃）をディスプレイにスクロール表示するプログラムです。
