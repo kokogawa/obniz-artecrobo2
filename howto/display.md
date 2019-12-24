@@ -171,19 +171,26 @@ console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_c
 const image = new Artec.StuduinoBit.Image('11111:11111:11111:11111:11111:');
 await stubit.display.showWait([image],1000);
 ```
-□全て点灯している写真
+以下のように点灯します。<br>
+![](https://i.imgur.com/r9ZgddH.jpg)
+
+
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
 await stubit.display.showWait([image],1000);
 ```
-□ななめに点灯している写真
+以下のように点灯します。<br>
+![](https://i.imgur.com/ASjW1fl.jpg)
+
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('111:010:11100:');
 await stubit.display.showWait([image],1000);
 ```
-□一部点灯している写真
+以下のように点灯します。<br>
+![](https://i.imgur.com/7JcmUMp.jpg)
+
 ## setBaseColor( String : color | String : color code　| [Number, Number, Number]: RGB colors );
 点灯させたい色を指定します。色は色名、カラーコード、RGB値で指定できます。setPixelと併せて使用します。
 
@@ -253,7 +260,7 @@ await stubit.display.showWait([image]);
 
 
 ## copy();
-イメージを複製（コピー）します。
+イメージをコピーします。
 ```Javascript
 // Javascript Example
 const newimage = image.copy();
@@ -261,7 +268,7 @@ const newimage = image.copy();
 imageがnewimageにコピーされます。
 
 ## crop(Number: src_x, Number:src_y, Number:width, Number:height); 
-イメージの(src_x,src_y)を原点として、幅と高さを指定し、その範囲を複製（コピー）します。
+イメージの(src_x,src_y)を原点として、幅と高さを指定し、その範囲をコピーします。
 
 ```Javascript
 // Javascript Example
@@ -270,8 +277,10 @@ const newimage = image.crop(1,1,3,3);
 await stubit.displays.showWait([image]);
 await stubit.displays.showWait([newimage]);
 ```
-□imageの写真
-□newimageの写真
+![](https://i.imgur.com/qrhHUrs.png)
+<br>[image]黄色枠の箇所をコピーします<br>
+![](https://i.imgur.com/NUJnKSk.jpg)
+<br>[newimage]<br>
 
 ## invert();
 イメージの点灯と消灯を逆転します。
@@ -283,10 +292,11 @@ await stubit.display.showWait([image],1000);
 image.invert();
 await stubit.display.showWait([image],1000);
 ```
-点灯と消灯が逆転します。
-□逆転前の写真
-□逆転後の写真
-
+点灯と消灯が逆転します。<br>
+![](https://i.imgur.com/Xj6fSQg.jpg)
+<br>[image]逆転前<br>
+![](https://i.imgur.com/qtD0jKB.jpg)
+<br>[image]逆転後<br>
 ## blit(StuduinoBitImage, Number:src_x, Number:src_y, Number:width, Number:height, xdest?: number, ydest?: number);
 指定したStuduinoBitImageの(src_x,src_y)を原点として指定した幅と高さをコピーし、イメージの(xdest,ydest)を原点として書き換えます。
 
@@ -298,9 +308,13 @@ const tiny = new Artec.StuduinoBit.Image('101:111:010');
 image.blit(tiny, 1, 1, 2, 2, 1, 2);
 await stubit.display.showWait([image]);
 ```
-□image写真
-□tiny写真（コピーするところを枠で囲む）
-□blit後のimage写真（貼り付けられたところを枠で囲む）
+![](https://i.imgur.com/ASjW1fl.jpg)
+<br>書き換え前の[image]<br>
+![](https://i.imgur.com/lHeyZiA.png)
+<br>[tiny]黄色枠の箇所をコピーします<br>
+![](https://i.imgur.com/XQtCYfr.png)
+<br>書き換え後の[image]<br>
+
 ## height();
 イメージ全体の高さを表示します
 
@@ -325,7 +339,8 @@ Contentに3と表示されます。
 
 ## getPixel(Number: x, Number: y);
 指定したx,y座標の状態を返します。点灯していたら1、消灯していたら0を返します。<br>
-□01が点灯02が消灯している写真<br>
+![](https://i.imgur.com/S66rN8p.jpg)
+<br>
 上記のディスプレイで以下のプログラムを実行します。
 ```Javascript
 // Javascript Example
@@ -369,7 +384,8 @@ console.log(image.repr());
 ## toPixels();
 ディスプレイの色（RGB値）を取得し、配列に格納します。
 配列番号とLEDの対応は以下のようになります。<br>
-□LEDに０～24の数字を振った写真
+![](https://i.imgur.com/4hhTn3n.png)
+
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
@@ -451,9 +467,12 @@ Contentに(31,0,0)と表示されます。
 
 ## ディスプレイのサンプルプログラム②
 下の写真のようにディスプレイの表示が変わるプログラムです。<br>
-□（写真1）
-□（写真2）
-□（写真3）
+![](https://i.imgur.com/ERVlZyC.jpg)
+<br>（写真1）<br>
+![](https://i.imgur.com/iLFprUw.jpg)
+<br>（写真2）<br>
+![](https://i.imgur.com/4IECYEu.jpg)
+<br>（写真3）<br>
 
 ```Javascript
 // Javascript Example
