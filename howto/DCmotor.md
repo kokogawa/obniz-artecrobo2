@@ -1,6 +1,7 @@
 # DCモーターの制御
 DCモーターを使用します。</br>
 
+![](https://i.imgur.com/FUldF1K.jpg)
 
 DCモーターの制御はArtecRoboMotorクラスに定義され…？</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、DCモーターのポート番号を指定することで、DCモーターを使用できます。
@@ -26,42 +27,96 @@ DCモーターを反時計回りに回転させます。
 motor.ccw();
 ```
 
-## power(Number: power);
-
-```Javascript
-// Javascript Example
-
-```
-
-
 ## stop();
-
+DCモーターをブレーキなしで止めます。
 ```Javascript
 // Javascript Example
-
+motor.stop();
 ```
 
 ## break();
-
+DCモーターをブレーキありで止めます。
 ```Javascript
 // Javascript Example
-
+motor.break();
 ```
 
-
-## action(action: ArtecRoboMotorMotion);
-
+## power(Number: power);
+DCモーターの回転する速さを数字で指定します。0～255の間で定義します。
 ```Javascript
 // Javascript Example
-
+motor.power(155);
+motor.cw();
+await atcRobo.studuinoBit.wait(3000);
+motor.power(255);
+motor.ccw();
+await atcRobo.studuinoBit.wait(3000);
+motor.stop();
 ```
+DCモーターがゆっくり時計回りに3秒間回転したあとに、速く反時計回りに3秒間回転します。
 
+
+## action(CW | CCW | STOP | BREAK :action);
+DCモーターの動きを指定します。
+```Javascript
+// Javascript Example
+motor.action("cw");
+await atcRobo.studuinoBit.wait(3000);
+motor.action("ccw");
+await atcRobo.studuinoBit.wait(3000);
+motor.action("stop");
+```
+DCモーターが時計回りに3秒間回転したあとに、反時計回りに3秒間回転します。
 
 
 ## DCモーターのサンプルプログラム
 
 ```Javascript
 // Javascript Example
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+<body>
 
+<div id="obniz-debug"></div>
+<h1>obniz instant HTML</h1>
+<br/><br/>
+
+<script>
+  var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
+  atcRobo.onconnect = async function () {
+    let motor = new Artec.ArtecRobo.Motor(atcRobo, 'M1');
+    motor.power(200);
+    while(1){
+        let pressedA = atcRobo.studuinoBit.button_a.wasPressed();　//Aボタンが押されたときtrueを返します
+        let pressedB = atcRobo.studuinoBit.button_b.wasPressed();　//Bボタンが押されたときtrueを返します
+        await atcRobo.studuinoBit.wait(100);
+        if(pressedA==true){
+          motor.cw();  //DCモーターが時計回りに回転します
+        }
+        if(pressedB==true){
+          motor.break();  //DCモーターをブレーキありで止めます
+        }
+      }
+　　    
+    //wifi接続／動作確認用
+    ledBlink();
+  };
+  async function ledBlink() {
+    while (1) {
+      atcRobo.studuinoBit.led.on();
+      await atcRobo.studuinoBit.wait(500);
+      atcRobo.studuinoBit.led.off();
+      await atcRobo.studuinoBit.wait(500);
+    }
+  }
+</script>
+</body>
+</html>
 ```
 
