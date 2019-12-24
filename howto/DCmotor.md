@@ -1,9 +1,9 @@
-# DCモーターの制御
-DCモーターを使用します。</br>
+# DCモーター（接続パーツ）の制御
+DCモーター（接続パーツ）を使用します。</br>
 
 ![](https://i.imgur.com/FUldF1K.jpg)
 
-DCモーターの制御はArtecRoboMotorクラスに定義され…？</br>
+DCモーターの制御はArtecRoboMotorクラスに定義され…？（ArtecRoboMotor→ArtecRobo.Motorを説明したい12/24）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、DCモーターのポート番号を指定することで、DCモーターを使用できます。
 ```Javascript
 // Javascript Example
@@ -19,6 +19,8 @@ DCモーターを時計回りに回転させます。
 // Javascript Example
 motor.cw();
 ```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#cw-1
 
 ## ccw();
 DCモーターを反時計回りに回転させます。
@@ -26,6 +28,8 @@ DCモーターを反時計回りに回転させます。
 // Javascript Example
 motor.ccw();
 ```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#ccw-1
 
 ## stop();
 DCモーターをブレーキなしで止めます。
@@ -33,6 +37,8 @@ DCモーターをブレーキなしで止めます。
 // Javascript Example
 motor.stop();
 ```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#stop-1
 
 ## break();
 DCモーターをブレーキありで止めます。
@@ -40,6 +46,8 @@ DCモーターをブレーキありで止めます。
 // Javascript Example
 motor.break();
 ```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#break-1
 
 ## power(Number: power);
 DCモーターの回転する速さを数字で指定します。0～255の間で定義します。
@@ -48,13 +56,16 @@ DCモーターの回転する速さを数字で指定します。0～255の間�
 motor.power(155);
 motor.cw();
 await atcRobo.studuinoBit.wait(3000);
+
 motor.power(255);
 motor.ccw();
 await atcRobo.studuinoBit.wait(3000);
+
 motor.stop();
 ```
-DCモーターがゆっくり時計回りに3秒間回転したあとに、速く反時計回りに3秒間回転します。
-
+DCモーターが時計回りに3秒間ゆっくり回転したあとに、反時計回りに3秒間速く回転します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#power
 
 ## action(CW | CCW | STOP | BREAK :action);
 DCモーターの動きを指定します。
@@ -67,10 +78,11 @@ await atcRobo.studuinoBit.wait(3000);
 motor.action("stop");
 ```
 DCモーターが時計回りに3秒間回転したあとに、反時計回りに3秒間回転します。
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#action
 
 ## DCモーターのサンプルプログラム
-
+Aボタンを押すとDCモーターが時計回りで回転し、Bボタンで回転を止めるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
