@@ -21,6 +21,8 @@ LEDを点灯します。
 // Javascript Example
 led.on();
 ```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboled.html#on
 
 ## off();
 LEDを消灯します。
@@ -28,7 +30,8 @@ LEDを消灯します。
 // Javascript Example
 led.off();
 ```
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboled.html#off
 
 ## LEDのサンプルプログラム
 Aボタンを押すとLEDが点灯し、Bボタンを押すとLEDが消灯します。
