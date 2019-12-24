@@ -1,13 +1,11 @@
 
-# タッチセンサーの制御
+# タッチセンサー（接続パーツ）の制御
 タッチセンサー（接続パーツ）を使用します。<br>
 
 ![](https://i.imgur.com/8MitG6C.jpg)
 
 
-
-
-タッチセンサーの制御はArtecRoboArtecRoboTouchSensorクラスに定義され…？？。</br>
+タッチセンサーの制御はArtecRoboTouchSensorクラスに定義され…？？（ArtecRoboTouchSensor→ArtecRobo.TouchSensorを説明したい12/24）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、タッチセンサーを使用できます。
 ```Javascript
 // Javascript Example
@@ -28,10 +26,12 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-タッチセンサーの状態を表示します。（タッチセンサー反応しない12/23）
+タッチセンサーの状態を表示します。（タッチセンサー反応しない12/23→普通の方でも反応してない。P1なら反応するが、押したらfalseになる。逆だと思う12/24）
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.html#getvaluewait
 
 ## タッチセンサーのサンプルプログラム
-タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。（タッチセンサー反応しないので実装できていない12/23）
+タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。（タッチセンサー反応しない12/23→普通の方でも反応してない。P1なら反応するが、押したらfalseになる。逆だと思う12/24）
 ```Javascript
 <html>
 <head>
