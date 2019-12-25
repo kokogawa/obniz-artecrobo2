@@ -1,7 +1,7 @@
 # 磁気センサーの制御
 Studuino:bitの磁気センサーを使用します。</br>
 磁気の計測により磁力の変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
-![](https://i.imgur.com/cNlPIDt.jpg)
+![](https://i.imgur.com/cF6mSBc.png)
 
 磁気センサーの制御はStuduinoBitCompassクラスに定義され、StuduinoBitクラスでcompassにインスタンス化されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitの磁気センサーを使用できます。
