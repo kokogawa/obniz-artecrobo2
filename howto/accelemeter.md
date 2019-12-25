@@ -1,8 +1,7 @@
 # 加速度センサーの制御
 Studuino:bitの加速度センサーを使用します。</br>
 加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
-![](https://i.imgur.com/cNlPIDt.jpg)
-
+![](https://i.imgur.com/cF6mSBc.png)
 
 
 加速度センサーの制御はStuduinoBitAccelerometerクラスに定義され、StuduinoBitクラスでaccelerometerにインスタンス化されています。</br>
