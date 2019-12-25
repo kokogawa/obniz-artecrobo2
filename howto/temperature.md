@@ -28,7 +28,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobittemperature.html#getvaluewait
 
 ## getCelsiusWait(Number:ndigits);
-温度センサーの値をセルシウス温度（℃）で返します。小数点以下第何位まで表示するかを数字で指定します。既定値は小数第二位まで表示します
+温度センサーの値をセルシウス温度（℃）で返します。ndigits引数で小数点以下第何位まで表示するかを数字で指定します。既定値は小数第二位まで表示します
 ```Javascript
 // Javascript Example
 while(1){
