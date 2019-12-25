@@ -3,8 +3,6 @@ Studuino:bitの磁気センサーを使用します。</br>
 磁気の計測により磁力の変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br></br>
 ![](https://i.imgur.com/cNlPIDt.jpg)
 
-
-
 磁気センサーの制御はStuduinoBitCompassクラスに定義され、StuduinoBitクラスでcompassにインスタンス化されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitの磁気センサーを使用できます。
 ```Javascript
@@ -12,8 +10,35 @@ Studuino:bitの磁気センサーを使用します。</br>
 var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 
-## getXWait();
 
+## calibrateWait();
+磁気センサーの較正を行います。Studuino:bit本体を回転させてください。ディスプレイ上のLEDが全て点灯すると、較正完了です。
+```Javascript
+// Javascript Example
+await stubit.compass.calibrateWait();
+```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#calibratewait
+
+## clearCalibration();
+磁気センサーの較正を初期状態に戻します。
+```Javascript
+// Javascript Example
+stubit.compass.clearCalibration();
+```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#clearcalibration
+
+## isCalibrated();
+（はじめでも、clea後でもcalibrate後でもtrueが返ってくる12/25）
+```Javascript
+// Javascript Example
+stubit.compass.isCalibrated();
+```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#iscalibrated
+
+## getXWait();
 磁気センサーXの値を返します。小数第２位まで表示します。
 
 ```Javascript
@@ -25,6 +50,8 @@ while(1){
 }
 ```
 磁気センサーXの値を1秒ごとに表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getxwait
 
 ## getYWait();
 磁気センサーYの値を返します。小数第２位まで表示します。
@@ -38,6 +65,8 @@ while(1){
 }
 ```
 磁気センサーYの値を1秒ごとに表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getywait
 
 ## getZWait();
 磁気センサーZの値を返します。小数第２位まで表示します。
@@ -50,10 +79,10 @@ while(1){
 }
 ```
 磁気センサーZの値を1秒ごとに表示します。
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getzwait
 
 ## getValuesWait();
-
 磁気センサーX,Y,Zの値を返します。小数第２位まで表示します。
 
 ```Javascript
@@ -66,41 +95,22 @@ while(1){
 }
 ```
 磁気センサーX,Y,Zの値を1秒ごとに表示します。
-
-## calibrateWait();
-磁気センサーの較正を行います。Studuino:bit本体を回転させてください。ディスプレイ上のLEDが全て点灯すると、較正完了です。
-```Javascript
-// Javascript Example
-await stubit.compass.calibrateWait();
-```
-
-## clearCalibration();
-磁気センサーの較正を初期状態に戻します。
-```Javascript
-// Javascript Example
-stubit.compass.clearCalibration();
-```
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getvalueswait
 
 ## headingWait();
-方角を示す値を返します。北が0、東が90、南が180、西が270を示します。(予想。実装を確認できていない。示せていないが、精度の問題？12/25)
+方角を示す値を返します。北が0、東が90、南が180、西が270を示します。(上手く示せていないが、精度の問題？12/25)
 ```Javascript
 // Javascript Example
 while(1){
     let compass = await stubit.compass.headingWait();
-    console.log(compass);
+    console.log(compass);  //方角をContentに表示します
     await stubit.wait(1000)
 }
 ```
 1秒ごとに方角（数値）を表示します。
-
-## isCalibrated(): boolean
-
-```Javascript
-// Javascript Example
-
-```
-
-
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#headingwait
 
 ## 磁気センサーのサンプルプログラム
 Studuino:bitが向いている方角をディスプレイに表示するプログラムです。北はN、東はE、南はS、西はWです。
