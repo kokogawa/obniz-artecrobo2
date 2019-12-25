@@ -67,26 +67,31 @@ while(1){
 ```
 磁気センサーX,Y,Zの値を1秒ごとに表示します。
 
-## calibrateWait(): Promise<number[][]>
-
+## calibrateWait();
+磁気センサーの較正を行います。Studuino:bit本体を回転させてください。ディスプレイ上のLEDが全て点灯すると、較正完了です。
 ```Javascript
 // Javascript Example
-
+await stubit.compass.calibrateWait();
 ```
 
-## clearCalibration(): void
-
+## clearCalibration();
+磁気センサーの較正を初期状態に戻します。
 ```Javascript
 // Javascript Example
-
+stubit.compass.clearCalibration();
 ```
 
-## headingWait(): Promisenumber
-
+## headingWait();
+方角を示す値を返します。北が0、東が90、南が180、西が270を示します。(予想。実装を確認できていない。示せていないが、精度の問題？12/25)
 ```Javascript
 // Javascript Example
-
+while(1){
+    let compass = await stubit.compass.headingWait();
+    console.log(compass);
+    await stubit.wait(1000)
+}
 ```
+1秒ごとに方角（数値）を表示します。
 
 ## isCalibrated(): boolean
 
@@ -98,8 +103,51 @@ while(1){
 
 
 ## 磁気センサーのサンプルプログラム
-Studuino:bitをプログラムです。
+Studuino:bitが向いている方角をディスプレイに表示するプログラムです。北はN、東はE、南はS、西はWです。
 ```Javascript
 // Javascript Example
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@2.2.0/obniz.js"></script>
+  <script src="https://artec-kk.github.io/obniz-artecrobo2/artec.js"></script>
+</head>
+<body>
+  <div id="obniz-debug"></div>
 
+  <script>
+    var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
+    stubit.onconnect = async function () {
+      await stubit.compass.calibrateWait();
+      while (1) {
+        let heading = await stubit.compass.headingWait();  //方角を取得します
+        await stubit.wait(1000);
+        
+        if(heading<45 || heading>=315){
+          await stubit.display.showWait("N");  //ディスプレイにNを表示します
+        }else if(heading>=45 && heading<135){
+          await stubit.display.showWait("E");　//ディスプレイにEを表示します
+        }else if(heading>=135 && heading<255){
+          await stubit.display.showWait("S");　//ディスプレイにSを表示します
+        }else if(heading>=255 && heading<315){
+          await stubit.display.showWait("W");  //ディスプレイにWを表示します
+        }
+        
+      }
+    }
+    async function ledBlink() {
+      while (1) {
+        stubit.led.on();
+        await stubit.wait(500);
+        stubit.led.off();
+        await stubit.wait(500);
+      }
+    }
+
+  </script>
+</body>
+
+</html>
 ```
