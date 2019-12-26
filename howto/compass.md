@@ -30,7 +30,7 @@ stubit.compass.clearCalibration();
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#clearcalibration
 
 ## isCalibrated();
-（はじめでも、clea後でもcalibrate後でもtrueが返ってくる12/25）
+較正が行われていたらtrue、行われていなかったらfalseを返します。
 ```Javascript
 // Javascript Example
 stubit.compass.isCalibrated();
@@ -99,7 +99,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getvalueswait
 
 ## headingWait();
-方角を示す値を返します。北が0、東が90、南が180、西が270を示します。(上手く示せていないが、精度の問題？12/25)
+方角を示す値を返します。北が0、東が90、南が180、西が270を示します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -113,7 +113,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#headingwait
 
 ## 磁気センサーのサンプルプログラム
-Studuino:bitが向いている方角をディスプレイに表示するプログラムです。北はN、東はE、南はS、西はWです。
+Studuino:bitが向いている方角をディスプレイに表示するプログラムです。北はN、東はE、南はS、西はWを表示します。
 ```Javascript
 // Javascript Example
 <html>
@@ -158,6 +158,5 @@ Studuino:bitが向いている方角をディスプレイに表示するプロ�
 
   </script>
 </body>
-
 </html>
 ```
