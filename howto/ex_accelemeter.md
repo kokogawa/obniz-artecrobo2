@@ -87,11 +87,10 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#configurationwait
 
 ## 加速度センサーのサンプルプログラム
-加速度センサーを傾ける向きによって、LEDの色が変わるプログラムです。(加速度センサーがつながっていないと表示されて確認できていない12/23　　同じ値ばかり表示される12/24)
+加速度センサーを傾ける向きによって、LEDの色が変わるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -121,15 +120,15 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
       }
     
       while(1){
+        await atcRobo.studuinoBit.wait(1000);
         let [accelX, accelY, accelZ] =await sensor.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
-      
-        if(accelX>5){
+        if(accelY>0.5){
           oneColor([10, 0, 0]);  //赤色に点灯します
-        }else if(accelZ>5){
+        }else if(accelZ>0.5){
           oneColor([0, 10, 0]);  //緑色に点灯します
-        }else if(accelX<-5){
+        }else if(accelY<-0.5){
           oneColor([0, 0, 10]);  //青色に点灯します
-        }else if(accelZ<-5){  
+        }else if(accelZ<-0.5){  
           oneColor([10, 10, 10]);  //白色に点灯します
         }else{
           atcRobo.studuinoBit.display.off();
@@ -150,6 +149,5 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
  
   </script>
 </body>
-
 </html>
 ```
