@@ -14,7 +14,18 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 
 ## getValueWait();
-温度センサーの値を返します。
+温度センサーの値を返します。0～4095の値を取ります。<br>
+取得した値から摂氏温度（℃）に変換したい場合は、Steinhart-Hart式を用います。Rに取得した温度センサーの値を入れてください。
+$$
+T=\frac{1}{\frac{1}{B}ln(\frac{R}{R_0})+\frac{1}{T_0+273.15}}-273.15
+$$
+$$
+(B=3950\,\,,\,\,R_0=1000\,\,,\,\,T_0=25)
+$$
+また、華氏温度（℉）に変換したい場合は、上記の摂氏温度（℃）から以下の式を用いて変換します。
+$$
+F=T×1.8+32
+$$
 ```Javascript
 // Javascript Example
 while(1){
@@ -28,7 +39,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobittemperature.html#getvaluewait
 
 ## getCelsiusWait(Number:ndigits);
-温度センサーの値をセルシウス温度（℃）で返します。ndigits引数で小数点以下第何位まで表示するかを数字で指定します。既定値は小数第二位まで表示します
+温度センサーの値を摂氏温度（℃）で返します。ndigits引数で小数点以下第何位まで表示するかを数字で指定します。既定値は小数第二位まで表示します。
 ```Javascript
 // Javascript Example
 while(1){
