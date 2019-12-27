@@ -4,7 +4,6 @@
 
 ![](https://i.imgur.com/8MitG6C.jpg)
 
-
 タッチセンサーの制御はArtecRoboTouchSensorクラスに定義され…？？（ArtecRoboTouchSensor→ArtecRobo.TouchSensorを説明したい12/24）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、タッチセンサーを使用できます。
 ```Javascript
@@ -15,9 +14,8 @@ atcRobo.onconnect = async function () {
 }
 ```
 
-
 ## getValueWait();
-タッチセンサーが押されていたらtrue、押されていなかったらfalseを返します。
+タッチセンサーが押されていなかったらtrue、押されていたらfalseを返します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -26,12 +24,12 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-タッチセンサーの状態を表示します。（タッチセンサー反応しない12/23→普通の方でも反応してない。P1なら反応するが、押したらfalseになる。逆だと思う12/24）
+タッチセンサーの状態を表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.html#getvaluewait
 
 ## タッチセンサーのサンプルプログラム
-タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。（タッチセンサー反応しない12/23→普通の方でも反応してない。P1なら反応するが、押したらfalseになる。逆だと思う12/24→P0,P1反応するがtruefalseが逆？P2反応しない"TypeError: this._inPin.terminalPin.readDigitalWait is not a function"と表示される）
+タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。（P2反応しない"TypeError: this._inPin.terminalPin.readDigitalWait is not a function"と表示される）
 ```Javascript
 <html>
 <head>
@@ -46,7 +44,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.ht
 <div id="obniz-debug"></div>
 <h1>obniz instant HTML</h1>
 <br/><br/>
-Touch Sensor:<span id="sensor"></span><br/>
 
 <script>
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
@@ -56,10 +53,10 @@ Touch Sensor:<span id="sensor"></span><br/>
     while(1){
         let touch = await sensor.getValueWait();
         console.log(touch);    //タッチセンサーの値をContentに表示します
-        if(touch==true && state==0){
+        if(touch==false && state==0){
         　 await atcRobo.studuinoBit.buzzer.onWait("C4",3000);  //ブザーからC4の音が3秒間鳴ります
            state=1;
-      　}else if(touch==false && state==1){
+      　}else if(touch==true && state==1){
            state=0;
       　}
         await atcRobo.studuinoBit.wait(1000);
