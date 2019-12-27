@@ -15,7 +15,7 @@ atcRobo.onconnect = async function () {
 ```
 
 ## getValueWait();
-音センサーの値を返します。
+音センサーの値を返します。0～4095の値を取ります。
 ```Javascript
 // Javascript Example
 while(1){
