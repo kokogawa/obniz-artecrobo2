@@ -4,8 +4,6 @@
 ![](https://i.imgur.com/a49FFJA.jpg)
 
 
-
-
 赤外線フォトリフレクターの制御はArtecRoboIrPhotoRefrectorクラスに定義され…？？（ArtecRoboIrPhotoRefrector→ArtecRobo.IrPhotoRefrectorを説明したい12/24）</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、赤外線フォトリフレクターを使用できます。
 ```Javascript
@@ -18,7 +16,7 @@ atcRobo.onconnect = async function () {
 
 
 ## getValueWait();
-赤外線フォトリフレクターの値を返します。
+赤外線フォトリフレクターの値を返します。0～4095の値を取ります。物体を近づけるほど数値は大きくなります。
 ```Javascript
 // Javascript Example
 while(1){
@@ -32,7 +30,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboirphotorefrector.html#getvaluewait
 
 ## 赤外線フォトリフレクターのサンプルプログラム
-赤外線フォトリフレクターにものを近づけると、ブザーが鳴るプログラムです。
+赤外線フォトリフレクターに物体を近づけると、ブザーが鳴るプログラムです。
 ```Javascript
 <html>
 <head>
