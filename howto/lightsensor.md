@@ -15,7 +15,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 
 ## getValueWait();
-光センサーの値を返します。
+光センサーの値を返します。0～4095の値を取ります。光センサーの値が大きいと、周囲が明るいことを示します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -33,7 +33,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.
 ```Javascript
 // Javascript Example
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
