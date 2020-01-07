@@ -4,7 +4,7 @@
 ![](https://i.imgur.com/a49FFJA.jpg)
 
 
-赤外線フォトリフレクターの制御はArtecRoboIrPhotoRefrectorクラスに定義され…？？（ArtecRoboIrPhotoRefrector→ArtecRobo.IrPhotoRefrectorを説明したい12/24）</br>
+赤外線フォトリフレクターの制御はArtecRobo.IrPhotoRefrectorに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、赤外線フォトリフレクターを使用できます。
 ```Javascript
 // Javascript Example
