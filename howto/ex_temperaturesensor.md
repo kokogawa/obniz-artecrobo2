@@ -77,9 +77,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.ht
   atcRobo.onconnect = async function () {
     let sensor = new Artec.ArtecRobo.Temperature(atcRobo, 'P0');
     while(1){
-        let temp = await sensor.getCelsiusWait();
+        let temp = await sensor.getCelsiusWait();　//温度センサーの値を返します
         if(temp>10){
-           atcRobo.studuinoBit.display.setPixel(2,2,[10,10,10]);  //温度センサーの値を返します
+           atcRobo.studuinoBit.display.setPixel(2,2,[10,10,10]);  
            atcRobo.studuinoBit.display.on();  //ディスプレイが点灯します
         }else{
            atcRobo.studuinoBit.display.off();　　//ディスプレイが消灯します
