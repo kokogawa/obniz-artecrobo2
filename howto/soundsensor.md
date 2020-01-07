@@ -4,7 +4,7 @@
 
 ![](https://i.imgur.com/H0KTdxP.jpg)
 
-音センサーの制御はArtecRoboSoundSensorクラスに定義され…？？（ArtecRoboSoundSensor→ArtecRobo.SoundSensorを説明したい12/24）</br>
+音センサーの制御はArtecRobo.SoundSensorに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、音センサーを使用できます。
 ```Javascript
 // Javascript Example
