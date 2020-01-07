@@ -3,7 +3,7 @@ DCモーター（接続パーツ）を使用します。</br>
 
 ![](https://i.imgur.com/FUldF1K.jpg)
 
-DCモーターの制御はArtecRoboMotorクラスに定義され…？（ArtecRoboMotor→ArtecRobo.Motorを説明したい12/24）</br>
+DCモーターの制御はArtecRobo.Motorに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、DCモーターのポート番号を指定することで、DCモーターを使用できます。
 ```Javascript
 // Javascript Example
