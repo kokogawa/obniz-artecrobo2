@@ -4,7 +4,7 @@
 
 ![](https://i.imgur.com/ILDq8WG.jpg)
 
-DCモーターの制御はArtecRoboServoMotorクラスに定義され…？(ArtecRoboServoMotor→ArtecRobo.ServoMotorを説明したい12/24)</br>
+サーボモーターの制御はArtecRobo.ServoMotorに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、サーボモーターのポート番号を指定することで、サーボモーターを使用できます。
 ```Javascript
 // Javascript Example
