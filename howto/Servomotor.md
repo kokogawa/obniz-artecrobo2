@@ -52,7 +52,7 @@ Aボタンを押すとサーボモーターの角度が0度→45度→90度→13
        let pressedA = atcRobo.studuinoBit.button_a.wasPressed();　//Aボタンが押されたときtrueを返します
        await atcRobo.studuinoBit.wait(100);
        if(pressedA){
-         servo.setAngle(count*45); 
+         servo.setAngle(count*45); 　//サーボモーターの角度が変化します
          if(count<=3){
            count++;
          }else{
