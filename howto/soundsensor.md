@@ -48,12 +48,12 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobosoundsensor.ht
 <script>
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
-    let sensor = new Artec.ArtecRobo.SoundSensor(atcRobo, 'P0');
+    let sensor = new Artec.ArtecRobo.SoundSensor(atcRobo, 'P0');  
     const image = new Artec.StuduinoBit.Image('00100:00110:00101:11100:11100:');
     while(1){
-        let sound = await sensor.getValueWait();
+        let sound = await sensor.getValueWait();　//音センサーの値を返します
         if(sound>300){
-          await atcRobo.studuinoBit.display.showWait([image],3000);
+          await atcRobo.studuinoBit.display.showWait([image],3000);　//ディスプレイを点灯します
         }
         await atcRobo.studuinoBit.wait(1000);
     }
