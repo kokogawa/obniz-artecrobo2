@@ -4,7 +4,7 @@
 ![](https://i.imgur.com/ELcX4Sx.jpg)
 
 
-ブザーの制御はArtecRoboBuzzerクラスに定義され…？（ArtecRoboBuzzer→ArtecRobo.Buzzerを説明したい）</br>
+ブザーの制御はArtecRobo.Buzzerに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、ブザーを使用できます。
 ```Javascript
 // Javascript Example
