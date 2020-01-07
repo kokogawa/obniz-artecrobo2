@@ -49,19 +49,19 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboirphotorefrect
 <script>
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
-    let sensor = new Artec.ArtecRobo.IrPhotoRefrector(atcRobo, 'P0');
+    let sensor = new Artec.ArtecRobo.IrPhotoRefrector(atcRobo, 'P0');　
     while(1){
-      let photorefrector = await sensor.getValueWait();
+      let photorefrector = await sensor.getValueWait();　//赤外線フォトリフレクターの値を返します
       if(photorefrector>200){
-         await atcRobo.studuinoBit.buzzer.onWait("D4");
+         await atcRobo.studuinoBit.buzzer.onWait("D4");  //ブザーが鳴ります
       }else{
-         atcRobo.studuinoBit.buzzer.off();
+         atcRobo.studuinoBit.buzzer.off();  //ブザーが止まります
       }
     }
     //wifi接続／動作確認用
     ledBlink();
-
   };
+  
   async function ledBlink() {
     while (1) {
       atcRobo.studuinoBit.led.on();
