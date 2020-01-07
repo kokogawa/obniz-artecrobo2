@@ -5,7 +5,7 @@ LED（接続パーツ）を使用します。<br>
 ![](https://i.imgur.com/gs9SS0c.jpg)
 
 
-LEDの制御はArtecRoboLedクラスに定義され…？？（ArtecRoboLed→ArtecRobo.Ledを説明したい12/24）</br>
+LEDの制御はArtecRobo.Ledに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、LEDを使用できます。
 ```Javascript
 // Javascript Example
