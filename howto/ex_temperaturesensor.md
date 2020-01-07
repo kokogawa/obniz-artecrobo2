@@ -6,7 +6,7 @@
 
 
 
-温度センサーの制御はArtecRoboTemperatureクラスに定義され…？？（ArtecRoboTemperature→ArtecRobo.Temperatureを説明したい12/24）</br>
+温度センサーの制御はArtecRobo.Temperatureに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、温度センサーを使用できます。
 ```Javascript
 // Javascript Example
