@@ -1,11 +1,11 @@
-# サーボモーター（接続パーツ）の制御
-サーボモーター（接続パーツ）を使用します。
+# サーボモーター（ロボット拡張ユニット接続パーツ）の制御
 
-
-![](https://i.imgur.com/ILDq8WG.jpg)
+![](https://i.imgur.com/ILDq8WG.jpg)<br>
+<small>(※)本サーボモーターを使用する場合、ロ
+ボット拡張ユニットが必要になります。ロボット拡張ユニットとサーボモーターの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 サーボモーターの制御はArtecRobo.ServoMotorに定義されています。</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、サーボモーターのポート番号を指定することで、サーボモーターを使用できます。
+はじめに、下記のようにArtecRoboクラスをインスタンス化し、サーボモーターのポート番号（P13/P14/P15/P16）を指定することで、サーボモーターを使用できます。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
