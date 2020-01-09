@@ -1,7 +1,8 @@
-# DCモーター（接続パーツ）の制御
-DCモーター（接続パーツ）を使用します。</br>
+# DCモーター（ロボット拡張ユニット接続パーツ）の制御
 
-![](https://i.imgur.com/FUldF1K.jpg)
+![](https://i.imgur.com/FUldF1K.jpg)<br>
+<small>(※)本LEDを使用する場合、ロ
+ボット拡張ユニットが必要になります。ロボット拡張ユニットとLEDの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 DCモーターの制御はArtecRobo.Motorに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、DCモーターのポート番号を指定することで、DCモーターを使用できます。
