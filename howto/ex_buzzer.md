@@ -1,11 +1,11 @@
-# ブザー（接続パーツ）の制御
-ブザー（接続パーツ）を使用します。<br>
+# ブザー（ロボット拡張ユニット接続パーツ）の制御
 
-![](https://i.imgur.com/ELcX4Sx.jpg)
+![](https://i.imgur.com/ELcX4Sx.jpg)<br>
+<small>(※)本ブザーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットとブザーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 
 ブザーの制御はArtecRobo.Buzzerに定義されています。</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、ブザーを使用できます。
+はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（P13/P14/P15/P16）を指定することで、ブザーを使用できます。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
