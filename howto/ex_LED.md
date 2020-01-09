@@ -1,12 +1,12 @@
 
-# LED（接続パーツ）の制御
-LED（接続パーツ）を使用します。<br>
+# LED（ロボット拡張ユニット接続パーツ）の<br>制御
 
-![](https://i.imgur.com/gs9SS0c.jpg)
+![](https://i.imgur.com/gs9SS0c.jpg)<br>
+<font size="2">(※)本LEDを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットとLEDの接続は、[こちら](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></font>
 
 
-LEDの制御はArtecRobo.Ledに定義されています。</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、LEDを使用できます。
+LEDの制御はArtecRobo.Ledに定義されています。<br>
+はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（P13/P14/P15/P16）を指定することで、LEDを使用できます。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
