@@ -74,6 +74,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.ht
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
     let sensor = new Artec.ArtecRobo.Temperature(atcRobo, 'P0');
+    //wifi接続／動作確認用
+　　atcRobo.studuinoBit.led.on();
+  
     while(1){
         let temp = await sensor.getCelsiusWait();　//温度センサーの値を返します
         if(temp>10){
@@ -84,19 +87,8 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.ht
         }
         await atcRobo.studuinoBit.wait(1000);
     }
-    //wifi接続／動作確認用
-    ledBlink();
+  }
 
-  }
-  async function ledBlink() {
-    while (1) {
-      atcRobo.studuinoBit.led.on();
-      await atcRobo.studuinoBit.wait(500);
-      atcRobo.studuinoBit.led.off();
-      await atcRobo.studuinoBit.wait(500);
-    }
-  }
-  
 </script>
 </body>
 </html>
