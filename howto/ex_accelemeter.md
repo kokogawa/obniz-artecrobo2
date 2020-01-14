@@ -1,13 +1,11 @@
 # 加速度センサー（接続パーツ）の制御
-加速度センサー（接続パーツ）を使用します。</br>
 加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br>
 
-![](https://i.imgur.com/cWdS0DM.jpg)
+![](https://i.imgur.com/cWdS0DM.jpg)<br>
+<small>(※)本加速度センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと加速度センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
-
-
-加速度センサーの制御はArtecRoboAccelerometerクラスに定義され…？（ArtecRoboAccelerometer→ArtecRobo.Accelerometerを説明したい12/24）</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、加速度センサーを使用できます。
+加速度センサーの制御はArtecRobo.Accelerometerクラスに定義されています。</br>
+はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（I2C）を指定することで、加速度センサーを使用できます。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
@@ -62,7 +60,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getzwait
 
 ## getValuesWait();
-加速度センサーX,Y,Zの値を返します。小数第２位まで表示します。（小数点以下が多い12/24）
+加速度センサーX,Y,Zの値を返します。
 
 ```Javascript
 // Javascript Example
