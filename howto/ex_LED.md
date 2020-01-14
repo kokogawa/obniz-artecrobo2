@@ -54,6 +54,10 @@ Aボタンを押すとLEDが点灯し、Bボタンを押すとLEDが消灯しま
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
       let led = new Artec.ArtecRobo.Led(atcRobo,'P13');
+    
+    　//wifi接続／動作確認用
+    　atcRobo.studuinoBit.led.on();
+    
       while(1){
         let pressedA = atcRobo.studuinoBit.button_a.wasPressed();　//Aボタンが押されたときtrueを返します
         let pressedB = atcRobo.studuinoBit.button_b.wasPressed();　//Bボタンが押されたときtrueを返します
@@ -65,17 +69,8 @@ Aボタンを押すとLEDが点灯し、Bボタンを押すとLEDが消灯しま
           led.off();　　//LEDを消灯します
         }
       }
-    //wifi接続／動作確認用
-    ledBlink();
   }
-  async function ledBlink() {
-    while (1) {
-      atcRobo.studuinoBit.led.on();
-      await atcRobo.studuinoBit.wait(500);
-      atcRobo.studuinoBit.led.off();
-      await atcRobo.studuinoBit.wait(500);
-    }
-  }
+
 </script>
 </body>
 </html>
