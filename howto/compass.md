@@ -45,7 +45,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html
 // Javascript Example
 while(1){
     let compassX = await　stubit.compass.getXWait();
-    console.log(compassX);   //磁気センサーXの値をContentに表示します
+    console.log(compassX);   //磁気センサーXの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -60,7 +60,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html
 // Javascript Example
 while(1){
     let compassY = await　stubit.compass.getYWait();
-    console.log(compassY);   //磁気センサーYの値をContentに表示します
+    console.log(compassY);   //磁気センサーYの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -74,7 +74,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html
 // Javascript Example
 while(1){
     let compassZ = await　stubit.compass.getZWait();
-    console.log(compassZ);   //磁気センサーZの値をContentに表示します
+    console.log(compassZ);   //磁気センサーZの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -89,7 +89,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html
 // Javascript Example
 while(1){
     let [compassX, compassY, compassZ] =await stubit.compass.getValuesWait();
-    console.log("X:%f Y:%f Z:%f",compassX,compassY,compassZ);    //磁気センサーの値をContentに表示します
+    console.log("X:%f Y:%f Z:%f",compassX,compassY,compassZ);    //磁気センサーの値をConsoleに表示します
     
     await stubit.wait(1000);
 }
@@ -104,7 +104,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html
 // Javascript Example
 while(1){
     let compass = await stubit.compass.headingWait();
-    console.log(compass);  //方角をContentに表示します
+    console.log(compass);  //方角をConsoleに表示します
     await stubit.wait(1000)
 }
 ```
