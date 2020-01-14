@@ -48,6 +48,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.
   <script>
     var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
     stubit.onconnect = async function () {
+      //wifi接続／動作確認用
+    　stubit.led.on();
+     
       while(1){
         let light = await stubit.lightsensor.getValueWait();　　//光センサーの値を返します
         if(light<300){
@@ -57,9 +60,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.
         }
       } 
   }
-
 </script>
 </body>
 </html>
-
 ```
