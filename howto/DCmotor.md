@@ -15,18 +15,20 @@ atcRobo.onconnect = async function () {
 ```
 
 ## cw();
-DCモーターを時計回りに回転させます。
+DCモーターを時計回りに回転させます。先にpowerメソッドでモーターの速さを指定してください。
 ```Javascript
 // Javascript Example
+motor.power(200);
 motor.cw();
 ```
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#cw-1
 
 ## ccw();
-DCモーターを反時計回りに回転させます。
+DCモーターを反時計回りに回転させます。先にpowerメソッドでモーターの速さを指定してください。
 ```Javascript
 // Javascript Example
+motor.power(200);
 motor.ccw();
 ```
 * 詳細<br>
@@ -68,7 +70,7 @@ DCモーターが時計回りに3秒間ゆっくり回転したあとに、反�
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#power
 
-## action(CW | CCW | STOP | BREAK :action);
+## action(String: action);
 DCモーターの動きを指定します。
 ```Javascript
 // Javascript Example
@@ -103,7 +105,10 @@ Aボタンを押すとDCモーターが時計回りで回転し、Bボタンで�
 <script>
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
-    let motor = new Artec.ArtecRobo.Motor(atcRobo, 'M1');
+    let motor = new Artec.ArtecRobo.Motor(atcRobo, 'M1');　　    
+    //wifi接続／動作確認用
+    atcRobo.studuinoBit.led.on();
+    
     motor.power(200);
     while(1){
         let pressedA = atcRobo.studuinoBit.button_a.wasPressed();　//Aボタンが押されたときtrueを返します
@@ -116,18 +121,9 @@ Aボタンを押すとDCモーターが時計回りで回転し、Bボタンで�
           motor.break();  //DCモーターをブレーキありで止めます
         }
       }
-　　    
-    //wifi接続／動作確認用
-    ledBlink();
+
   };
-  async function ledBlink() {
-    while (1) {
-      atcRobo.studuinoBit.led.on();
-      await atcRobo.studuinoBit.wait(500);
-      atcRobo.studuinoBit.led.off();
-      await atcRobo.studuinoBit.wait(500);
-    }
-  }
+
 </script>
 </body>
 </html>
