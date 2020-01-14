@@ -22,7 +22,7 @@ atcRobo.onconnect = async function () {
 // Javascript Example
 while(1){
     let accelX = await　sensor.getXWait();
-    console.log(accelX);   //加速度センサーXの値をContentに表示します
+    console.log(accelX);   //加速度センサーXの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
@@ -37,7 +37,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 // Javascript Example
 while(1){
     let accelY = await　sensor.getYWait();
-    console.log(accelY);   //加速度センサーYの値をContentに表示します
+    console.log(accelY);   //加速度センサーYの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
@@ -51,7 +51,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 // Javascript Example
 while(1){
     let accelZ = await　sensor.getZYWait();
-    console.log(accelZ);   //加速度センサーZの値をContentに表示します
+    console.log(accelZ);   //加速度センサーZの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
@@ -66,7 +66,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 // Javascript Example
 while(1){
     let [accelX, accelY, accelZ] =await sensor.getValuesWait();
-    console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をContentに表示します
+    console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
