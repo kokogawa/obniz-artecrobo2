@@ -57,7 +57,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.
 ```Javascript
 // Javascript Example
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,6 +72,10 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.
   <script>
     var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
     stubit.onconnect = async function () {
+    
+      //wifi接続／動作確認用
+    　stubit.led.on();
+      
       while(1){
         let temp = await stubit.temperature.getCelsiusWait(1);　　//温度センサーの値を返します
         await stubit.display.scrollWait(temp);　　//ディスプレイにスクロール表示します
