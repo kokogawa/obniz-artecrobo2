@@ -31,7 +31,7 @@ $$
 // Javascript Example
 while(1){
     let temp = await sensor.getValueWait();
-    console.log(temp);    //温度センサーの値をContentに表示します
+    console.log(temp);    //温度センサーの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
@@ -45,7 +45,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.ht
 // Javascript Example
 while(1){
     let temp = await sensor.getCelsiusWait();
-    console.log(temp);    //温度センサーの値をContentに表示します
+    console.log(temp);    //温度センサーの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
