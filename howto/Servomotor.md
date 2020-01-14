@@ -50,22 +50,23 @@ Aボタンを押すとサーボモーターの角度が0度→45度→90度→13
     
     //wifi接続／動作確認用
     atcRobo.studuinoBit.led.on();
-    
+
     var count=0;
     while(1){
-       let pressedA = atcRobo.studuinoBit.button_a.wasPressed();　//Aボタンが押されたときtrueを返します
-       await atcRobo.studuinoBit.wait(100);
+       let pressedA = await atcRobo.studuinoBit.button_a.isPressedWait();
+       console.log(pressedA)
        if(pressedA){
-         servo.setAngle(count*45); 　//サーボモーターの角度が変化します
+         servo.setAngle(count*45); 
          if(count<=3){
            count++;
          }else{
            count=0;
          }
+         await atcRobo.studuinoBit.wait(500);
        }
     }
-      servo.setAngle()
   };
+</script>
 </script>
 </body>
 </html>
