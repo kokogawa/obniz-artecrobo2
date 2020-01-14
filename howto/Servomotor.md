@@ -47,6 +47,10 @@ Aボタンを押すとサーボモーターの角度が0度→45度→90度→13
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
     let servo = new Artec.ArtecRobo.ServoMotor(atcRobo, 'P13');
+    
+    //wifi接続／動作確認用
+    atcRobo.studuinoBit.led.on();
+    
     var count=0;
     while(1){
        let pressedA = atcRobo.studuinoBit.button_a.wasPressed();　//Aボタンが押されたときtrueを返します
@@ -61,17 +65,7 @@ Aボタンを押すとサーボモーターの角度が0度→45度→90度→13
        }
     }
       servo.setAngle()
-    //wifi接続／動作確認用
-    ledBlink();
   };
-  async function ledBlink() {
-    while (1) {
-      atcRobo.studuinoBit.led.on();
-      await atcRobo.studuinoBit.wait(500);
-      atcRobo.studuinoBit.led.off();
-      await atcRobo.studuinoBit.wait(500);
-    }
-  }
 </script>
 </body>
 </html>
