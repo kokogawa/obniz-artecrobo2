@@ -127,7 +127,9 @@ Studuino:bitを素早く時計回りに回転させると、ディスプレイ�
 <script>
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
-    
+    //wifi接続／動作確認用
+    stubit.led.on();
+
     function oneColor(color) {
       stubit.display.off();
       for (let x = 0; x < 5; x++) {
@@ -148,18 +150,8 @@ Studuino:bitを素早く時計回りに回転させると、ディスプレイ�
          stubit.display.off();  //ディスプレイを消灯します
       }
     }
+  }
 
-    //wifi接続／動作確認用
-    ledBlink();
-  }
-  async function ledBlink() {
-    while (1) {
-      stubit.led.on();
-      await stubit.wait(500);
-      stubit.led.off();
-      await stubit.wait(500);
-    }
-  }
 </script>
 </body>
 </html>
