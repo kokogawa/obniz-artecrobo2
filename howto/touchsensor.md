@@ -20,7 +20,7 @@ atcRobo.onconnect = async function () {
 // Javascript Example
 while(1){
     let touch = await sensor.getValueWait();
-    console.log(touch);    //タッチセンサーの値をContentに表示します
+    console.log(touch);    //タッチセンサーの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
@@ -56,7 +56,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.ht
     let state=0;
     while(1){
         let touch = await sensor.getValueWait();
-        console.log(touch);    //タッチセンサーの値をContentに表示します
+        console.log(touch);    //タッチセンサーの値をConsoleに表示します
         if(touch==false && state==0){
         　 await atcRobo.studuinoBit.buzzer.onWait("C4",3000);  //ブザーからC4の音が3秒間鳴ります
            state=1;
