@@ -30,7 +30,7 @@ $$
 // Javascript Example
 while(1){
     let temp = await stubit.temperature.getValueWait();
-    console.log(temp);    //温度センサーの値をContentに表示します
+    console.log(temp);    //温度センサーの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -44,7 +44,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobittemperature.
 // Javascript Example
 while(1){
     let temp = await stubit.temperature.getCelsiusWait(3);
-    console.log(temp);    //温度センサーの値をContentに表示します
+    console.log(temp);    //温度センサーの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
