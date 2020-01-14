@@ -48,7 +48,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobosoundsensor.ht
 <script>
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
-    let sensor = new Artec.ArtecRobo.SoundSensor(atcRobo, 'P0');  
+    let sensor = new Artec.ArtecRobo.SoundSensor(atcRobo, 'P0'); 
+    
+    //wifi接続／動作確認用
+    atcRobo.studuinoBit.led.on();
+    
     const image = new Artec.StuduinoBit.Image('00100:00110:00101:11100:11100:');
     while(1){
         let sound = await sensor.getValueWait();　//音センサーの値を返します
@@ -57,18 +61,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobosoundsensor.ht
         }
         await atcRobo.studuinoBit.wait(1000);
     }
-    //wifi接続／動作確認用
-    ledBlink();
-
   };
-  async function ledBlink() {
-    while (1) {
-      atcRobo.studuinoBit.led.on();
-      await atcRobo.studuinoBit.wait(500);
-      atcRobo.studuinoBit.led.off();
-      await atcRobo.studuinoBit.wait(500);
-    }
-  }
 </script>
 </body>
 </html>
