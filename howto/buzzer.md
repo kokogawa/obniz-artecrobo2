@@ -76,10 +76,12 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbuzzer.html#
 
 <button id="hz_start">start</button><button id="hz_stop">stop</button>
 
-
 <script>
   var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
   stubit.onconnect = async function () {
+    //wifi接続／動作確認用
+    　stubit.led.on();
+     
     $("#hz_start").click(async () => {
       stubit.buzzer.onWait("D5");　//ブザーからD5の音を鳴らす
     })
