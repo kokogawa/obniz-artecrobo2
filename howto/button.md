@@ -94,7 +94,9 @@ buttonB:<span id="buttonB"></span><br/><br/>
 <script>
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
-
+    //wifi接続／動作確認用
+    　stubit.led.on();
+    
     $("#getpressesA").click(async () => {
         let countA = stubit.button_a.getPresses();  //Aボタンが押された回数を返します
         $("#count").text(countA);
@@ -110,22 +112,10 @@ buttonB:<span id="buttonB"></span><br/><br/>
 
     }
 
-    //wifi接続／動作確認用
-    ledBlink();
-  }
-  async function ledBlink() {
-    while (1) {
-      stubit.led.on();
-      await stubit.wait(500);
-      stubit.led.off();
-      await stubit.wait(500);
-    }
   }
 </script>
 </body>
 </html>
-
-
 ```
 
 
