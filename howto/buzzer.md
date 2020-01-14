@@ -13,7 +13,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 
 
-## onWait( String : frequency |String: note number, Number: duration);
+## onWait( String : frequency |String: scale, Number: duration);
 
 ブザーから指定された音を出します。</br>
 音は周波数（数字）もしくは音階（アルファベットと数字の組み合わせ）で記述します。</br>
