@@ -1,11 +1,11 @@
 
 # タッチセンサー（接続パーツ）の制御
-タッチセンサー（接続パーツ）を使用します。<br>
 
-![](https://i.imgur.com/8MitG6C.jpg)
+![](https://i.imgur.com/8MitG6C.jpg)<br>
+<small>(※)本タッチセンサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットとタッチセンサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
-タッチセンサーの制御はArtecRoboTouchSensorクラスに定義され…？？（ArtecRoboTouchSensor→ArtecRobo.TouchSensorを説明したい12/24）</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号を指定することで、タッチセンサーを使用できます。
+タッチセンサーの制御はArtecRobo.TouchSensorクラスに定義されています。</br>
+はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（P0/P1/P2）を指定することで、タッチセンサーを使用できます。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
@@ -49,6 +49,10 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.ht
   var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
   atcRobo.onconnect = async function () {
     let sensor = new Artec.ArtecRobo.TouchSensor(atcRobo, 'P0');
+    
+    //wifi接続／動作確認用
+    atcRobo.studuinoBit.led.on();
+     
     let state=0;
     while(1){
         let touch = await sensor.getValueWait();
@@ -61,18 +65,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.ht
       　}
         await atcRobo.studuinoBit.wait(1000);
     }
-    //wifi接続／動作確認用
-    ledBlink();
-
   };
-  async function ledBlink() {
-    while (1) {
-      atcRobo.studuinoBit.led.on();
-      await atcRobo.studuinoBit.wait(500);
-      atcRobo.studuinoBit.led.off();
-      await atcRobo.studuinoBit.wait(500);
-    }
-  }
 </script>
 </body>
 </html>
