@@ -20,7 +20,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 // Javascript Example
 while(1){
     let light = await stubit.lightsensor.getValueWait();
-    console.log(light);    //光センサーの値をContentに表示します
+    console.log(light);    //光センサーの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
