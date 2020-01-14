@@ -130,6 +130,9 @@ Studuino:bitが向いている方角をディスプレイに表示するプロ�
   <script>
     var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
     stubit.onconnect = async function () {
+      //wifi接続／動作確認用
+    　stubit.led.on();
+    
       await stubit.compass.calibrateWait();
       while (1) {
         let heading = await stubit.compass.headingWait();  //方角を取得します
@@ -147,16 +150,7 @@ Studuino:bitが向いている方角をディスプレイに表示するプロ�
         
       }
     }
-    async function ledBlink() {
-      while (1) {
-        stubit.led.on();
-        await stubit.wait(500);
-        stubit.led.off();
-        await stubit.wait(500);
-      }
-    }
-
-  </script>
+</script>
 </body>
 </html>
 ```
