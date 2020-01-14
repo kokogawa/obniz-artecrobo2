@@ -17,7 +17,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 // Javascript Example
 while(1){
     let gyroX = await　stubit.gyro.getXWait();
-    console.log(gyroX);    //ジャイロセンサーXの値をContentに表示します
+    console.log(gyroX);    //ジャイロセンサーXの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -32,7 +32,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 // Javascript Example
 while(1){
     let gyroY = await　stubit.gyro.getYWait();
-    console.log(gyroY);    //ジャイロセンサーYの値をContentに表示します
+    console.log(gyroY);    //ジャイロセンサーYの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -46,7 +46,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 // Javascript Example
 while(1){
     let gyroZ = await　stubit.gyro.getZWait();
-    console.log(gyroZ);     //ジャイロセンサーZの値をContentに表示します
+    console.log(gyroZ);     //ジャイロセンサーZの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -62,7 +62,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 // Javascript Example
 while(1){
     let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();
-    console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);   //ジャイロセンサーの値をContentに表示します
+    console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);   //ジャイロセンサーの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -79,7 +79,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#ge
 stubit.gyro.setFs("1000dps");　　//ジャイロセンサーのフルスケールが1000dpsに変更されます
 while(1){
     let [gyroX, gyroY, gyroZ] =await stubit.gyro.getValuesWait();　 //ジャイロセンサーX,Y,Zの値を取得します
-    console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);    //ジャイロセンサーの値をContentに表示します
+    console.log("X:%f Y:%f Z:%f",gyroX,gyroY,gyroZ);    //ジャイロセンサーの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
@@ -95,11 +95,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#se
 while(1){
     stubit.gyro.setSf("rps");  //スケールファクターをrpsにします
     let [gyroX_rps, gyroY_rps, gyroZ_rps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
-    console.log("X:%f Y:%f Z:%f (rps)",gyroX_rps,gyroY_rps,gyroZ_rps);　//ジャイロセンサーの値をContentに表示します
+    console.log("X:%f Y:%f Z:%f (rps)",gyroX_rps,gyroY_rps,gyroZ_rps);　//ジャイロセンサーの値をConsoleに表示します
 
     stubit.gyro.setSf("dps");  //スケールファクターをdpsにします
     let [gyroX_dps, gyroY_dps, gyroZ_dps] =await stubit.gyro.getValuesWait();  //ジャイロセンサーX,Y,Zの値を取得します
-    console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);　//ジャイロセンサーの値をContentに表示します
+    console.log("X:%f Y:%f Z:%f (dps)",gyroX_dps,gyroY_dps,gyroZ_dps);　//ジャイロセンサーの値をConsoleに表示します
     await stubit.wait(1000);
 }
 ```
