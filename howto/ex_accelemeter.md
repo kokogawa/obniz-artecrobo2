@@ -109,6 +109,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
     atcRobo.onconnect = async function () {
       let sensor = new Artec.ArtecRobo.Accelerometer(atcRobo);
       
+      //wifi接続／動作確認用
+      atcRobo.studuinoBit.led.on();
+      
       function oneColor(color) {
         atcRobo.studuinoBit.display.off();
         for (let x = 0; x < 5; x++) {
@@ -133,20 +136,8 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
         }else{
           atcRobo.studuinoBit.display.off();
         }
-      }
-      //wifi接続／動作確認用
-      ledBlink();
-     
+      }     
     };
-    async function ledBlink() {
-      while (1) {
-        atcRobo.studuinoBit.led.on();
-        await atcRobo.studuinoBit.wait(500);
-        atcRobo.studuinoBit.led.off();
-        await atcRobo.studuinoBit.wait(500);
-      }
-    }
- 
   </script>
 </body>
 </html>
