@@ -472,6 +472,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#f
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
 
+    //wifi接続／動作確認用
+    stubit.led.on();
+    
     $("#red").click(async ()=>{
        await stubit.display.showWait([1,2,3,4],1000,true,false,true,[20,0,0]);  //赤色で1,2,3,4と1秒ごとに表示する
     })
@@ -490,17 +493,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#f
       await stubit.wait(3000);
       stubit.display.off();
     })
-
-    //wifi接続／動作確認用
-    ledBlink();
-  }
-  async function ledBlink() {
-    while (1) {
-      stubit.led.on();
-      await stubit.wait(500);
-      stubit.led.off();
-      await stubit.wait(500);
-    }
   }
 </script>
 </body>
@@ -536,6 +528,9 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#f
   <script>
     var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
     stubit.onconnect = async function () {
+ 
+     //wifi接続／動作確認用
+      stubit.led.on(); 
     
       // set basic
       const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
@@ -552,18 +547,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#f
       await stubit.display.showWait([image]);　　//（写真3）参照 
       let val = image.getPixelColor(2, 2, true);　　//imageの(2,2)のカラーコードを取得します
       console.log('getPixelColorHex[2,2]', val);　　//imageの(2,2)のカラーコードをContentに表示します
-
-
-    //wifi接続／動作確認用
-    ledBlink();
-  }
-  async function ledBlink() {
-    while (1) {
-      stubit.led.on();
-      await stubit.wait(500);
-      stubit.led.off();
-      await stubit.wait(500);
-    }
   }
 </script>
 </body>
