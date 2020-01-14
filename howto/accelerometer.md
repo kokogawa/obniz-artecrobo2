@@ -138,6 +138,9 @@ Studuino:bitを傾ける向きによって、LEDの色が変わるプログラ�
   var stubit = new Artec.StuduinoBit("YOUR_STUDUIOBIT_ID");
   stubit.onconnect = async function () {
     
+      //wifi接続／動作確認用
+    　stubit.led.on();
+    
       function oneColor(color) {
         stubit.display.off();
         for (let x = 0; x < 5; x++) {
@@ -163,18 +166,8 @@ Studuino:bitを傾ける向きによって、LEDの色が変わるプログラ�
           stubit.display.off();
         }
       }
+  }
 
-    //wifi接続／動作確認用
-    ledBlink();
-  }
-  async function ledBlink() {
-    while (1) {
-      stubit.led.on();
-      await stubit.wait(500);
-      stubit.led.off();
-      await stubit.wait(500);
-    }
-  }
 </script>
 </body>
 </html>
