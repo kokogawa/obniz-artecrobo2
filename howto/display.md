@@ -111,7 +111,7 @@ while(1){
     //Aボタンが押されたとき
     if(pressedA==true){
         let displayisOn = stubit.display.isOn();
-        console.log(displayisOn);　//displayisOnをContentに表示します
+        console.log(displayisOn);　//displayisOnをConsoleに表示します
      }
 
     let pressedB = stubit.button_b.wasPressed();
@@ -137,7 +137,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html
 stubit.display.setPixel(2,2,[5,10,15]);
 stubit.display.on();     //(2,2)がRGB(5,10,15)で点灯します
 let color = stubit.display.getPixel(2,2);　
-console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をContentに表示します
+console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をConsoleに表示します
 ```
 ディスプレイの(2,2)に点灯したRGB値をContentに表示します。
 * 詳細<br>
@@ -150,21 +150,21 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html
 stubit.display.setPixel(2,2,[5,10,15]);
 stubit.display.on();     //(2,2)がRGB(5,10,15)で点灯します
 let color = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します　
-console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をContentに表示します
+console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をConsoleに表示します
     
 await stubit.wait(3000);
     
 stubit.display.off();  //ディスプレイを消灯します
 let color_off = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します
-console.log("color_off(2,2):R%d,G%d,B%d",color_off[0],color_off[1],color_off[2]);    //off実行後のcolorの値をContentに表示します
+console.log("color_off(2,2):R%d,G%d,B%d",color_off[0],color_off[1],color_off[2]);    //off実行後のcolorの値をConsoleに表示します
     
 stubit.display.clear();
 let color_clear = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します
-console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_clear[2]);    //clear実行後のcolorの値をContentに表示します
+console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_clear[2]);    //clear実行後のcolorの値をConsoleに表示します
 ```
-ディスプレイの(2,2)がRGB(5,10,15)で点灯し、Contentでも(2,2)に設定されているRGB値が確認できます。
-その後、off()によってディスプレイが消灯しますが、(2,2)にはRGB値が設定されていることがContentの表示で確認できます。
-最後に、clear()で、(2,2)が初期化（RGB(0,0,0)）されていることがContentの表示で確認できます。
+ディスプレイの(2,2)がRGB(5,10,15)で点灯し、Consoleでも(2,2)に設定されているRGB値が確認できます。
+その後、off()によってディスプレイが消灯しますが、(2,2)にはRGB値が設定されていることがConsoleの表示で確認できます。
+最後に、clear()で、(2,2)が初期化（RGB(0,0,0)）されていることがConsoleの表示で確認できます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html#clear
 
@@ -353,7 +353,7 @@ const image = new Artec.StuduinoBit.Image('111:000:111:111:');
 const height=image.height();
 console.log(height);
 ```
-Contentに4と表示されます。
+Consoleに4と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#height
 
@@ -365,7 +365,7 @@ const image = new Artec.StuduinoBit.Image('111:000:111:111:');
 const height=image.width();
 console.log(width);
 ```
-Contentに3と表示されます。
+Consoleに3と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#width
 
@@ -380,7 +380,7 @@ let val_01 = image.getPixel(0,1);
 let val_02 = image.getPixel(0,2);
 console.log("(0,1)=%d,(0,2)=%d",val_01,val_02);
 ```
-Contentに(0,1)=1,(0,2)=0と表示されます。
+Consoleに(0,1)=1,(0,2)=0と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#getpixel
 
@@ -397,7 +397,7 @@ console.log(color_rgb);
 let colorcode = image.getPixelColor(2,2,true);
 console.log(colorcode);
 ```
-ContentにRGB値（0,10,0）とカラーコード#000a00が表示されます。
+ConsoleにRGB値（0,10,0）とカラーコード#000a00が表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#getpixelcolor
 
@@ -433,7 +433,7 @@ let array = [];
 array = image.toPixels();
 console.log(array[6]);
 ```
-Contentに(31,0,0)と表示されます。
+Consoleに(31,0,0)と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#topixels
 
@@ -535,18 +535,18 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#f
       // set basic
       const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
       await stubit.display.showWait([image], 2000);  //（写真1）参照
-      console.log('width', image.width());  //imageの横幅をContentに表示します
-      console.log('height', image.height());    //imageの高さをContentに表示します
+      console.log('width', image.width());  //imageの横幅をConsoleに表示します
+      console.log('height', image.height());    //imageの高さをConsoleに表示します
       
       const copy = image.copy();　//imageを複製をcopyに定義します
       copy.invert();　　//copyの点灯と消灯を逆転します
       await stubit.display.showWait([copy], 2000);　　//（写真2）参照 
-      console.log(copy.str());　　//copyの状態をContentに表示します
+      console.log(copy.str());　　//copyの状態をConsoleに表示します
       
       image.setPixelColor(2, 2, [0, 0, 31]);　　//imageの(2,2)を緑色に点灯します
       await stubit.display.showWait([image]);　　//（写真3）参照 
       let val = image.getPixelColor(2, 2, true);　　//imageの(2,2)のカラーコードを取得します
-      console.log('getPixelColorHex[2,2]', val);　　//imageの(2,2)のカラーコードをContentに表示します
+      console.log('getPixelColorHex[2,2]', val);　　//imageの(2,2)のカラーコードをConsoleに表示します
   }
 </script>
 </body>
