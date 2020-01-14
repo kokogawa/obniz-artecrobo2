@@ -20,7 +20,7 @@ atcRobo.onconnect = async function () {
 // Javascript Example
 while(1){
     let sound = await sensor.getValueWait();
-    console.log(sound);    //音センサーの値をContentに表示します
+    console.log(sound);    //音センサーの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
