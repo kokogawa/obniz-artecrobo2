@@ -25,7 +25,7 @@ atcRobo.onconnect = async function () {
 // Javascript Example
 while(1){
     let photorefrector = await sensor.getValueWait();
-    console.log(photorefrector);    //赤外線フォトリフレクタの値をContentに表示します
+    console.log(photorefrector);    //赤外線フォトリフレクタの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
