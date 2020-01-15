@@ -66,7 +66,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 while(1){
     let [accelX, accelY, accelZ] =await stubit.accelerometer.getValuesWait();
     console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をConsoleに表示します
-    
     await stubit.wait(1000);
 }
 ```
@@ -76,7 +75,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitacceleromete
 
 ## setFs(String);
 加速度センサーの測定可能な最大最小値（フルスケール）を定義します。2g、4g、8g、16gのいずれかを記述してください。既定値は2gです。<br/>
-
 
 | String |      フルスケール(単位：$m/s^2$)     |
 |:------:|:-------------:|
