@@ -1,4 +1,4 @@
-# 加速度センサー（接続パーツ）の制御
+# 加速度センサー（ロボット拡張ユニット接続パーツ）の制御
 加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br>
 
 ![](https://i.imgur.com/cWdS0DM.jpg)<br>
@@ -16,7 +16,7 @@ atcRobo.onconnect = async function () {
 
 ## getXWait();
 
-加速度センサーXの値を返します。小数第２位まで表示します。
+加速度センサーXの値を返します。単位は$G$です。
 
 ```Javascript
 // Javascript Example
@@ -31,7 +31,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getxwait
 
 ## getYWait();
-加速度センサーYの値を返します。小数第２位まで表示します。
+加速度センサーYの値を返します。単位は$G$です。
 
 ```Javascript
 // Javascript Example
@@ -46,11 +46,11 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getywait
 
 ## getZWait();
-加速度センサーZの値を返します。
+加速度センサーZの値を返します。単位は$G$です。
 ```Javascript
 // Javascript Example
 while(1){
-    let accelZ = await　sensor.getZYWait();
+    let accelZ = await　sensor.getZWait();
     console.log(accelZ);   //加速度センサーZの値をConsoleに表示します
     await atcRobo.studuinoBit.wait(1000);
 }
@@ -60,7 +60,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getzwait
 
 ## getValuesWait();
-加速度センサーX,Y,Zの値を返します。
+加速度センサーX,Y,Zの値を返します。単位は$G$です。
 
 ```Javascript
 // Javascript Example
@@ -76,11 +76,25 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 
 
 ## configurationWait(Boolean: highres, Number: scale);
+highresでは解像度を定義します。trueと記述すると高解像度になります。規定値はfalseです。<br>
+scaleでは加速度センサーの測定可能な最大最小値（フルスケール）を定義します。2,4,8のいずれかを記述してください。既定値は2です。
+| number | フルスケール(単位：$G$)|
+|:------:|:-------------:|
+|   2   | -2～+2 |
+|   4   | -4～+4 |
+|   8   | -8～+8 |
 
 ```Javascript
 // Javascript Example
-
+await sensor.configurationWait(true,4);　　//加速度センサーの解像度、フルスケールが変更されます
+while(1){
+    let [accelX, accelY, accelZ] =await sensor.getValuesWait();　//加速度センサーX,Y,Zの値を取得します
+    console.log("X:%f Y:%f Z:%f",accelX,accelY,accelZ);    //加速度センサーの値をConsoleに表示します
+    await atcRobo.studuinoBit.wait(1000);
+}
 ```
+加速度センサーX,Y,Zの値が-4～+4の間で表示されます。
+
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#configurationwait
 
@@ -124,11 +138,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
         await atcRobo.studuinoBit.wait(1000);
         let [accelX, accelY, accelZ] =await sensor.getValuesWait();  //加速度センサーX,Y,Zの値を取得します
         if(accelY>0.5){
-          oneColor([10, 0, 0]);  //赤色に点灯します
+          oneColor([20, 0, 0]);  //赤色に点灯します
         }else if(accelZ>0.5){
-          oneColor([0, 10, 0]);  //緑色に点灯します
+          oneColor([0, 20, 0]);  //緑色に点灯します
         }else if(accelY<-0.5){
-          oneColor([0, 0, 10]);  //青色に点灯します
+          oneColor([0, 0, 20]);  //青色に点灯します
         }else if(accelZ<-0.5){  
           oneColor([10, 10, 10]);  //白色に点灯します
         }else{
