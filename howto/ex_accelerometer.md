@@ -5,7 +5,7 @@
 <small>(※)本加速度センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと加速度センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 加速度センサーの制御はArtecRobo.Accelerometerクラスに定義されています。</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（I2C）を指定することで、加速度センサーを使用できます。
+はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツを指定することで、加速度センサーを使用できます。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
@@ -79,10 +79,10 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 highresでは解像度を定義します。trueと記述すると高解像度になります。規定値はfalseです。<br>
 scaleでは加速度センサーの測定可能な最大最小値（フルスケール）を定義します。2,4,8のいずれかを記述してください。既定値は2です。
 | number | フルスケール(単位：$G$)|
-|:------:|:-------------:|
-|   2   | -2～+2 |
-|   4   | -4～+4 |
-|   8   | -8～+8 |
+|:------:|:--------:|
+|   2   | 　-2～+2 　|
+|   4   | 　-4～+4　 |
+|   8   |　 -8～+8 　|
 
 ```Javascript
 // Javascript Example
