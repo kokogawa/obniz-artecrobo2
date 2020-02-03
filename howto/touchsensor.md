@@ -29,7 +29,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.html#getvaluewait
 
 ## タッチセンサーのサンプルプログラム
-タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。（P2反応しない"TypeError: this._inPin.terminalPin.readDigitalWait is not a function"と表示される）
+タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。
 ```Javascript
 <html>
 <head>
