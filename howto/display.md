@@ -324,7 +324,7 @@ await stubit.display.showWait([image],1000);
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#invert
 
-## blit(StuduinoBitImage, Number:src_x, Number:src_y, Number:width, Number:height, xdest?: number, ydest?: number);
+## blit(StuduinoBitImage, Number:src_x, Number:src_y, Number:width, Number:height, xdest: number, ydest: number);
 指定したStuduinoBitImageの(src_x,src_y)を原点として指定した幅と高さをコピーし、イメージの(xdest,ydest)を原点として書き換えます。
 
 ```Javascript
@@ -343,6 +343,20 @@ await stubit.display.showWait([image]);
 <br>書き換え後の[image]<br>
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#blit
+
+## fill(Number:value);
+イメージの明るさを0～9で指定して、白色に点灯します。数字が大きいほうが明るく、0は点灯しません。
+```Javascript
+// Javascript Example
+const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
+image.fill(9);
+await stubit.display.showWait([image], 2000);
+image.fill(3);
+await stubit.display.showWait([image], 2000);
+```
+イメージの明るさが変わります。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#fill
 
 ## height();
 イメージ全体の高さを表示します
@@ -437,19 +451,6 @@ Consoleに(31,0,0)と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#topixels
 
-## fill(Number:value);
-イメージの明るさを0～9で指定して、白色に点灯します。数字が大きいほうが明るく、0は点灯しません。
-```Javascript
-// Javascript Example
-const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
-image.fill(9);
-await stubit.display.showWait([image], 2000);
-image.fill(3);
-await stubit.display.showWait([image], 2000);
-```
-イメージの明るさが変わります。
-* 詳細<br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#fill
 
 ## ディスプレイのサンプルプログラム①
 下記は押すボタンによってディスプレイの表示が異なるプログラムです。REDのボタンを押すと、赤色で1,2,3,4と1秒ごとにディスプレイに表示されます。GREENのボタンを押すと、緑色で1234とスクロール表示されます。BLUEのボタンを押すと、青色で全点灯します。
