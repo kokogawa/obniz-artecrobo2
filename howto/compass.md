@@ -99,7 +99,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getvalueswait
 
 ## headingWait();
-方角を示す値を返します。北が0、東が90、南が180、西が270を示します。磁気センサーの較正がすんでいない場合、本メソッド実行時に較正を行います。
+方角を示す値を返します。北が0、東が90、南が180、西が270を示します。磁気センサーの較正がすんでいない場合、本メソッド実行時に較正を行います。<br>
 ![](https://i.imgur.com/SenibkM.png)
 
 ```Javascript
