@@ -32,7 +32,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html
 
 ```Javascript
 // Javascript Example
-stubit.display.setPixel(2,2,[0,0,10]);
+stubit.display.setPixel(2,2,"BLUE");
 stubit.display.on();
 ```
 (x,y)=(2,2)が青色に点灯します。
@@ -437,13 +437,17 @@ Consoleに(31,0,0)と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#topixels
 
-## fill(Number);
-(説明追加予定)
-
+## fill(Number:value);
+イメージの明るさを0～9で指定して、白色に点灯します。数字が大きいほうが明るく、0は点灯しません。
 ```Javascript
 // Javascript Example
-
+const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
+image.fill(9);
+await stubit.display.showWait([image], 2000);
+image.fill(3);
+await stubit.display.showWait([image], 2000);
 ```
+イメージの明るさが変わります。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#fill
 
