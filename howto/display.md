@@ -172,7 +172,6 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html
 
 > **StuduinoBitImage**<br>
 
-(StuduinoBitImage→StuduinoBit.Imageの説明追加予定）<br>
 はじめにStuduinoBitクラスのImageを使って、以下のようにインスタンス化を行います。
 点灯させたいLEDを1、消灯させたいLEDを0で記述します。ディスプレイの左から順に記述し、1行ずつ「:」で区切ります。
 ```Javascript
@@ -345,7 +344,7 @@ await stubit.display.showWait([image]);
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#blit
 
 ## fill(Number:value);
-イメージの明るさを0～9で指定して、白色に点灯します。数字が大きいほうが明るく、0は点灯しません。
+イメージの明るさを0～9で指定して、白色に点灯します。数字が大きいと明るく点灯し、0は点灯しません。
 ```Javascript
 // Javascript Example
 const image = new Artec.StuduinoBit.Image('11111:10001:10001:10001:11111:');
