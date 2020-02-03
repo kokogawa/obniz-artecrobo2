@@ -26,7 +26,7 @@ while(1){
 ```
 光センサーの値を1秒ごとに表示します。
 * 詳細<br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.html#getvaluewait
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobolightsensor.html#getvaluewait
 
 ## 光センサーのサンプルプログラム
 暗くなるとディスプレイが点灯するプログラムです。
