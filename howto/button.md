@@ -24,7 +24,7 @@ while(1){
     }
 }
 ```
-Aボタンが押されている間はブザーから410Hzの音が鳴り、Aボタンが押されていない間はブザーの音が止まります。
+上のサンプルコードではAボタンが押されている間はブザーから410Hzの音が鳴り、Aボタンが押されていない間はブザーの音が止まります。
 * 詳細</br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#ispressedwait
 ## wasPressed();
@@ -41,7 +41,7 @@ while(1){
     await stubit.wait(500);
 }
 ```
-Aボタンを押すと鳴っているブザーが止まります。
+上のサンプルコードではAボタンを押すと鳴っているブザーが止まります。
 * 詳細</br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#waspressed
 
@@ -61,7 +61,7 @@ while(1){
 }
 
 ```
-Aボタンが押されるまでのBボタンの押された回数を表示します。
+上のサンプルコードはAボタンが押されるまでのBボタンの押された回数を表示します。
 * 詳細</br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitbutton.html#getpresses
 
