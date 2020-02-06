@@ -13,7 +13,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 ## getXWait();
 
-加速度センサーXの値を返します。小数第２位まで表示します。
+加速度センサーのX軸の値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -23,12 +23,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-加速度センサーXの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのX軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getxwait
 
 ## getYWait();
-加速度センサーYの値を返します。小数第２位まで表示します。
+加速度センサーのY軸の値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -38,12 +38,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-加速度センサーYの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのY軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getywait
 
 ## getZWait();
-加速度センサーZの値を返します。小数第２位まで表示します。
+加速度センサーのZ軸の値を返します。小数第２位まで表示します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -52,15 +52,13 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-加速度センサーZの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのZ軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getzwait
 
 
 ## getValuesWait();
-
-加速度センサーX,Y,Zの値を返します。小数第２位まで表示します。
-
+加速度センサーのX軸,Y軸,Z軸の値を配列で返します。小数第２位まで表示します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -69,7 +67,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-加速度センサーX,Y,Zの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのX軸,Y軸,Z軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#getvalueswait
 
@@ -91,7 +89,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-加速度センサーX,Y,Zの値が-39.23～39.23の間で表示されます。
+上のサンプルコードでは加速度センサーのX軸,Y軸,Z軸の値が-39.23～39.23の間で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setfs
 
@@ -111,7 +109,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-加速度センサーX,Y,Zの値が$mg$（ミリジー）と$ms^2$（メートル毎秒毎秒）それぞれの単位で表示されます。
+上のサンプルコードでは加速度センサーのX軸,Y軸,Z軸の値が$mg$（ミリジー）と$ms^2$（メートル毎秒毎秒）それぞれの単位で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitaccelerometer.html#setsf
 
