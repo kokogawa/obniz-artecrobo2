@@ -11,7 +11,7 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 ```
 
 ## getXWait();
-ジャイロセンサーXの値を返します。小数第２位まで表示します。
+ジャイロセンサーのX軸の値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -21,12 +21,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-ジャイロセンサーXの値を1秒ごとに表示します。
+上のサンプルコードはジャイロセンサーのX軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getxwait
 
 ## getYWait();
-ジャイロセンサーYの値を返します。小数第２位まで表示します。
+ジャイロセンサーのY軸の値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -36,12 +36,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-ジャイロセンサーYの値を1秒ごとに表示します。
+上のサンプルコードはジャイロセンサーのY軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getywait
 
 ## getZWait();
-ジャイロセンサーZの値を返します。小数第２位まで表示します。
+ジャイロセンサーのZ軸の値を返します。小数第２位まで表示します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -50,13 +50,13 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-ジャイロセンサーZの値を1秒ごとに表示します。
+上のサンプルコードはジャイロセンサーのZ軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getzwait
 
 
 ## getValuesWait();
-ジャイロセンサーX,Y,Zの値を返します。小数第２位まで表示します。
+ジャイロセンサーのX軸,Y軸,Z軸の値を配列で返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -66,7 +66,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-ジャイロセンサーX,Y,Zの値を1秒ごとに表示します。
+上のサンプルコードはジャイロセンサーX軸,Y軸,Z軸の値を1秒ごとに表示します。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#getvalueswait
 
@@ -83,7 +83,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-ジャイロセンサーX,Y,Zの値が-1000～1000dpsの間で表示されます。
+上のサンプルコードはジャイロセンサーX,Y,Zの値が-1000～1000dpsの間で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#setfs
 
@@ -103,7 +103,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-ジャイロセンサーX,Y,Zの値がrpsとdpsそれぞれの単位で表示されます。
+上のサンプルコードはジャイロセンサーX,Y,Zの値がrpsとdpsそれぞれの単位で表示されます。
 * 詳細<br/>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitgyro.html#setsf
 
