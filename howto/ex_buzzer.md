@@ -4,7 +4,7 @@
 <small>(※)本ブザーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットとブザーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 
-ブザーの制御はArtecRobo.Buzzerに定義されています。</br>
+ブザーの制御はArtecRobo.Buzzerクラスに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（P13/P14/P15/P16）を指定することで、ブザーを使用できます。
 ```Javascript
 // Javascript Example
@@ -26,7 +26,7 @@ atcRobo.onconnect = async function () {
 // Javascript Example
 await buzzer.onWait("450");
 ```
- 450Hzの音がブザーから鳴ります。
+ 上のサンプルコードでは450Hzの音がブザーから鳴ります。
 
 
 ```Javascript
@@ -40,7 +40,7 @@ A4（ラ）の音がブザーから鳴ります。</br>
 // Javascript Example
 await buzzer.onWait("C4", 1000);
 ```
-C4の音が1秒鳴ります。</br>
+上のサンプルコードではC4の音が1秒鳴ります。</br>
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobobuzzer.html#onwait
 
