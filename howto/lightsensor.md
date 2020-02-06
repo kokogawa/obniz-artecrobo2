@@ -3,9 +3,6 @@
 Studuino:bitの光センサーを使用します。<br>
 ![](https://i.imgur.com/0fbX32x.jpg)
 
-
-
-
 光センサーの制御はStuduinoBitLightSensorクラスに定義され、StuduinoBitクラスでlightsensorにインスタンス化されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitの光センサーを使用できます。
 ```Javascript
@@ -24,7 +21,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-光センサーの値を1秒ごとに表示します。
+上のサンプルコードは光センサーの値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.html#getvaluewait
 
