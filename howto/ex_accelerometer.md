@@ -6,7 +6,8 @@
 
 加速度センサーはポート番号I2Cに接続してください。</br>
 加速度センサーの制御はArtecRobo.Accelerometerクラスに定義されています。</br>
-はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツを指定することで、加速度センサーを使用できます。
+はじめに、下記のようにArtecRoboクラスをインスタンス化します。
+Accelerometerクラスのインスタンス作成時は、ArtecRoboクラスのインスタンスを引数に指定する必要があります。
 ```Javascript
 // Javascript Example
 var atcRobo = new Artec.ArtecRobo("YOUR_STUDUIOBIT_ID");
