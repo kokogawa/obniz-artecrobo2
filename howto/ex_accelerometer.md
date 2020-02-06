@@ -4,6 +4,7 @@
 ![](https://i.imgur.com/cWdS0DM.jpg)<br>
 <small>(※)本加速度センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと加速度センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
+加速度センサーはポート番号I2Cに接続してください。</br>
 加速度センサーの制御はArtecRobo.Accelerometerクラスに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツを指定することで、加速度センサーを使用できます。
 ```Javascript
@@ -16,7 +17,7 @@ atcRobo.onconnect = async function () {
 
 ## getXWait();
 
-加速度センサーXの値を返します。単位は$G$です。
+加速度センサーのX軸の値を返します。単位は$G$です。
 
 ```Javascript
 // Javascript Example
@@ -26,12 +27,12 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-加速度センサーXの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのX軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getxwait
 
 ## getYWait();
-加速度センサーYの値を返します。単位は$G$です。
+加速度センサーのY軸の値を返します。単位は$G$です。
 
 ```Javascript
 // Javascript Example
@@ -41,12 +42,12 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-加速度センサーYの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのY軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getywait
 
 ## getZWait();
-加速度センサーZの値を返します。単位は$G$です。
+加速度センサーのZ軸の値を返します。単位は$G$です。
 ```Javascript
 // Javascript Example
 while(1){
@@ -55,12 +56,12 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-加速度センサーZの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのZ軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getzwait
 
 ## getValuesWait();
-加速度センサーX,Y,Zの値を返します。単位は$G$です。
+加速度センサーのX軸,Y軸,Z軸の値を配列で返します。単位は$G$です。
 
 ```Javascript
 // Javascript Example
@@ -70,7 +71,7 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-加速度センサーX,Y,Zの値を1秒ごとに表示します。
+上のサンプルコードは加速度センサーのX軸,Y軸,Z軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#getvalueswait
 
@@ -95,7 +96,7 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-加速度センサーX,Y,Zの値が-4～+4の間で表示されます。
+上のサンプルコードでは加速度センサーのX軸,Y軸,Z軸の値が-4～+4の間で表示されます。
 
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.html#configurationwait
@@ -125,7 +126,8 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
       
       //wifi接続／動作確認用
       atcRobo.studuinoBit.led.on();
-      
+
+      //指定した色で全点灯
       function oneColor(color) {
         atcRobo.studuinoBit.display.off();
         for (let x = 0; x < 5; x++) {
