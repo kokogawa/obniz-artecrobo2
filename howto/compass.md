@@ -39,7 +39,7 @@ stubit.compass.isCalibrated();
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#iscalibrated
 
 ## getXWait();
-磁気センサーXの値を返します。小数第２位まで表示します。
+磁気センサーのX軸の値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -49,12 +49,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-磁気センサーXの値を1秒ごとに表示します。
+上のサンプルコードは磁気センサーのＸ軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getxwait
 
 ## getYWait();
-磁気センサーYの値を返します。小数第２位まで表示します。
+磁気センサーのY軸の値を返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -64,12 +64,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-磁気センサーYの値を1秒ごとに表示します。
+上のサンプルコードは磁気センサーのY軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getywait
 
 ## getZWait();
-磁気センサーZの値を返します。小数第２位まで表示します。
+磁気センサーのZ軸の値を返します。小数第２位まで表示します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -78,12 +78,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-磁気センサーZの値を1秒ごとに表示します。
+上のサンプルコードは磁気センサーのZ軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getzwait
 
 ## getValuesWait();
-磁気センサーX,Y,Zの値を返します。小数第２位まで表示します。
+磁気センサーのX軸,Y軸,Z軸の値を配列で返します。小数第２位まで表示します。
 
 ```Javascript
 // Javascript Example
@@ -94,12 +94,12 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-磁気センサーX,Y,Zの値を1秒ごとに表示します。
+上のサンプルコードは磁気センサーX軸,Y軸,Z軸の値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#getvalueswait
 
 ## headingWait();
-方角を示す値を返します。北が0、東が90、南が180、西が270を示します。磁気センサーの較正がすんでいない場合、本メソッド実行時に較正を行います。<br>
+方角を示す角度を返します。北が0、東が90、南が180、西が270を示します。磁気センサーの較正がすんでいない場合、本メソッド実行時に較正を行います。<br>
 ![](https://i.imgur.com/SenibkM.png)
 
 ```Javascript
@@ -110,7 +110,7 @@ while(1){
     await stubit.wait(1000)
 }
 ```
-1秒ごとに方角（数値）を表示します。
+上のサンプルコードは1秒ごとに方角を示す角度を表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitcompass.html#headingwait
 
@@ -144,9 +144,9 @@ Studuino:bitが向いている方角をディスプレイに表示するプロ�
           await stubit.display.showWait("N");  //ディスプレイにNを表示します
         }else if(heading>=45 && heading<135){
           await stubit.display.showWait("E");　//ディスプレイにEを表示します
-        }else if(heading>=135 && heading<255){
+        }else if(heading>=135 && heading<225){
           await stubit.display.showWait("S");　//ディスプレイにSを表示します
-        }else if(heading>=255 && heading<315){
+        }else if(heading>=225 && heading<315){
           await stubit.display.showWait("W");  //ディスプレイにWを表示します
         }
         
