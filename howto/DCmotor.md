@@ -66,7 +66,7 @@ await atcRobo.studuinoBit.wait(3000);
 
 motor.stop();
 ```
-DCモーターが時計回りに3秒間ゆっくり回転したあとに、反時計回りに3秒間速く回転します。
+上のサンプルコードではDCモーターが時計回りに3秒間ゆっくり回転したあとに、反時計回りに3秒間速く回転します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#power
 
@@ -80,7 +80,7 @@ motor.action("ccw");
 await atcRobo.studuinoBit.wait(3000);
 motor.action("stop");
 ```
-DCモーターが時計回りに3秒間回転したあとに、反時計回りに3秒間回転します。
+上のサンプルコードではDCモーターが時計回りに3秒間回転したあとに、反時計回りに3秒間回転します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#action
 
