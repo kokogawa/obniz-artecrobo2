@@ -4,7 +4,7 @@
 ![](https://i.imgur.com/GWmFDrR.jpg)<br>
 <small>(※)本温度センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと温度センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
-温度センサーの制御はArtecRobo.Temperatureに定義されています。</br>
+温度センサーの制御はArtecRobo.Temperatureクラスに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（P0/P1/P2）を指定することで、温度センサーを使用できます。
 ```Javascript
 // Javascript Example
@@ -35,7 +35,7 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-温度センサーの値を表示します。
+上のサンプルコードは温度センサーの値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.html#getcelsiuswait
 
@@ -49,7 +49,7 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-温度センサーの値を表示します。
+上のサンプルコードは温度センサーの値を表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotemperature.html#getvaluewait
 
