@@ -34,7 +34,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-温度センサーの値を表示します。
+上のサンプルコードは温度センサーの値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobittemperature.html#getvaluewait
 
@@ -48,7 +48,7 @@ while(1){
     await stubit.wait(1000);
 }
 ```
-温度センサーの値を小数第三位まで表示します。
+上のサンプルコードは温度センサーの値を小数第三位まで1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitlightsensor.html#getvaluewait
 
