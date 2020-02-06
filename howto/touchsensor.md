@@ -15,7 +15,7 @@ atcRobo.onconnect = async function () {
 ```
 
 ## getValueWait();
-タッチセンサーが押されていなかったらtrue、押されていたらfalseを返します。
+タッチセンサーが押されている場合は「0」、押されていない場合は「1」を返します。
 ```Javascript
 // Javascript Example
 while(1){
@@ -24,9 +24,23 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-タッチセンサーの状態を表示します。
+上のサンプルコードは1秒ごとにタッチセンサーの値を表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.html#getvaluewait
+
+## isPressedWait();
+タッチセンサーが押されている場合は「true」、押されていない場合は「false」を返します。
+```Javascript
+// Javascript Example
+while(1){
+    let touch = await sensor.isPressedWait();
+    console.log(touch);    //タッチセンサーの値をConsoleに表示します
+    await atcRobo.studuinoBit.wait(1000);
+}
+```
+上のサンプルコードは1秒ごとにタッチセンサーの状態を表示します。
+* 詳細<br>
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.html#ispressedwait
 
 ## タッチセンサーのサンプルプログラム
 タッチセンサーを押すと3秒間ブザーが鳴るプログラムです。
@@ -52,19 +66,12 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobotouchsensor.ht
     
     //wifi接続／動作確認用
     atcRobo.studuinoBit.led.on();
-     
-    let state=0;
+    
     while(1){
-        let touch = await sensor.getValueWait();
-        console.log(touch);    //タッチセンサーの値をConsoleに表示します
-        if(touch==false && state==0){
+        if(await sensor.isPressedWait()){
         　 await atcRobo.studuinoBit.buzzer.onWait("C4",3000);  //ブザーからC4の音が3秒間鳴ります
-           state=1;
-      　}else if(touch==true && state==1){
-           state=0;
-      　}
-        await atcRobo.studuinoBit.wait(1000);
-    }
+        }
+	}
   };
 </script>
 </body>
