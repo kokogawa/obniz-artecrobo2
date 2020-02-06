@@ -4,7 +4,7 @@
 ![](https://i.imgur.com/a49FFJA.jpg)<br>
 <small>(※)本赤外線フォトリフレクタを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと赤外線フォトリフレクタの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
-赤外線フォトリフレクタの制御はArtecRobo.IrPhotoReflectorに定義されています。</br>
+赤外線フォトリフレクタの制御はArtecRobo.IrPhotoReflectorクラスに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、接続パーツのポート番号（P0/P1/P2）を指定することで、赤外線フォトリフレクタを使用できます。
 ```Javascript
 // Javascript Example
@@ -29,9 +29,9 @@ while(1){
     await atcRobo.studuinoBit.wait(1000);
 }
 ```
-赤外線フォトリフレクタの値を表示します。
+上のサンプルコードは赤外線フォトリフレクタの値を1秒ごとに表示します。
 * 詳細<br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboirphotorefrector.html#getvaluewait
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboirphotoreflector.html#getvaluewait
 
 ## 赤外線フォトリフレクタのサンプルプログラム
 赤外線フォトリフレクタに物体を近づけると、ブザーが鳴るプログラムです。
