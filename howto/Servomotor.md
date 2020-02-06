@@ -4,7 +4,7 @@
 <small>(※)本サーボモーターを使用する場合、ロ
 ボット拡張ユニットが必要になります。ロボット拡張ユニットとサーボモーターの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
-サーボモーターの制御はArtecRobo.ServoMotorに定義されています。</br>
+サーボモーターの制御はArtecRobo.ServoMotorクラスに定義されています。</br>
 はじめに、下記のようにArtecRoboクラスをインスタンス化し、サーボモーターのポート番号（P13/P14/P15/P16）を指定することで、サーボモーターを使用できます。
 ```Javascript
 // Javascript Example
@@ -20,9 +20,7 @@ atcRobo.onconnect = async function () {
 // Javascript Example
 servo.setAngle(90);
 ```
-サーボモーターが90度になります。
-
-
+上のサンプルコードではサーボモーターが90度になります。
 
 ## サーボモーターのサンプルプログラム
 Aボタンを押すとサーボモーターの角度が0度→45度→90度→135度→180度→0度→...と変化するプログラムです。
