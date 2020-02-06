@@ -35,7 +35,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html
 stubit.display.setPixel(2,2,"BLUE");
 stubit.display.on();
 ```
-(x,y)=(2,2)が青色に点灯します。
+上のサンプルコードでは(x,y)=(2,2)が青色に点灯します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html#setpixel
 
@@ -71,7 +71,7 @@ colorには表示する文字の色を設定します。RGB値を記述します
 // Javascript Example
 await stubit.display.scrollWait("ABC",500,true,true,true,[10,10,10]);
 ```
-ディスプレイにABCと白色でスクロール表示されます。
+上のサンプルコードではディスプレイにABCと白色でスクロール表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html#scrollwait
 
@@ -96,7 +96,7 @@ colorには表示するイメージの色を設定します。RGB値を記述し
 // Javascript Example
 await stubit.display.showWait([1,2,3,4],1000,true,true,false,[10,10,10]);
 ```
-ディスプレイに1,2,3,4と1秒間ずつ白色で繰り返し表示されます。
+上のサンプルコードではディスプレイに1,2,3,4と1秒間ずつ白色で繰り返し表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html#showwait
 
@@ -123,7 +123,7 @@ while(1){
       await stubit.wait(500);
 }
 ```
-プログラム起動後、ディスプレイが消灯している状態でAボタンを押すとfalseを返します。
+上のサンプルコードを実行後、ディスプレイが消灯している状態でAボタンを押すとfalseを返します。
 Bボタンを押すとディスプレイが点灯します。ディスプレイが点灯している状態でAボタンを押す
 とtrueを返します。
 * 詳細<br>
@@ -139,7 +139,7 @@ stubit.display.on();     //(2,2)がRGB(5,10,15)で点灯します
 let color = stubit.display.getPixel(2,2);　
 console.log("color(2,2):R%d,G%d,B%d",color[0],color[1],color[2]);    //colorの値をConsoleに表示します
 ```
-ディスプレイの(2,2)に点灯したRGB値をContentに表示します。
+上のサンプルコードはディスプレイの(2,2)に点灯したRGB値をContentに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html#getpixel
 
@@ -162,7 +162,7 @@ stubit.display.clear();
 let color_clear = stubit.display.getPixel(2,2);　//(2,2)のRGB値を取得します
 console.log("color_clear(2,2):R%d,G%d,B%d",color_clear[0],color_clear[1],color_clear[2]);    //clear実行後のcolorの値をConsoleに表示します
 ```
-ディスプレイの(2,2)がRGB(5,10,15)で点灯し、Consoleでも(2,2)に設定されているRGB値が確認できます。
+上のサンプルコードでは、ディスプレイの(2,2)がRGB(5,10,15)で点灯し、Consoleでも(2,2)に設定されているRGB値が確認できます。
 その後、off()によってディスプレイが消灯しますが、(2,2)にはRGB値が設定されていることがConsoleの表示で確認できます。
 最後に、clear()で、(2,2)が初期化（RGB(0,0,0)）されていることがConsoleの表示で確認できます。
 * 詳細<br>
@@ -214,7 +214,7 @@ image.setPixel(2,2,1);
 image.setPixel(1,2,1);
 await stubit.showWait([image],1000);
 ```
-ディスプレイの(2,2)と(1,2)が緑色に点灯します
+上のサンプルコードではディスプレイの(2,2)と(1,2)が緑色に点灯します
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#setpixel
 
@@ -225,7 +225,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#s
 image.setPixel(2,2,[10,10,10]);
 await stubit.showWait([image],1000);
 ```
-ディスプレイの（2,2）が白色に点灯します。
+上のサンプルコードではディスプレイの（2,2）が白色に点灯します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#setpixelcolor
 
@@ -238,7 +238,7 @@ await stubit.display.showWait([image]);
 image.shiftLeft(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が1列分左へ移動したことを確認できます。
+上のサンプルコードではイメージ全体が1列分左へ移動したことを確認できます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#shiftleft
 
@@ -250,7 +250,7 @@ await stubit.display.showWait([image]);
 image.shiftRight(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が1列分右へ移動したことを確認できます。
+上のサンプルコードではイメージ全体が1列分右へ移動したことを確認できます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#shiftright
 
@@ -262,7 +262,7 @@ await stubit.display.showWait([image]);
 image.shiftUp(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が1行分上へ移動したことを確認できます。
+上のサンプルコードではイメージ全体が1行分上へ移動したことを確認できます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#shiftup
 
@@ -274,7 +274,7 @@ await stubit.display.showWait([image]);
 image.shiftDown(1);
 await stubit.display.showWait([image]);
 ```
-イメージ全体が1行分下へ移動したことを確認できます。
+上のサンプルコードではイメージ全体が1行分下へ移動したことを確認できます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#shiftdown
 
@@ -284,7 +284,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#s
 // Javascript Example
 const newimage = image.copy();
 ```
-imageがnewimageにコピーされます。
+上のサンプルコードではimageがnewimageにコピーされます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#copy
 
@@ -315,7 +315,7 @@ await stubit.display.showWait([image],1000);
 image.invert();
 await stubit.display.showWait([image],1000);
 ```
-点灯と消灯が逆転します。<br>
+上のサンプルコードでは点灯と消灯が逆転します。<br>
 ![](https://i.imgur.com/Xj6fSQg.jpg)
 <br>[image]逆転前<br>
 ![](https://i.imgur.com/qtD0jKB.jpg)
@@ -353,7 +353,7 @@ await stubit.display.showWait([image], 2000);
 image.fill(3);
 await stubit.display.showWait([image], 2000);
 ```
-イメージの明るさが変わります。
+上のサンプルコードではイメージの明るさが変わります。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#fill
 
@@ -366,7 +366,7 @@ const image = new Artec.StuduinoBit.Image('111:000:111:111:');
 const height=image.height();
 console.log(height);
 ```
-Consoleに4と表示されます。
+上のサンプルコードではConsoleに4と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#height
 
@@ -378,7 +378,7 @@ const image = new Artec.StuduinoBit.Image('111:000:111:111:');
 const height=image.width();
 console.log(width);
 ```
-Consoleに3と表示されます。
+上のサンプルコードではConsoleに3と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#width
 
@@ -386,7 +386,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#w
 指定したx,y座標の状態を返します。点灯していたら1、消灯していたら0を返します。<br>
 ![](https://i.imgur.com/S66rN8p.jpg)
 <br>
-上記のディスプレイで以下のプログラムを実行します。
+上のディスプレイで以下のサンプルコードを実行します。
 ```Javascript
 // Javascript Example
 let val_01 = image.getPixel(0,1);
@@ -410,7 +410,7 @@ console.log(color_rgb);
 let colorcode = image.getPixelColor(2,2,true);
 console.log(colorcode);
 ```
-ConsoleにRGB値（0,10,0）とカラーコード#000a00が表示されます。
+上のサンプルコードではConsoleにRGB値（0,10,0）とカラーコード#000a00が表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#getpixelcolor
 
@@ -446,7 +446,7 @@ let array = [];
 array = image.toPixels();
 console.log(array[6]);
 ```
-Consoleに(31,0,0)と表示されます。
+上のサンプルコードではConsoleに(31,0,0)と表示されます。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#topixels
 
