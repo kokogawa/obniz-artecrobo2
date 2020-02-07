@@ -12,7 +12,9 @@ var stubit = new Artec.StuduinoBit("YOUR_STUDUINOBIT_ID");
 
 
 ## calibrateWait();
-磁気センサーの較正を行います。Studuino:bit本体を回転させてください。ディスプレイ上のLEDが全て点灯すると、較正完了です。
+磁気センサーの較正を行います。下の写真のようにStuduino:bit本体を回転させてください。ディスプレイ上のLEDが全て点灯すると、較正完了です。<br>
+![](https://i.imgur.com/caAekd6.png)
+<br>
 ```Javascript
 // Javascript Example
 await stubit.compass.calibrateWait();
