@@ -78,7 +78,8 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecroboaccelerometer.
 
 
 ## configurationWait(Boolean: highres, Number: scale);
-highresでは解像度を定義します。trueと記述すると高解像度になります。規定値はfalseです。<br>
+highresでは解像度を定義します。falseで8ビット、
+trueで10ビットになります。<br>
 scaleでは加速度センサーの測定可能な最大最小値（フルスケール）を定義します。2,4,8のいずれかを記述してください。既定値は2です。<br>
 
 | Number |      フルスケール(単位：$G$)     |
