@@ -1,7 +1,8 @@
 # カラーセンサー（ロボット拡張ユニット接続パーツ）の制御
 
 
-
+![](https://i.imgur.com/GNfm1P3.jpg)
+<br>
 <small>(※)本カラーセンサーを使用する場合、ロボット拡張ユニットが必要になります。<br></small>
 
 カラーセンサーはポート番号I2Cに接続してください。</br>
@@ -17,7 +18,7 @@ atcRobo.onconnect = async function () {
 ```
 
 ## getValues();
-カラーセンサーの値を返します。計測物体の色情報を取得し、赤成分、緑成分、青成分、輝度を配列で返します。～の値をとります。
+カラーセンサーの値を返します。計測物体の色情報を取得し、赤成分、緑成分、青成分、輝度を配列で返します。
 
 ```Javascript
 // Javascript Example
@@ -27,7 +28,7 @@ while(1){
      await atcRobo.studuinoBit.wait(1000);
 }
 ```
-上のサンプルコードは1秒ごとにカラーセンサーの値を表示します。
+上のサンプルコードはカラーセンサーの値を1秒ごとに表示します。
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getvalues
 
@@ -70,7 +71,7 @@ while(1){
      await atcRobo.studuinoBit.wait(1000);
 }
 ```
-上のサンプルコードでは1秒ごとに物体の色を表示します。
+上のサンプルコードでは物体の色を1秒ごとに表示します。
 
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getcolorcode
@@ -114,33 +115,33 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.ht
      }
 
     while(1){
-     const color = await sensor.getColorCode();     //カラーセンサーによって色を取得します
-     if(color==0){
-         console.log("Undefine");
-         atcRobo.studuinoBit.display.off();    //displayを消灯します
-     }else if(color==1){
-         console.log("Red");
-         oneColor("RED");    //赤色に点灯します
-     }else if(color==2){
-         console.log("Green");
-         oneColor("GREEN");    //緑色に点灯します
-     }else if(color==3){
-         console.log("Blue");
-         oneColor("BLUE");    //青色に点灯します
-     }else if(color==4){
-         console.log("White");
-         oneColor("WHITE");    //白色に点灯します
-     }else if(color==5){
-         console.log("Yellow");
-         oneColor("YELLOW");    //黄色に点灯します
-     }else if(color==6){
-         console.log("Orange");
-         oneColor("ORANGE");    //橙色に点灯します
-     }else if(color==7){
-         console.log("Purple");
-         oneColor("PURPLE");    //紫色に点灯します
-     }
-    await atcRobo.studuinoBit.wait(1000);
+        const color = await sensor.getColorCode();     //カラーセンサーによって色を取得します
+         if(color==0){
+             console.log("Undefine");
+             atcRobo.studuinoBit.display.off();    //displayを消灯します
+         }else if(color==1){
+             console.log("Red");
+             oneColor("RED");    //赤色に点灯します
+         }else if(color==2){
+             console.log("Green");
+             oneColor("GREEN");    //緑色に点灯します
+         }else if(color==3){
+             console.log("Blue");
+             oneColor("BLUE");    //青色に点灯します
+         }else if(color==4){
+             console.log("White");
+             oneColor("WHITE");    //白色に点灯します
+         }else if(color==5){
+             console.log("Yellow");
+             oneColor("YELLOW");    //黄色に点灯します
+         }else if(color==6){
+             console.log("Orange");
+             oneColor("ORANGE");    //橙色に点灯します
+         }else if(color==7){
+             console.log("Purple");
+             oneColor("PURPLE");    //紫色に点灯します
+         }
+        await atcRobo.studuinoBit.wait(1000);
     }
   };
 
