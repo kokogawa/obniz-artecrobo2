@@ -77,7 +77,7 @@ while(1){
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getcolorcode
 
 ## カラーセンサーのサンプルプログラム
-カラーセンサーで取得した色によって、LEの色が変わるプログラムです。
+カラーセンサーで取得した色によって、LEDの色が変わるプログラムです。
 ```Javascript
 // Javascript Example
 <html>
