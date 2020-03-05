@@ -1,7 +1,7 @@
 # 加速度センサー（ロボット拡張ユニット接続パーツ）の制御
 加速度の計測により傾きや動きの変化を数値化します。X軸、Y軸、Z軸は下の写真のように定義されます。</br>
 
-![](https://i.imgur.com/cWdS0DM.jpg)<br>
+![](./image/ex-accelerometer.jpg)<br>
 <small>(※)本加速度センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと加速度センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 加速度センサーはポート番号I2Cに接続してください。</br>
