@@ -1,7 +1,7 @@
 
 # 音センサー（ロボット拡張ユニット接続パーツ）の制御
 
-![](https://i.imgur.com/H0KTdxP.jpg)<br>
+![](./image/soundsensor.jpg)<br>
 <small>(※)本音センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと音センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 音センサーの制御はArtecRobo.SoundSensorクラスに定義されています。</br>
