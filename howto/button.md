@@ -1,5 +1,5 @@
 # ボタンの制御
-Studuino:bitにあるボタンを使用します。
+Studuino:bitにあるボタンを使用します。</br>
 ![](./image/button.png)
 
 ボタンの制御はStuduinoBitButtonクラスに定義され、StuduinoBitクラスでbutton_a、button_bにインスタンス化されています。</br>
