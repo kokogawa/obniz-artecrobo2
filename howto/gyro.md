@@ -1,7 +1,7 @@
 # ジャイロセンサーの制御
 Studuino:bitのジャイロセンサーを使用します。</br>
 角速度の計測により回転の動きを数値化します。X、Y、Zの回転方向は下の写真のように定義されます。</br></br>
-![](/image/gyro.png)
+![](./image/gyro.png)
 
 ジャイロセンサーの制御はStuduinoBitGyroクラスに定義され、StuduinoBitクラスでgyroにインスタンス化されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのジャイロセンサーを使用できます。
