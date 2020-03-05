@@ -1,7 +1,7 @@
 # ブザーの制御
 Studuino:bitにあるブザーから音を出します。
 
-![](https://i.imgur.com/vRDgUSe.png)
+![](./image/buzzer.png)
 
 
 ブザーの制御はStuduinoBitBuzzerクラスに定義され、StuduinoBitクラスでbuzzerにインスタンス化されています。</br>
