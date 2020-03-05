@@ -1,7 +1,7 @@
 # カラーセンサー（ロボット拡張ユニット接続パーツ）の制御
 
 
-![](https://i.imgur.com/GNfm1P3.jpg)
+![](./image/colorsensor.jpg)
 <br>
 <small>(※)本カラーセンサーを使用する場合、ロボット拡張ユニットが必要になります。<br></small>
 
