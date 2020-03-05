@@ -1,7 +1,7 @@
 
 # 温度センサーの制御
 Studuino:bitの温度センサーを使用します。<br>
-![](https://i.imgur.com/ZRJiRGG.jpg)
+![](./image/temperaturesensor.jpg)
 
 
 
