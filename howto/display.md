@@ -300,7 +300,7 @@ await stubit.displays.showWait([newimage]);
 ```
 ![](./image/display06.png)
 <br>[image]黄色枠の箇所をコピーします<br>
-![](./image/display07.png)
+![](./image/display07.jpg)
 <br>[newimage]<br>
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#crop
@@ -316,9 +316,9 @@ image.invert();
 await stubit.display.showWait([image],1000);
 ```
 上のサンプルコードでは点灯と消灯が逆転します。<br>
-![](https://i.imgur.com/Xj6fSQg.jpg)
+![](./image/display08.jpg)
 <br>[image]逆転前<br>
-![](https://i.imgur.com/qtD0jKB.jpg)
+![](./image/display09.jpg)
 <br>[image]逆転後<br>
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#invert
@@ -334,11 +334,11 @@ const tiny = new Artec.StuduinoBit.Image('101:111:010');
 image.blit(tiny, 1, 1, 2, 2, 1, 2);
 await stubit.display.showWait([image]);
 ```
-![](https://i.imgur.com/ASjW1fl.jpg)
+![](./image/display08.jpg)
 <br>書き換え前の[image]<br>
-![](https://i.imgur.com/lHeyZiA.png)
+![](./image/display10.png)
 <br>[tiny]黄色枠の箇所をコピーします<br>
-![](https://i.imgur.com/XQtCYfr.png)
+![](./image/display11.png)
 <br>書き換え後の[image]<br>
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#blit
@@ -384,7 +384,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#w
 
 ## getPixel(Number: x, Number: y);
 指定したx,y座標の状態を返します。点灯していたら1、消灯していたら0を返します。<br>
-![](https://i.imgur.com/S66rN8p.jpg)
+![](./image/display12.jpg)
 <br>
 上のディスプレイで以下のサンプルコードを実行します。
 ```Javascript
@@ -437,7 +437,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#r
 ## toPixels();
 ディスプレイの色（RGB値）を取得し、配列に格納します。
 配列番号とLEDの対応は以下のようになります。<br>
-![](https://i.imgur.com/4hhTn3n.png)
+![](./image/display13.png)
 
 ```Javascript
 // Javascript Example
@@ -506,11 +506,11 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#t
 
 ## ディスプレイのサンプルプログラム②
 下の写真のようにディスプレイの表示が変わるプログラムです。<br>
-![](https://i.imgur.com/ERVlZyC.jpg)
+![](./image/display14.jpg)
 <br>（写真1）<br>
-![](https://i.imgur.com/iLFprUw.jpg)
+![](./image/display15.jpg)
 <br>（写真2）<br>
-![](https://i.imgur.com/4IECYEu.jpg)
+![](./image/display16.jpg)
 <br>（写真3）<br>
 
 ```Javascript
