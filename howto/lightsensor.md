@@ -1,7 +1,7 @@
 
 # 光センサーの制御
 Studuino:bitの光センサーを使用します。<br>
-![](https://i.imgur.com/0fbX32x.jpg)
+![](./image/lightsensor.jpg)
 
 光センサーの制御はStuduinoBitLightSensorクラスに定義され、StuduinoBitクラスでlightsensorにインスタンス化されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitの光センサーを使用できます。
