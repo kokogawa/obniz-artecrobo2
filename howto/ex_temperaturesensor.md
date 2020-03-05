@@ -1,7 +1,7 @@
 
 # 温度センサー（ロボット拡張ユニット接続パーツ）の制御
 
-![](https://i.imgur.com/GWmFDrR.jpg)<br>
+![](./image/ex_temperaturesensor.jpg)<br>
 <small>(※)本温度センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと温度センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 温度センサーの制御はArtecRobo.Temperatureクラスに定義されています。</br>
