@@ -1,7 +1,6 @@
 # ボタンの制御
 Studuino:bitにあるボタンを使用します。
 ![](./image/button.png)
-![](https://i.imgur.com/kqvQO31.png)
 
 ボタンの制御はStuduinoBitButtonクラスに定義され、StuduinoBitクラスでbutton_a、button_bにインスタンス化されています。</br>
 はじめに、下記のようにStuduinoBitクラスをインスタンス化することで、Studuino:bitのボタンを使用できます。
