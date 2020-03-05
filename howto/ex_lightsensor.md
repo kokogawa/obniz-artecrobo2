@@ -1,6 +1,6 @@
 
 # 光センサー（ロボット拡張ユニット接続パーツ）の制御
-![](https://i.imgur.com/eMJrLSY.jpg)<br>
+![](./image/ex-lightsensor.jpg)<br>
 <small>(※)本光センサーを使用する場合、ロボット拡張ユニットが必要になります。ロボット拡張ユニットと光センサーの接続は、[ArtecRobo2.0取扱説明書](https://www.artec-kk.co.jp/artecrobo2/pdf/jp/82541man_K0419_J.pdf)の「6 ロボット拡張ユニット各部の機能と名称」を参照してください。<br></small>
 
 光センサーの制御はArtecRobo.LightSensorクラスに定義されています。</br>
