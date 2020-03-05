@@ -2,7 +2,7 @@
 # ディスプレイの制御
 Studuino:bitのディスプレイ（LEDマトリクス）を使用します。
 
-![](https://i.imgur.com/076CaqI.png)
+![](./image/display.png)
 
 
 ディスプレイの制御はStuduinoBitDisplayクラスとStuduinoBitImageクラスに定義されています。</br>
@@ -28,7 +28,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitdisplay.html
 
 ## setPixel(Number: x, Number: y, [Number, Number, Number]｜String: color);
 座標x,yと色を定義します。座標は以下のように定義されています。<br/>
-![](https://i.imgur.com/MAPKkwU.png)
+![](./image/display01.png)
 
 ```Javascript
 // Javascript Example
@@ -180,7 +180,7 @@ const image = new Artec.StuduinoBit.Image('11111:11111:11111:11111:11111:');
 await stubit.display.showWait([image],1000);
 ```
 以下のように点灯します。<br>
-![](https://i.imgur.com/r9ZgddH.jpg)
+![](./image/display03.jpg)
 
 
 ```Javascript
@@ -189,7 +189,7 @@ const image = new Artec.StuduinoBit.Image('10000:01000:00100:00010:00001:');
 await stubit.display.showWait([image],1000);
 ```
 以下のように点灯します。<br>
-![](https://i.imgur.com/ASjW1fl.jpg)
+![](./image/display04.jpg)
 
 ```Javascript
 // Javascript Example
@@ -197,7 +197,7 @@ const image = new Artec.StuduinoBit.Image('111:010:11100:');
 await stubit.display.showWait([image],1000);
 ```
 以下のように点灯します。<br>
-![](https://i.imgur.com/7JcmUMp.jpg)
+![](./image/display05.jpg)
 
 ## setBaseColor( String : color | String : color code　| [Number, Number, Number]: RGB colors );
 点灯させたい色を指定します。色は色名、カラーコード、RGB値で指定できます。setPixelと併せて使用します。
@@ -298,9 +298,9 @@ const newimage = image.crop(1,1,3,3);
 await stubit.displays.showWait([image]);
 await stubit.displays.showWait([newimage]);
 ```
-![](https://i.imgur.com/qrhHUrs.png)
+![](./image/display06.png)
 <br>[image]黄色枠の箇所をコピーします<br>
-![](https://i.imgur.com/NUJnKSk.jpg)
+![](./image/display07.png)
 <br>[newimage]<br>
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/studuinobitimage.html#crop
