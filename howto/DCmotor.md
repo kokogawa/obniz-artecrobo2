@@ -43,14 +43,14 @@ motor.stop();
 * 詳細<br>
 https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#stop-1
 
-## break();
+## brake();
 DCモーターをブレーキありで止めます。
 ```Javascript
 // Javascript Example
-motor.break();
+motor.brake();
 ```
 * 詳細<br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#break-1
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobomotor.html#brake-1
 
 ## power(Number: power);
 DCモーターの回転する速さを数字で指定します。0～255の間で定義します。
@@ -118,7 +118,7 @@ Aボタンを押すとDCモーターが時計回りで回転し、Bボタンで�
           motor.cw();  //DCモーターが時計回りに回転します
         }
         if(pressedB==true){
-          motor.break();  //DCモーターをブレーキありで止めます
+          motor.brake();  //DCモーターをブレーキありで止めます
         }
       }
 
