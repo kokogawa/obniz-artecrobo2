@@ -18,23 +18,23 @@ atcRobo.onconnect = async function () {
 }
 ```
 
-## getValues();
+## getValuesWait();
 カラーセンサーの値を返します。計測物体の色情報を取得し、赤成分、緑成分、青成分、輝度を配列で返します。
 
 ```Javascript
 // Javascript Example
 while(1){
-     const color = await sensor.getValues();
+     const color = await sensor.getValuesWait();
      console.log("R:%f G:%f B:%f L:%f",color[0],color[1],color[2],color[3]); //カラーセンサーの値をConsoleに表示します
      await atcRobo.studuinoBit.wait(1000);
 }
 ```
 上のサンプルコードはカラーセンサーの値を1秒ごとに表示します。
 * 詳細<br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getvalues
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getvalueswait
 
 
-## getColorCode();
+## getColorCodeWait();
 計測物体の色を数字で返します。
 
 | 数字  |  色  |
@@ -51,7 +51,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.ht
 ```Javascript
 // Javascript Example
 while(1){
-     const color = await sensor.getColorCode();
+     const color = await sensor.getColorCodeWait();
      if(color==0){
          console.log("Undefine");
      }else if(color==1){
@@ -75,7 +75,7 @@ while(1){
 上のサンプルコードでは物体の色を1秒ごとに表示します。
 
 * 詳細<br>
-https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getcolorcode
+https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.html#getcolorcodewait
 
 ## カラーセンサーのサンプルプログラム
 カラーセンサーで取得した色によって、LEDの色が変わるプログラムです。
@@ -116,7 +116,7 @@ https://artec-kk.github.io/obniz-artecrobo2/docs/classes/artecrobocolorsensor.ht
      }
 
     while(1){
-        const color = await sensor.getColorCode();     //カラーセンサーによって色を取得します
+        const color = await sensor.getColorCodeWait();     //カラーセンサーによって色を取得します
          if(color==0){
              console.log("Undefine");
              atcRobo.studuinoBit.display.off();    //displayを消灯します
